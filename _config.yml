@@ -1,6 +1,9 @@
 
-markdown: rdiscount
-rdiscount:
-  extensions:
+markdown: redcarpet
+redcarpet:
+  extensions: ['no_intra_emphasis', 'tables', 'fenced_code_blocks', 'autolink', 'space_after_headers', 'superscript']
 
+# markdown: rdiscount
+# rdiscount:
+#   extensions:
 
