@@ -1,2 +1,5 @@
 source "http://rubygems.org"
 gem "jekyll"
+gem "rdiscount"
+gem "RedCloth"
+gem "redcarpet", "1.9.1"
