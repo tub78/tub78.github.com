@@ -42,46 +42,46 @@ The idea is to create and manage __a single repository__ for these files that wi
 
 First, create the repo in your home directory
 
-``` bash
+{% highlight bash %}
   cd $HOME
   hg init
-```
+{% endhighlight %}
 
 ## > safety precautions
 
 [[Peter Manis]] points out that the `hg purge` command can remove all files in the __working directory__ that are not added to the repo!!  He advises to explicitly disable this command for the repo by adding the following to the project-level `.hgrc` file located in `$HOME/.hg/hgrc`
 
-``` text
+{% highlight text %}
   [extensions]
   hgext.purge = !
-```
+{% endhighlight %}
 
 ## > list, add, forget, remove, commit, status
 
 You can list, add, forget, remove, and commit files to the repo with the following commands
 
-``` bash
+{% highlight bash %}
   hg manifest
   hg add &lt;files&gt;
   hg forget &lt;files&gt;
   hg remove &lt;files&gt;
   hg commit -m "Added/removed/changed file(s)"
-```
+{% endhighlight %}
 
 The status command reports on all files in the __working directory__ whether they have been added to the repo or not.  This can take a long time.
 
-``` bash
+{% highlight bash %}
   hg status
-```
+{% endhighlight %}
 
 ## > the default repo
 
 To access the centralized repo from directories other than your `$HOME` directory, set the __default__ path in your user-level `.hgrc` file located in `$HOME/.hgrc`
 
-``` text
+{% highlight text %}
   [path]
   default = $HOME
-```
+{% endhighlight %}
 
 The centralized repo is accessible only if the __current working directory__ (PWD) is not itself the __working directory__ of another repo.
 
@@ -89,17 +89,17 @@ __Warning__: A danger of using this preference is that you may end up using the 
 
 To identify which repo you are working on, just type
 
-``` bash
+{% highlight bash %}
 hg showconfig bundle.mainreporoot
-```
+{% endhighlight %}
 
 An easier solution is to add the following to your user-level `.hgrc` file
 
-``` text
+{% highlight text %}
   [hooks]
   pre-status = echo "======\nMAIN REPO ROOT = $PWD\n======"
   pre-manifest = echo "======\nMAIN REPO ROOT = $PWD\n======"
-```
+{% endhighlight %}
 
 This way, whenevery you type `hg status` or `hg manifest`, you will be told which repo is active.
 
@@ -110,7 +110,7 @@ An alternative strategy for managing repo files, is to create an `.hgignore` fil
 
 A simple `.hgignore` file looks like this.
 
-``` text
+{% highlight text %}
   syntax: glob
   *~
   .*.swp
@@ -123,44 +123,44 @@ A simple `.hgignore` file looks like this.
 
   .file1
   ^\.file2\/file3
-```
+{% endhighlight %}
 
 This file excludes several standard temporary files, any file named ".file1", and files matching "file2/file3" in the repo's root, __working directory__.
 
 After editing the `.hgignore` file to your liking, you can preview your choices with
 
-``` bash
+{% highlight bash %}
 # 1. show "added" files (will be included in the next commit)
 hg status -a
 # 2. show "unknown" files (will not be included in the next commit)
 hg status -u
-```
+{% endhighlight %}
 
 Then, you can use the following shorthand to: 1) add all unknown files and commit the changes to the repo, and 2) view, the resulting contents
 
-``` bash
+{% highlight bash %}
 hg commit -A -m "Added/removed/changed file(s)"
 hg manifest
-```
+{% endhighlight %}
 
 ## > .file & .directory sizes
 
 One trick for building `.hgignore` is to detect and exclude __LARGE__ dotfiles and directories.  At first, I tried to these using
 
-``` bash
+{% highlight bash %}
 ls -lSd .* | head -20
-```
+{% endhighlight %}
 
 However, `ls` does not measure the size of directories when reporting relative size.  To see the largest items accounting for the total size of directories,
 use the following
 
-``` bash
+{% highlight bash %}
 for X in $(du -s .[a-zA-Z]* | sort -nr | cut -f 2); do du -hs $X ; done | head -20
-```
+{% endhighlight %}
 
 This will produce sorted output, for example
 
-``` text
+{% highlight text %}
   8.2G  .Trash
    99M  .dropbox
    21M  .m2
@@ -170,19 +170,19 @@ This will produce sorted output, for example
   1.8M  .fontconfig
   976K  .ipython
   ...
-```
+{% endhighlight %}
 
 ## > resetting the repo
 
 If you are not happy with the current manifest, and are willing to start again __from scratch__, use the following commands.  WARNING: This will erase any history!
 
-``` bash
+{% highlight bash %}
   cd $HOME
   \rm -rf .hg
   hg init
   hg commit -A -m "Added/removed/changed file(s)"
   hg manifest
-```
+{% endhighlight %}
 
 This can be used to refine the `.hgignore` file in order to initialize the repo
 

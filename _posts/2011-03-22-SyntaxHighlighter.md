@@ -54,13 +54,13 @@ To configure [[SyntaxHighlighter]], do the following:
 
  * For example
 
-``` xml
+{% highlight xml %}
 <link rel="stylesheet" type="text/css"  href="styles/shCore.css" />
 <link rel="stylesheet" type="text/css"  href="styles/shThemeDefault.css" />
 <script type="text/javascript"  src="scripts/shCore.js"></script>
 <script type="text/javascript"  src="scripts/shBrushBash.js"></script>
 <script type="text/javascript"> SyntaxHighlighter.all() </script>
-```
+{% endhighlight %}
 
 # Usage
 
@@ -86,13 +86,13 @@ Enclose the code with `<script>` and `</script>` tags.  See website for more adv
 
 [[SyntaxHighlighter]] can be hosted locally, from files on your computer, or remotely, from a servers.  The following is an example of remote hosting:
 
-``` xml
+{% highlight xml %}
 <link rel="stylesheet" type="text/css"  href="http://alexgorbatchev.com/pub/sh/current/styles/shCore.css" /> 
 <link rel="stylesheet" type="text/css"  href="http://alexgorbatchev.com/pub/sh/current/styles/shThemeDefault.css" /> 
 <script type="text/javascript"  src="http://alexgorbatchev.com/pub/sh/current/scripts/shCore.js"></script> 
 <script type="text/javascript"  src="http://alexgorbatchev.com/pub/sh/current/scripts/shBrushBash.js"></script> 
 <script type="text/javascript"> SyntaxHighlighter.all() </script>
-```
+{% endhighlight %}
 
 # Syntax Brushes
   
@@ -155,7 +155,7 @@ Two blogs, [mlawire](http://mlawire.blogspot.com/2009/07/blogger-syntax-highligh
 > 
 > Make a copy of your template, open it in an editor, and find the &lt;/head&gt; closing tag. Before that tag, add the following:
 
-``` html
+{% highlight html %}
 <!--SYNTAX HIGHLIGHTER BEGINS-->
 <link rel="stylesheet" type="text/css"  href="http://alexgorbatchev.com/pub/sh/current/styles/shCore.css" />
 <link rel="stylesheet" type="text/css"  href="http://alexgorbatchev.com/pub/sh/current/styles/shThemeDefault.css" />
@@ -168,7 +168,7 @@ Two blogs, [mlawire](http://mlawire.blogspot.com/2009/07/blogger-syntax-highligh
     SyntaxHighlighter.all();
 </script>
 <!--SYNTAX HIGHLIGHTER ENDS-->
-```
+{% endhighlight %}
 
 Blogger will complain and may not display your code correctly if it is first interpreted as Html.  For example, this can happen if your post contains Html code containing the `<link>` or `<head>` tags.
 

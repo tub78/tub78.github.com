@@ -45,7 +45,7 @@ Enjoy,
 
  - Stu
 
-``` ascript
+{% highlight ascript %}
 (*
 Purpose: Use this script to re-open using "MacVim" a document that is open in
 "Safari".  The script detects the full path of the local file and re-opens it.
@@ -109,6 +109,6 @@ on errmsg(VVV, active_process)
 	end if
 end errmsg
 
-```
+{% endhighlight %}
 
 

@@ -51,7 +51,7 @@ While I regularly use this script to convert Word documents to Pdf, other input 
 
 Please check [https://github.com/tub78/GDocs2Pdf](https://github.com/tub78/GDocs2Pdf) for updates to this script.
 
-``` bash
+{% highlight bash %}
 #!/bin/bash
 # usage: gdocs2pdf.sh &lt;file&gt;
 [ $# -eq 1 ] || { echo "usage: $(basename $0) &lt;file&gt;"; exit 1; }
@@ -63,7 +63,7 @@ echo $GOOGLECL docs upload --title="$TITLE" --folder="$FOLDER" "$1"
 $GOOGLECL docs upload --title="$TITLE" --folder="$FOLDER" "$1"
 echo $GOOGLECL docs get --format=pdf --title="$TITLE" --folder="$FOLDER" --dest="$DIR"
 $GOOGLECL docs get --format=pdf --title="$TITLE" --folder="$FOLDER" --dest="$DIR"
-```
+{% endhighlight %}
 
 __Notes__
 

@@ -35,7 +35,7 @@ In order to use this script, you will need to "Enable access for assistive devic
 
 Here is the Applescript:
 
-``` ascript
+{% highlight ascript %}
 (*
 Purpose: Tells Safari to "Reopen All Windows From Last Session".
 
@@ -84,7 +84,7 @@ on do_menu(app_name, menu_name, menu_item)
 		return false
 	end try
 end do_menu
-```
+{% endhighlight %}
 
 
 

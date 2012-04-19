@@ -35,7 +35,7 @@ _WikiGraph_ is a tool that I wrote in Python to extract and visualize the [[hype
 
 _WikiGraph_ can be used to quickly visualize a wiki.  The image displayed above was generated with the following command:
 
-``` bash
+{% highlight bash %}
 wikigraph.py --directory $NOTES \
              --extension txt \
              --layout sfdp \
@@ -44,7 +44,7 @@ wikigraph.py --directory $NOTES \
              --numcomponents 1 \
              --figdpi 200 \
              node_size 80 font_size 5 width 0.5 alpha 0.7
-```
+{% endhighlight %}
 
 _WikiGraph_ makes several assumptions:
 
@@ -62,7 +62,7 @@ _WikiGraph_ only captures local links.  Links to other local (non-wiki) resource
 
 The following display captures the core functionality.  It scans a wiki, extracts links and tags, filters and prunes the resulting graph, and draws it.
 
-``` python
+{% highlight python %}
 WG = WikiGraph()
 WG.add_pages(get_files_from_path_with_ext(DIRECTORY, EXTENSION))
 WG.add_links()
@@ -86,11 +86,11 @@ if not(KEEPISOLATES):
     print "Removed {} isolated nodes".format(Nrm_nodes)
 
 WG.draw(layout=LAYOUT, labels=LABELS, **KWARGS)
-```
+{% endhighlight %}
 
 WikiGraph has many configurable parameters which are listed in uppercase in the display above.  Further details are included in the program's help text, shown below
 
-``` text
+{% highlight text %}
 usage: wikigraph.py [-h] [--verbosity VERBOSITY] [--directory DIRECTORY]
                     [--extension EXTENSION] [--keepunknown] [--keepisolates]
                     [--numcomponents NUMCOMPONENTS] [--tags [TAGS [TAGS ...]]]
@@ -131,7 +131,7 @@ optional arguments:
 
 Additional arguments pairs are passed to the drawing routine as keyword-values
 (floats assumed).
-```
+{% endhighlight %}
 
 The code for _WikiGraph_ is on [[GitHub][GitHub]].  Beyond several standard packages, it depends on `matplotlib` and `networkx`.
 

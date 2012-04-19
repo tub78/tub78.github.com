@@ -55,7 +55,7 @@ In the body, there is
 1. A "Day/Night" `button` with ID equal to `daynight`
 1. A `div` element containing instructions with class equal to `optional`
 
-``` xml
+{% highlight xml %}
 <!doctype html>
 <!-- !doctype html public "-//W3C//DTD HTML 4.0 Transitional //EN"> -->
 <html>
@@ -82,13 +82,13 @@ In the body, there is
 </div>
 </body>
 </html>
-```
+{% endhighlight %}
 
 ## Stylesheet
 
 The style of Html elements is specified in a stylesheet included in the header.  There are separate styles `day` and `night` for the `<body>` tag.  These styles alter the foreground (text) and background colors.  Elements with class `optional` are initialized to be invisible `display: none`.
 
-``` css
+{% highlight css %}
 body { /* static body style: e.g. margins, font, etc. */
 }
 body.day { /* day body style */
@@ -102,7 +102,7 @@ body.night { /* night body style */
 .optional {
     display: none;
 }
-```
+{% endhighlight %}
 
 
 ## Javascript
@@ -115,7 +115,7 @@ The response to button clicks is governed by Javascript, written with the help o
 1. Lines 8-13 initialize the CSS classes for the `<body>` tag.  If it is daytime, the CSS style `body.day` is used; for nighttime, the CSS style `body.night` is used.
 1. In lines 15-18, JQuery is used to toggle the classes for the same elements.  The instantiated styles are removed by one of the `toggle()` commands, and the alternate styles are included by the other.
 
-``` jscript
+{% highlight jscript %}
 $(document).ready(function(){
     /* Toggle visibility of element */
     $("button#optional").click(function(){
@@ -136,7 +136,7 @@ $(document).ready(function(){
     });
 
 });
-```
+{% endhighlight %}
 
 
 # Wrap Up

@@ -37,11 +37,11 @@ Using _Markdown_, _Discount_, _GoogleCL_, and some Bash shell scripting, I have 
 
 To begin, I use _Discount^1_ to compile my _Markdown_ pages into _Html_.  It is quite simple to compile a blog entry with _Discount's_ default compiler^2, `markdown`.  However, I decided to use an alternate program included in _Discount's_ distribution, called `theme`.  The `theme` compiler allows me to spice things up a little using a template for my posts^3.  For example, to create a table of contents at the top of each post, my template looks like this^4.
 
-``` html
+{% highlight html %}
 &lt;h1&gt;Contents&lt;/h1&gt;
 &lt;?theme toc?&gt;
 &lt;?theme body?&gt;
-```
+{% endhighlight %}
 
 I could then compile with the command `theme -E -t $PAGETHEME -o $HTMLPOST $MKDPOST`, where I specify a template file with the `-t` flag.  __Update (2011-07-14)__: I have included the `-E` flag to avoid difficulties described in Note #4 below.
 
@@ -49,19 +49,19 @@ If you're like me, your current post will contain links to other posts (e.g. [Sy
 
 This means that, in order to compile my current post, I must supply Blogger's URLs for all linked posts .  To obtain the addresses, I use the following _GoogleCL^6_ command
 
-``` bash
+{% highlight bash %}
 #!/bin/bash
 MKDINDEX=./Blog/MkdIndex.md
 google blogger list --fields title,url | \
     grep -v ",None" | \
     perl -p -e 's#^(.*),(.*)$#\[${1}\]: ${2}#' >| $MKDINDEX
-```
+{% endhighlight %}
 
 This invocation of _GoogleCL_ requests a list of posts which are returned as "title,url" pairs.  Post-processing is performed to remove drafts (url="None"), and to format the remaining tuples for _Markdown_.  These are saved to an index file.
 
 Now, I am ready to compile my post.  To do this, I concatenate the source file and the index file and send the result to the compiler.  Here is a script that does this
 
-``` bash
+{% highlight bash %}
 #!/bin/bash
 DISCOUNTTHEME=/usr/local/bin/theme
 MKDPOST=./Notes/Post.txt
@@ -69,7 +69,7 @@ HTMLPOST=./Blog/Post.html
 PAGETHEME=./Blog/page.theme
 MKDINDEX=./Blog/MkdIndex.md
 cat $MKDPOST $MKDINDEX | $DISCOUNTTHEME -E -t $PAGETHEME -o $HTMLPOST
-```
+{% endhighlight %}
 
 This creates my post `./Notes/Post.html` containing valid links to other posts.
 
@@ -80,31 +80,31 @@ The benefit of using _GoogleCL_ to retrieve the urls is that we can be confident
 
 Publishing a blog entry using _GoogleCL_ is as simple as `google blogger post $HTMLPOST`.  With a little more work, it is also possible to assign a title and tags to the blog post.  Tags are useful for summarizing the page, and for finding related pages.  I typically include these fields in the header of my _Markdown_ files which is enclosed in an _Html_ comment block so that it does not appear in the compiled output.  For example, to tag a page with **tag1** and **tag2** and assign **title** as the title, I would write
 
-``` xml
+{% highlight xml %}
  &lt;!--
  Title: title
  Tags: tag1, tag2
  --&gt;
 
  Metadata is stored in the header of this page ...
-```
+{% endhighlight %}
 
 To publish this blog entry with the associated metadata, I extract it from the header and pass it to the post command using the `--title` and `--tags` flag.  This is what it looks like
 
-``` bash
+{% highlight bash %}
 #!/bin/bash
 MKDPOST=./Notes/Post.txt
 HTMLPOST=./Blog/Post.html
 TITLE=$(head -20 $MKDPOST | grep '^Title: ' | cut -b 8-)
 TAGS=$(head -20 $MKDPOST | grep '^Tags: ' | cut -b 7-)
 google blogger post --title "$TITLE" --tags "$TAGS" $HTMLPOST
-```
+{% endhighlight %}
 
 Running this command, _GoogleCL_ should reply
 
-``` text
+{% highlight text %}
 Post created: http://blog.domain.name/2011/03/title.html
-```
+{% endhighlight %}
 
 It is important to note that subsequent calls to `google blogger post` will not overwrite the earlier post.  Instead, this will create a near identical post on Blogger differing only by a numeric suffix added to the URL.  If a correction to a post is necessary, then one solution is to resort to the manual cut-n-paste method using Blogger's web-based Html editor, after compiling the corrected post.  Another solution (for the tech-savvy only) is to use a patched version of _GoogleCL_ [patch](http://code.google.com/p/googlecl/issues/detail?id=260).
 
@@ -126,9 +126,9 @@ __Notes__
 [4]
 : ~~I made a small change to the `theme` executable to support the template that I am using.  In particular, the program will only include the body content within _Html_ body tags.  Since body tags are not necessary for uploads into Blogger, I commented line 468 of `theme.c` as follows, before installing _Discount_.  This probably isn't be necessary, however, in this case your template will require `<body>` and `</body>` tags.~~  The author of Discount has now added a flag `-E` that obviates the need for this.  **Yay for DVCS!**
 
-``` c++
+{% highlight c++ %}
 /* if ( keyword[i].where & where ) */
-```
+{% endhighlight %}
 
 [5]
 : Formally, reference-style links are declared using the syntax `[Link-text][Link-name]`, however `[Link-text][]` and even `[Link-text]` may be used as shorthand if "Link-text" meets the _Markdown_ requirements for the link name.  This is called the _implicit link name_ shortcut.
