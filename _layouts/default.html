@@ -50,28 +50,6 @@
 <link href='https://raw.github.com/trevorturk/pygments/master/default.css' type='text/css' rel='stylesheet'/>
 
 
-<!-- SYNTAXHIGHLIGHTER Dropbox -->
-<!-- -->
-<link href='http://dl.dropbox.com/u/1603420/SyntaxHighlighter/styles/shCore.css' rel='stylesheet' type='text/css'/>
-<script src='http://dl.dropbox.com/u/1603420/SyntaxHighlighter/scripts/shCore.js' type='text/javascript'></script>
-<script src='http://dl.dropbox.com/u/1603420/SyntaxHighlighter/scripts/shAutoloader.js' type='text/javascript'></script>
-<!-- -->
-<!-- SYNTAXHIGHLIGHTER THEME RDark or Default -->
-<!-- -->
-<link href='http://dl.dropbox.com/u/1603420/SyntaxHighlighter/styles/shThemeRDark.css' rel='stylesheet' type='text/css'/>
-<!-- -->
-<!-- SYNTAXHIGHLIGHTER Local -->
-<!--
-<link href='styles/shCore.css' rel='stylesheet' type='text/css'/>
-<script src='scripts/shCore.js' type='text/javascript'/>
-<script src='scripts/shAutoloader.js' type='text/javascript'/>
--->
-<!-- SYNTAXHIGHLIGHTER THEME RDark or Default -->
-<!-- 
-<link type='text/css' rel='stylesheet' href='styles/shThemeRDark.css' />
--->
-
-
 
 <!-- DAYTIME/NIGHTTIME JAVASCRIPT -->
 <script language="javascript">//<![CDATA[ 
@@ -146,40 +124,6 @@ BUTTONS [[Snippet_cssincl]] [[Snippet_cssday]] [[Snippet_cssnight]] [[Snippet_cs
 <!-- BODY
 <?theme body?> -->
 {{ content }}
-
-<!-- SYNTAXHIGHLIGHTER GO ... for the autoloader to work, this needs to be below the pre and/or scripts containing code -->
-<script type='text/javascript'>
-    function path()
-    {
-        var args = arguments,
-            result = []
-            ;
-
-        for(var i = 0; i < args.length; i++) {
-            /* DROPBOX */
-            result.push(args[i].replace('@', 'http://dl.dropbox.com/u/1603420/SyntaxHighlighter/scripts/'));
-            /* LOCAL
-            result.push(args[i].replace('@', 'scripts/'));
-             */
-        }
-
-        return result
-    };
-     
-    SyntaxHighlighter.autoloader.apply(null, path(
-        'plain text                @shBrushPlain.js',
-        'bash shell                @shBrushBash.js',
-        'js jscript javascript     @shBrushJScript.js',
-        'xml xhtml xslt html xhtml @shBrushXml.js',
-        'css                       @shBrushCss.js',
-        'ascript applescript       @shBrushAppleScript.js',
-        'cpp c                     @shBrushCpp.js',
-        'objc                      @shBrushObjectiveC.js',
-        'py python                 @shBrushPython.js'
-    ));
-    SyntaxHighlighter.config.bloggerMode = true; 
-    SyntaxHighlighter.all();
-</script>
 
 
 <!-- END BODY -->
