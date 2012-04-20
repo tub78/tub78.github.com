@@ -1,16 +1,14 @@
 ---
-layout: default
+layout: post
 title: Blogging From The Command Line
+TNTitle: Blogging-From-The-Command-Line
+TNTimestamp: 2011-04-14 01:29:30 +0000
+TNLast Accessed: 2001-01-01 02:01:01 +0000
+TNTimes Accessed: 0
+TNTags: CmdLine, Markdown, Discount, GoogleCL, Bash, SyntaxHighlighter
+TNMetadata: 
 ---
 
-<!--
-Title: Blogging-From-The-Command-Line
-Timestamp: 2011-04-14 01:29:30 +0000
-Last Accessed: 2001-01-01 02:01:01 +0000
-Times Accessed: 0
-Tags: CmdLine, Markdown, Discount, GoogleCL, Bash, SyntaxHighlighter
-Metadata: 
--->
 
 >%hdrrelated%
 ># Related

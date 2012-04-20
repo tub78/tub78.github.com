@@ -1,16 +1,14 @@
 ---
-layout: default
+layout: post
 title: Ooops Broken Link
+TNTitle: Ooops-Broken-Link
+TNTimestamp: 2011-04-14 22:39:54 +0000
+TNLast Accessed: 2001-01-01 02:01:01 +0000
+TNTimes Accessed: 0
+TNTags: Html, Markdown
+TNMetadata: 
 ---
 
-<!--
-Title: Ooops-Broken-Link
-Timestamp: 2011-04-14 22:39:54 +0000
-Last Accessed: 2001-01-01 02:01:01 +0000
-Times Accessed: 0
-Tags: Html, Markdown
-Metadata: 
--->
 
 >%hdrrelated%
 ># Related

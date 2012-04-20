@@ -1,17 +1,14 @@
 ---
-layout: default
+layout: post
 title: A Centralized VCS For Config Files
+TNTitle: A-Centralized-VCS-For-Config-Files
+TNTimestamp: 2011-05-17 01:54:19 +0000
+TNCreated: 2011-05-17 02:31:21 +0000
+TNLast Accessed: 2001-01-01 02:01:01 +0000
+TNTimes Accessed: 0
+TNTags: VCS, Bash, Hg
+TNMetadata:
 ---
-
-<!--
-Title: A-Centralized-VCS-For-Config-Files
-Timestamp: 2011-05-17 01:54:19 +0000
-Created: 2011-05-17 02:31:21 +0000
-Last Accessed: 2001-01-01 02:01:01 +0000
-Times Accessed: 0
-Tags: VCS, Bash, Hg
-Metadata: 
--->
 
 
 >%hdrrelated%

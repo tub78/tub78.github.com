@@ -1,16 +1,14 @@
 ---
-layout: default
+layout: post
 title: Dynamic Web Content With Javascript And JQuery
+TNTitle: Dynamic-Web-Content-With-Javascript-And-JQuery
+TNTimestamp: 2011-04-14 18:45:41 +0000
+TNLast Accessed: 2001-01-01 02:01:01 +0000
+TNTimes Accessed: 0
+TNTags: Html, Javascript
+TNMetadata: 
 ---
 
-<!--
-Title: Dynamic-Web-Content-With-Javascript-And-JQuery
-Timestamp: 2011-04-14 18:45:41 +0000
-Last Accessed: 2001-01-01 02:01:01 +0000
-Times Accessed: 0
-Tags: Html, Javascript
-Metadata: 
--->
 
 >%hdrrelated%
 ># Related

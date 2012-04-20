@@ -1,16 +1,14 @@
 ---
-layout: default
+layout: post
 title: Switching Gears With Applescript
+TNTitle: Switching-Gears-With-Applescript
+TNTimestamp: 2011-04-18 21:07:37 +0000
+TNLast Accessed: 2001-01-01 02:01:01 +0000
+TNTimes Accessed: 0
+TNTags: Applescript, Safari, MacVim, Skim
+TNMetadata: 
 ---
 
-<!--
-Title: Switching-Gears-With-Applescript
-Timestamp: 2011-04-18 21:07:37 +0000
-Last Accessed: 2001-01-01 02:01:01 +0000
-Times Accessed: 0
-Tags: Applescript, Safari, MacVim, Skim
-Metadata: 
--->
 
 >%hdrrelated%
 > # Related #

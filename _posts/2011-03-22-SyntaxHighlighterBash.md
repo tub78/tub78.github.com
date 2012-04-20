@@ -1,16 +1,14 @@
 ---
-layout: default
+layout: post
 title: SyntaxHighlighterBash
+TNTitle: SyntaxHighlighterBash
+TNTimestamp: 2011-02-01 20:36:43 +0000
+TNLast Accessed: 2001-01-01 02:01:01 +0000
+TNTimes Accessed: 0
+TNTags: Javascript, Html, CmdLine
+TNMetadata: 
 ---
 
-<!--
-Title: SyntaxHighlighterBash
-Timestamp: 2011-02-01 20:36:43 +0000
-Last Accessed: 2001-01-01 02:01:01 +0000
-Times Accessed: 0
-Tags: Javascript, Html, CmdLine
-Metadata: 
--->
 
 >%hdrrelated%
 ># Related #

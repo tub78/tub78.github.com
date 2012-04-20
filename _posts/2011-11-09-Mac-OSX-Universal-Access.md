@@ -1,17 +1,14 @@
 ---
-layout: default
+layout: post
 title: Mac OSX Universal Access
+TNTitle: Mac-OSX-Universal-Access
+TNTimestamp: 2011-11-09 21:46:48 +0000
+TNCreated: 2011-11-09 12:04:34 +0000
+TNLast Accessed: 2011-11-09 12:04:34 +0000
+TNTimes Accessed: 1
+TNTags: Tutorial, MacOSX, Visualization
+TNMetadata:
 ---
-
-<!--
-Title: Mac-OSX-Universal-Access
-Timestamp: 2011-11-09 21:46:48 +0000
-Created: 2011-11-09 12:04:34 +0000
-Last Accessed: 2011-11-09 12:04:34 +0000
-Times Accessed: 1
-Tags: Tutorial, MacOSX, Visualization
-Metadata: 
--->
 
 
 # How To Set The Cursor Size And Use Magnification Effectively

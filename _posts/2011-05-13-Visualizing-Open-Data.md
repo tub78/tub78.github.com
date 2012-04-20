@@ -1,17 +1,14 @@
 ---
-layout: default
+layout: post
 title: Visualizing Open Data
+TNTitle: Visualizing-Open-Data
+TNTimestamp: 2011-05-13 19:58:55 +0000
+TNCreated: 2011-05-14 17:21:10 +0000
+TNLast Accessed: 2001-01-01 02:01:01 +0000
+TNTimes Accessed: 0
+TNTags: Graph, Visualization, MachineLearning, OpenData
+TNMetadata:
 ---
-
-<!--
-Title: Visualizing-Open-Data
-Timestamp: 2011-05-13 19:58:55 +0000
-Created: 2011-05-14 17:21:10 +0000
-Last Accessed: 2001-01-01 02:01:01 +0000
-Times Accessed: 0
-Tags: Graph, Visualization, MachineLearning, OpenData
-Metadata: 
--->
 
 >%hdrrelated%
 ># Related

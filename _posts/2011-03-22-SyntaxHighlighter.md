@@ -1,16 +1,13 @@
 ---
-layout: default
+layout: post
 title: SyntaxHighlighter
+TNTitle: SyntaxHighlighter
+TNTimestamp: 2011-02-02 01:31:56 +0000
+TNLast Accessed: 2001-01-01 02:01:01 +0000
+TNTimes Accessed: 0
+TNTags: Javascript, Html
+TNMetadata: 
 ---
-
-<!--
-Title: SyntaxHighlighter
-Timestamp: 2011-02-02 01:31:56 +0000
-Last Accessed: 2001-01-01 02:01:01 +0000
-Times Accessed: 0
-Tags: Javascript, Html
-Metadata: 
--->
 
 
 >%hdrrelated%
@@ -87,17 +84,17 @@ Enclose the code with `<script>` and `</script>` tags.  See website for more adv
 [[SyntaxHighlighter]] can be hosted locally, from files on your computer, or remotely, from a servers.  The following is an example of remote hosting:
 
 {% highlight xml %}
-<link rel="stylesheet" type="text/css"  href="http://alexgorbatchev.com/pub/sh/current/styles/shCore.css" /> 
-<link rel="stylesheet" type="text/css"  href="http://alexgorbatchev.com/pub/sh/current/styles/shThemeDefault.css" /> 
-<script type="text/javascript"  src="http://alexgorbatchev.com/pub/sh/current/scripts/shCore.js"></script> 
-<script type="text/javascript"  src="http://alexgorbatchev.com/pub/sh/current/scripts/shBrushBash.js"></script> 
+<link rel="stylesheet" type="text/css"  href="http://alexgorbatchev.com/pub/sh/current/styles/shCore.css" />
+<link rel="stylesheet" type="text/css"  href="http://alexgorbatchev.com/pub/sh/current/styles/shThemeDefault.css" />
+<script type="text/javascript"  src="http://alexgorbatchev.com/pub/sh/current/scripts/shCore.js"></script>
+<script type="text/javascript"  src="http://alexgorbatchev.com/pub/sh/current/scripts/shBrushBash.js"></script>
 <script type="text/javascript"> SyntaxHighlighter.all() </script>
 {% endhighlight %}
 
 # Syntax Brushes
-  
+
 In addition to the table below, several other syntaxes are supported
-  
+
  * [List of brushes - Under My Hat](http://www.undermyhat.org/blog/2009/09/list-of-brushes-syntaxhighligher/)
  * [Applescript brush - David Chambers](http://davidchambersdesign.com/applescript-syntax-highlighting/)
  * [ObjectiveC brush - Geoffrey Bryers, Youngjin Shin](http://www.undermyhat.org/blog/wp-content/uploads/2009/09/shBrushObjectiveC.js)
@@ -133,7 +130,7 @@ In addition to the table below, several other syntaxes are supported
 In addition to the default theme, other stylesheets are available; just replace "Default" in `shThemeDefault.css` to one of the following:
 
  * Default, Django, Eclipse, Emacs, FadeToGrey, MDUltra, Midnight, RDark
-    
+
 # Examples
 
  * [[SyntaxHighlighterConfig]]
@@ -150,9 +147,9 @@ In addition to the default theme, other stylesheets are available; just replace 
 Two blogs, [mlawire](http://mlawire.blogspot.com/2009/07/blogger-syntax-highlighting.html) and [cyberack](http://www.cyberack.com/2007/07/adding-syntax-highlighter-to-blogger.html), were helpful for setting up [[SyntaxHighlighter]] on Blogger.  Essentially, their advice is:
 
 > "Log into your blogspot account, select the "Layout" tab, and then click "Edit HTML."
-> 
+>
 > Click "Download Full Template" to make a backup of your current template.
-> 
+>
 > Make a copy of your template, open it in an editor, and find the &lt;/head&gt; closing tag. Before that tag, add the following:
 
 {% highlight html %}

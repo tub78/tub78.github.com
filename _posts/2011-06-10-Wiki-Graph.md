@@ -1,16 +1,14 @@
 ---
-layout: default
+layout: post
 title: Wiki Graph
+TNTitle: Wiki-Graph
+TNTimestamp: 2001-01-01 01:01:01 -0100
+TNLast Accessed: 2001-01-01 01:01:01 -0100
+TNTimes Accessed: 0
+TNTags: Python, Wiki, Graph
+TNMetadata: 
 ---
 
-<!--
-Title: Wiki-Graph
-Timestamp: 2001-01-01 01:01:01 -0100
-Last Accessed: 2001-01-01 01:01:01 -0100
-Times Accessed: 0
-Tags: Python, Wiki, Graph
-Metadata: 
--->
 
 >%hdrrelated%
 ># Related

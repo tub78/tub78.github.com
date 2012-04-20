@@ -1,18 +1,16 @@
 ---
-layout: default
+layout: post
 title: Low Hanging Fruit
+TNTitle: Low-Hanging-Fruit
+TNTimestamp: 2011-11-09 20:08:37 +0000
+TNCreated: 2011-11-09 20:08:37 +0000
+TNLast Accessed: 2011-11-09 20:08:37 +0000
+TNTimes Accessed: 1
+TNTags: Gene, Genomics, Biology, Rstats, Ttest
+TNMetadata:
 ---
 
 
-<!--
-Title: Low-Hanging-Fruit
-Timestamp: 2011-11-09 20:08:37 +0000
-Created: 2011-11-09 20:08:37 +0000
-Last Accessed: 2011-11-09 20:08:37 +0000
-Times Accessed: 1
-Tags: Gene, Genomics, Biology, Rstats, Ttest
-Metadata: 
--->
 
 >%hdrrelated%
 ># Related

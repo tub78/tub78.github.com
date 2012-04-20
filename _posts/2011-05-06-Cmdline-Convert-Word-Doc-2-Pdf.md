@@ -1,16 +1,14 @@
 ---
-layout: default
+layout: post
 title: Cmdline Convert Word Doc 2 Pdf
+TNTitle: Cmdline-Convert-Word-Doc-2-Pdf
+TNTimestamp: 2001-01-01 01:01:01 -0100
+TNLast Accessed: 2001-01-01 01:01:01 -0100
+TNTimes Accessed: 0
+TNTags: CmdLine, GoogleCL, Bash, Pdf
+TNMetadata: 
 ---
 
-<!--
-Title: Cmdline-Convert-Word-Doc-2-Pdf
-Timestamp: 2001-01-01 01:01:01 -0100
-Last Accessed: 2001-01-01 01:01:01 -0100
-Times Accessed: 0
-Tags: CmdLine, GoogleCL, Bash, Pdf
-Metadata: 
--->
 
 
 >%hdrrelated%

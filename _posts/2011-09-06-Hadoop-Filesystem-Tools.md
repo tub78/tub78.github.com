@@ -1,17 +1,14 @@
 ---
-layout: default
+layout: post
 title: Hadoop Filesystem Tools
+TNTitle: Hadoop-Filesystem-Tools
+TNTimestamp: 2011-09-08 01:53:45 +0000
+TNCreated: 2011-09-08 14:44:08 +0000
+TNLast Accessed: 2001-01-01 02:01:01 +0000
+TNTimes Accessed: 0
+TNTags: CmdLine, Bash, Hadoop, HDFS
+TNMetadata:
 ---
-
-<!--
-Title: Hadoop-Filesystem-Tools
-Timestamp: 2011-09-08 01:53:45 +0000
-Created: 2011-09-08 14:44:08 +0000
-Last Accessed: 2001-01-01 02:01:01 +0000
-Times Accessed: 0
-Tags: CmdLine, Bash, Hadoop, HDFS
-Metadata: 
--->
 
 >%hdrrelated%
 ># Related

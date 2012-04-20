@@ -1,16 +1,14 @@
 ---
-layout: default
+layout: post
 title: Reopen All Safari Windows On Login
+TNTitle: Reopen-All-Safari-Windows-On-Login
+TNTimestamp: 2011-04-19 17:18:32 +0000
+TNLast Accessed: 2001-01-01 02:01:01 +0000
+TNTimes Accessed: 0
+TNTags: Applescript, Safari
+TNMetadata: 
 ---
 
-<!--
-Title: Reopen-All-Safari-Windows-On-Login
-Timestamp: 2011-04-19 17:18:32 +0000
-Last Accessed: 2001-01-01 02:01:01 +0000
-Times Accessed: 0
-Tags: Applescript, Safari
-Metadata: 
--->
 
 >%hdrrelated%
 > # Related #

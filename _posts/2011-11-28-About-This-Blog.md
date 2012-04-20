@@ -1,17 +1,15 @@
 ---
-layout: default
+layout: post
 title: About This Blog
+TNTitle: About-This-Blog
+TNTimestamp: 2011-11-28 17:05:21 +0000
+TNCreated: 2011-11-28 09:31:54 +0000
+TNLast Accessed: 2011-11-28 09:31:54 +0000
+TNTimes Accessed: 1
+TNTags: VimWiki, TrunkNotes, Markdown, Discount, MathJax, SyntaxHighlighter, Javascript, JQuery, Css, Html
 ---
 
 
-<!--
-Title: About-This-Blog
-Timestamp: 2011-11-28 17:05:21 +0000
-Created: 2011-11-28 09:31:54 +0000
-Last Accessed: 2011-11-28 09:31:54 +0000
-Times Accessed: 1
-Tags: VimWiki, TrunkNotes, Markdown, Discount, MathJax, SyntaxHighlighter, Javascript, JQuery, Css, Html
-Metadata: 
 
 >%hdrrelated%
 ># Related

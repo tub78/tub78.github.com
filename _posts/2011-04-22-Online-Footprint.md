@@ -1,16 +1,14 @@
 ---
-layout: default
+layout: post
 title: Online Footprint
+TNTitle: Online-Footprint
+TNTimestamp: 2011-04-22 20:04:05 +0000
+TNLast Accessed: 2001-01-01 02:01:01 +0000
+TNTimes Accessed: 0
+TNTags: Social, Web, Index, Prog
+TNMetadata: 
 ---
 
-<!--
-Title: Online-Footprint
-Timestamp: 2011-04-22 20:04:05 +0000
-Last Accessed: 2001-01-01 02:01:01 +0000
-Times Accessed: 0
-Tags: Social, Web, Index, Prog
-Metadata: 
--->
 
 <pre class="ideaaction"> 
 [Disqus](http://disqus.com/tub78/)
