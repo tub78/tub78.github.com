@@ -12,8 +12,8 @@ redcarpet:
 #   extensions:
 
 
-
-exclude: [ #'2011-11-28-About-This-Blog.md',
+exclude: [ 'vendor'
+            #'2011-11-28-About-This-Blog.md',
             #'2011-11-16-Low-Hanging-Fruit.md',
             #'2011-11-09-Mac-OSX-Universal-Access.md',
             #'2011-11-07-MathJax-v2.md',
