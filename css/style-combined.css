@@ -169,12 +169,12 @@ body {
     background-attachment: fixed;
 }
 body.day {
-    color: #000000;
-    background-color: #FFFFFF;
+    color: #657B83;
+    background-color: #FDF6E3;
 }
 body.night {
-    color: #AAAAAA;
-    background-color: #191919;
+    color: #839496;
+    background-color: #002B36;
 }
 
 
@@ -196,55 +196,55 @@ h1 {
     font-size: 1.8em;
 }
 h1.day {
-    color: #AA5873;
+    color: #DC322F;
 }
 h1.night {
-    color: #E08089;
+    color: #D33682;
 }
 h2 {
     font-size: 1.5em;
 }
 h2.day {
-    color: #50705C;
+    color: #268BD2;
 }
 h2.night {
-    color: #80E089;
+    color: #B58900;
 }
 h3 {
     font-size: 1.3em;
 }
 h3.day {
-    color: #1030A0;
+    color: #2AA198;
 }
 h3.night {
-    color: #4D89E0;
+    color: #859900;
 }
 h4 {
     font-size: 1.2em;
 }
 h4.day {
-    color: #103064;
+    color: #859900;
 }
 h4.night {
-    color: #C0C0F0;
+    color: #2AA198;
 }
 h5 {
     font-size: 1.1em;
 }
 h5.day {
-    color: #50506E;
+    color: #B58900;
 }
 h5.night {
-    color: #E0E0E4;
+    color: #268BD2;
 }
 h6 {
     font-size: 1.0em;
 }
 h6.day {
-    color: #636363;
+    color: #D33682;
 }
 h6.night {
-    color: #F0F0EC;
+    color: #DC322F;
 }
 a {
     text-decoration: none;
@@ -356,6 +356,12 @@ code {
     background-clip: padding-box;
     padding: 0px 3px;
     display: inline-block;
+}
+pre code {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    padding: 5px 10px;
 }
 code.day {
     color: #52595d;
