@@ -1,12 +1,14 @@
 /*
 Action Items
 */
-.todoaction {
+.action {
     display: inline-block;
     /* display: none; */
     font-weight: bold;
     padding-left: 0.5em;
     padding-right: 0.5em;
+}
+.todoaction {
     color: #FF0000;
 }
 .todoaction.day {
@@ -16,11 +18,6 @@ Action Items
     background-color: #292929;
 }
 .ideaaction {
-    display: inline-block;
-    /* display: none; */
-    font-weight: bold;
-    padding-left: 0.5em;
-    padding-right: 0.5em;
     color: #FF7F00;
 }
 .ideaaction.day {
@@ -30,11 +27,6 @@ Action Items
     background-color: #292929;
 }
 .bugaction {
-    /* display: inline-block; */
-    display: none;
-    font-weight: bold;
-    padding-left: 0.5em;
-    padding-right: 0.5em;
     color: #00FF00;
 }
 .bugaction.day {
@@ -44,11 +36,6 @@ Action Items
     background-color: #292929;
 }
 .doneaction {
-    /* display: inline-block; */
-    display: none;
-    font-weight: bold;
-    padding-left: 0.5em;
-    padding-right: 0.5em;
     color: #FF7FFF;
 }
 .doneaction.day {
