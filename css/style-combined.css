@@ -320,7 +320,7 @@ img {
     border: none;
 }
 pre {
-    border-left: 1px solid #CCCCCC;
+    /* border-left: 1px solid #CCCCCC; */
     /* margin-left: 2em; */
     padding-left: 0.5em;
     padding-right: 0.5em;
