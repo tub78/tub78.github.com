@@ -2,132 +2,109 @@
 <!-- !doctype html public "-//W3C//DTD HTML 4.0 Transitional //EN"> -->
 <html>
 <head>
-    <meta name="GENERATOR" content="mkd2html 2.0.7 DEBUG DL=BOTH">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf8"> 
-
+    <meta http-equiv="content-type" content="text/html; charset=utf8" /> 
     <title>{{ page.title }}</title>
-    <!--
-    <meta name="title"   content="<?theme title?>"/>
-    <meta name="author"  content="<?theme author?>"/>
-    <meta name="date"    content="<?theme date?>"/>
-    <meta name="version" content="<?theme version?>"/>
-    <meta name="source"  content="<?theme source?>"/>
-    <meta name="dir"     content="<?theme dir?>"/>
-    <meta name="html"    content="<?theme html?>"/>
-    <meta name="config"  content="<?theme config?>"/>
-    -->
-    <!--
-    <meta name="style"   content="<?theme style?>"/>
-    <meta name="toc"  content="<?theme toc?>"/>
-    <meta name="body"    content="<?theme body?>"/>
-    <meta name="include" content="<?theme include(file)?>"/>
-    -->
+    <meta name="author"  content="Stuart Andrews"/>
 
-<!-- START HEADER -->
+    <!-- 2011-03-21 START CUSTOM HEADER -->
 
-<!-- TITLE -->
-<!-- 
-<title><?theme title?></title>
-<?theme style?>
--->
+    <!-- Stylesheet: Homepage -->
+    <link href='/css/style-combined.css' type='text/css' rel='stylesheet'/>
 
-<!-- 2011-03-21 START CUSTOM HEADER -->
+    <!-- Stylesheet: Pygments -->
+    <link href='/css/pygments.css' type='text/css' rel='stylesheet'/>
 
-<!-- STYLESHEET -->
-<link href='/css/style-combined.css' type='text/css' rel='stylesheet'/>
+    <!-- MATHJAX hosted CDN.MATHJAX.ORG -->
+    <script type='text/javascript' src='http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML'> MathJax.Hub.Config({ extensions: ["tex2jax.js","MathMenu.js","MathZoom.js"], jax: ["input/TeX","output/HTML-CSS"], tex2jax: {inlineMath: [["\\(","\\)"]]}, TeX: { extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"] } }); </script>
 
-<!-- PYGMENTS Default -->
-<link href='/css/pygments.css' type='text/css' rel='stylesheet'/>
+    <!-- GOOGLEAPIS hosted JQUERY.MIN -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 
+    <!-- DAYTIME/NIGHTTIME JAVASCRIPT -->
+    <script language="javascript">//<![CDATA[ 
+        $(document).ready(function(){
+            // Display day mode between 7am and 8pm 
+            var currentTime = new Date().getHours();
+            // 2011-11-19 if (currentTime < 19) {
+            if (7 <= currentTime && currentTime < 19) {
+                $(".todoaction,.ideaaction,.bugaction,.doneaction,body,h1,h2,h3,h4,h5,h6,a,a.missing-wiki-link,th,blockquote,code").addClass("day");
+            } else {
+                $(".todoaction,.ideaaction,.bugaction,.doneaction,body,h1,h2,h3,h4,h5,h6,a,a.missing-wiki-link,th,blockquote,code").addClass("night");
+            }
 
+            $("button#daynight").click(function(){
+                $(".todoaction,.ideaaction,.bugaction,.doneaction,body,h1,h2,h3,h4,h5,h6,a,a.missing-wiki-link,th,blockquote,code").toggleClass("day");
+                $(".todoaction,.ideaaction,.bugaction .doneaction,body,h1,h2,h3,h4,h5,h6,a,a.missing-wiki-link,th,blockquote,code").toggleClass("night");
+            });
 
-<!-- MATHJAX hosted CDN.MATHJAX.ORG -->
-<script type='text/javascript' src='http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML'> MathJax.Hub.Config({ extensions: ["tex2jax.js","MathMenu.js","MathZoom.js"], jax: ["input/TeX","output/HTML-CSS"], tex2jax: {inlineMath: [["\\(","\\)"]]}, TeX: { extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"] } }); </script>
+            $("button#hdrcontents").click(function(){ $("div.hdrcontents").toggle(); });
+            $("button#hdrtags").click(function(){ $("div.hdrtags").toggle(); });
+            $("button#hdrbacklinks").click(function(){ $("div.hdrbacklinks").toggle(); });
+            $("button#hdrrelated").click(function(){ $("div.hdrrelated").toggle(); });
 
-
-
-<!-- GOOGLEAPIS hosted JQUERY.MIN -->
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-
-
-
-<!-- DAYTIME/NIGHTTIME JAVASCRIPT -->
-<script language="javascript">//<![CDATA[ 
-    $(document).ready(function(){
-		// Display day mode between 7am and 8pm 
-        var currentTime = new Date().getHours();
-        // 2011-11-19 if (currentTime < 19) {
-		if (7 <= currentTime && currentTime < 19) {
-            $(".todoaction,.ideaaction,.bugaction,.doneaction,body,h1,h2,h3,h4,h5,h6,a,a.missing-wiki-link,th,blockquote,code").addClass("day");
-        } else {
-            $(".todoaction,.ideaaction,.bugaction,.doneaction,body,h1,h2,h3,h4,h5,h6,a,a.missing-wiki-link,th,blockquote,code").addClass("night");
-        }
-
-        $("button#daynight").click(function(){
-            $(".todoaction,.ideaaction,.bugaction,.doneaction,body,h1,h2,h3,h4,h5,h6,a,a.missing-wiki-link,th,blockquote,code").toggleClass("day");
-            $(".todoaction,.ideaaction,.bugaction .doneaction,body,h1,h2,h3,h4,h5,h6,a,a.missing-wiki-link,th,blockquote,code").toggleClass("night");
         });
-
-        $("button#hdrcontents").click(function(){
-            $("div.hdrcontents").toggle();
-        });
-
-        $("button#hdrtags").click(function(){
-            $("div.hdrtags").toggle();
-        });
-        
-        $("button#hdrbacklinks").click(function(){
-            $("div.hdrbacklinks").toggle();
-        });
-        
-        $("button#hdrrelated").click(function(){
-            $("div.hdrrelated").toggle();
-        });
-
-    });
-//]]></script>
-
-
-<!-- 2011-03-21 END CUSTOM HEADER -->
-
-<!-- END HEADER  -->
-
-<!-- START BODY -->
+    //]]></script>
+    <!-- 2011-03-21 END CUSTOM HEADER -->
 </head>
 <body>
+<!-- START BODY -->
+<div class="site">
+    <!-- HEADER -->
+    <div class="title">
+        <a href="/">Internal Structure</a>
+        <a class="extra" href="/">home</a>
+        <!-- BUTTONS -->
+        <button id="daynight">Day/Night</button>
+        <button id="hdrcontents">Contents</button>
+        <!-- <button id="hdrtags">Tags</button> -->
+        <!-- <button id="hdrbacklinks">Backlinks</button> -->
+        <button id="hdrrelated">Related</button>
+        <span class="tiny">[<a href="{% post_url 2011-11-28-About-This-Blog %}">About</a>]</span>
+    </div>
+    <hr>
+    <!-- CONTENTS -->
+    <!-- 
+    <div class="hdrcontents">
+    <h1>Contents</h1>
+    <?theme toc?>
+    </div>
+    -->
+    <!-- TAGS -->
+    <!-- BACKLINKS -->
 
-<!--
-BUTTONS [[Snippet_cssincl]] [[Snippet_cssday]] [[Snippet_cssnight]] [[Snippet_csscombined]] $(( [[Snippet_javascript]] ))
--->
-<button id="daynight">Day/Night</button>
-<button id="hdrcontents">Contents</button>
-<!-- <button id="hdrtags">Tags</button> -->
-<!-- <button id="hdrbacklinks">Backlinks</button> -->
-<button id="hdrrelated">Related</button>
+    <!-- CONTENT -->
+    {{ content }}
 
-<span class="tiny">[<a href="file:///Users/stu/Desktop/Dropbox/Documents/TrunkNotes/Html/About-This-Blog.html">About</a>]</span>
-
-<hr>
-
-<!-- CONTENTS -->
-<!-- 
-<div class="hdrcontents">
-<h1>Contents</h1>
-<?theme toc?>
+    <!-- FOOTER -->
+    <div class="footer">
+        <div class="contact">
+            <p>
+            by Stuart Andrews
+            </p>
+        </div>
+        <div class="contact">
+            <p>
+            <a href="http://github.com/tub78/">github.com/tub78</a><br />
+            <a href="http://twitter.com/tub78/">twitter.com/tub78</a>
+            </p>
+        </div>
+    </div>
 </div>
+
+<!-- Google Analytics
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-0000000-1");
+pageTracker._trackPageview();
+</script>
 -->
-
-<!-- TAGS -->
-
-<!-- BACKLINKS -->
-
-<!-- BODY
-<?theme body?> -->
-{{ content }}
+<!-- Google Analytics end -->
 
 
 <!-- END BODY -->
 </body>
 </html>
-
 
