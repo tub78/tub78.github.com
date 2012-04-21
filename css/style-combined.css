@@ -83,6 +83,7 @@ Classes
     margin-left: auto;
     margin-right: auto;
 }
+/*
 .highlight {
     background-color: yellow;
 }
@@ -90,7 +91,8 @@ Classes
 .highlight-selected {
     background-color: red;
 }
-    /* font-size: 0.5em; */
+*/
+/* font-size: 0.5em; */
 .tiny {
     font-size: 10px;
 }
