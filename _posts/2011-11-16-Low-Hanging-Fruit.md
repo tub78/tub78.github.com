@@ -12,7 +12,7 @@ TNMetadata:
 
 
 
->%hdrrelated%
+<pre class="action ideaaction">
 ># Related
 > * [[Genomics]]
 > * [[Gene Expression]]
@@ -21,6 +21,7 @@ TNMetadata:
 > * [[P-value]]
 > * [[Multiple comparisons]]
 > * [[False Discovery Rate]]
+</pre>
 
 [Genomics]: http://en.wikipedia.org/wiki/Genomics
 [Gene Expression]: http://en.wikipedia.org/wiki/Gene_Expression

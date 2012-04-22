@@ -10,10 +10,12 @@ TNTags: Graph, Visualization, MachineLearning, OpenData
 TNMetadata:
 ---
 
+<pre class="action ideaaction">
 >%hdrrelated%
 ># Related
 > * [[Blog-Archive]]
 > * [Sparse Matrix Collection]
+</pre>
 
  
 # A Recent Discovery

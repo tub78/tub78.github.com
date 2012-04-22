@@ -11,6 +11,7 @@ TNMetadata:
 ---
 
 
+<pre class="action ideaaction">
 >%hdrrelated%
 ># Related
 > * [[Blog-Archive]]
@@ -18,6 +19,7 @@ TNMetadata:
 > * [[VCS_HgMercurial]]
 > * [[VCS_Git]]
 > * [[VCS_HgGit]]
+</pre>
 
 <!--
 # A Centralized Version Control Repository For Isolated Configuration Files, Dot Files, Preferences, Etc.

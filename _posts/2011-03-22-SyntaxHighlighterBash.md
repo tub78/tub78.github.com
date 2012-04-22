@@ -1,6 +1,6 @@
 ---
 layout: post
-title: SyntaxHighlighterBash
+title: Bash Syntax Highlighter Example
 TNTitle: SyntaxHighlighterBash
 TNTimestamp: 2011-02-01 20:36:43 +0000
 TNLast Accessed: 2001-01-01 02:01:01 +0000
@@ -10,13 +10,13 @@ TNMetadata:
 ---
 
 
+<pre class="action ideaaction">
 >%hdrrelated%
 ># Related #
 > * [[Blog-Archive]]
 > * [[SyntaxHighlighter]]
 > * [[Javascript]]
-
-# Bash Example
+</pre>
 
 This bash script is from Alex Gorbatchev's [page](http://alexgorbatchev.com/SyntaxHighlighter/).
 

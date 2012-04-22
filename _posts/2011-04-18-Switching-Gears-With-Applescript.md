@@ -10,6 +10,7 @@ TNMetadata:
 ---
 
 
+<pre class="action ideaaction">
 >%hdrrelated%
 > # Related #
 > * [[Blog-Archive]]
@@ -19,6 +20,7 @@ TNMetadata:
 > * [[MacVim]]
 > * [[Skim]]
 > * [[SyntaxHighlighter]]
+</pre>
 
 Occasionally, I use Safari to view a local file.  If it is a PDF, I might want to re-open it in another PDF reader (e.g. Preview or Skim).  If the file is a text file with an extension recognized by my text editor, I might want to open it in my preferred text editor.  This post explains how I accomplish this.
 
@@ -39,11 +41,8 @@ Ideally, this script should be extended
  1. to perform simple tests on the format of the __URL__, and
  1. to attempt to download a remote file before trying to open it locally
 
-Enjoy,
 
- - Stu
-
-{% highlight ascript %}
+{% highlight applescript %}
 (*
 Purpose: Use this script to re-open using "MacVim" a document that is open in
 "Safari".  The script detects the full path of the local file and re-opens it.

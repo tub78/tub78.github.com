@@ -10,16 +10,15 @@ TNMetadata:
 ---
 
 
+<pre class="action ideaaction">
 >%hdrrelated%
 ># Related
 > * [[Blog-Archive]]
 > * [[SyntaxHighlighter]]
 > * [[Cmdline-Blogging-With-Images]]
 > * [[GoogleTools]]
+</pre>
 
-<!--
-Title: Blogging-From-The-Command-Line
--->
 
 This note describes how to _blog from the command-line_ and some of my motivations for doing so.
 

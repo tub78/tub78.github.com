@@ -10,9 +10,11 @@ TNMetadata:
 ---
 
 
+<pre class="action ideaaction">
 >%hdrrelated%
 ># Related
 > * [[Blog-Archive]]
+</pre>
 
 This is simple enough ...
 

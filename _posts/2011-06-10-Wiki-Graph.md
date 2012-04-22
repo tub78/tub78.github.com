@@ -10,10 +10,12 @@ TNMetadata:
 ---
 
 
+<pre class="action ideaaction">
 >%hdrrelated%
 ># Related
 > * [[Python_WikiGraph]]
 > * [[Blog]]
+</pre>
 
 Recently, reflecting upon personal and community wikis, I realized that I had little insight into general patterns of linking that they followed.  This prompted a cursory expidition on Wikipedia, where I found the following quote, attributed to Vannevar Bush, 1945.
 

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: SyntaxHighlighter
+title: Syntax Highlighter
 TNTitle: SyntaxHighlighter
 TNTimestamp: 2011-02-02 01:31:56 +0000
 TNLast Accessed: 2001-01-01 02:01:01 +0000
@@ -10,6 +10,7 @@ TNMetadata:
 ---
 
 
+<pre class="action ideaaction">
 >%hdrrelated%
 > # Related #
 > * [[Blog-Archive]]
@@ -25,6 +26,7 @@ TNMetadata:
 > * [[Javascript]]
 > * [[Blog]]
 > * [[GoogleTools]]
+</pre>
 
 
 # Overview

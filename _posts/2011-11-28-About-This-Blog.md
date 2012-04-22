@@ -11,12 +11,13 @@ TNTags: VimWiki, TrunkNotes, Markdown, Discount, MathJax, SyntaxHighlighter, Jav
 
 
 
+<pre class="action ideaaction">
 >%hdrrelated%
 ># Related
 > * [[Blogging-From-The-Command-Line]]
 > * TN Discount Template [[Special:Header]]
 > * TN CSS [[Snippet_csscombined]]
--->
+</pre>
 
 ## Acknowledgements
 

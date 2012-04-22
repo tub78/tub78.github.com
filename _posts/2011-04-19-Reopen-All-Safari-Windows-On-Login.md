@@ -10,6 +10,7 @@ TNMetadata:
 ---
 
 
+<pre class="action ideaaction">
 >%hdrrelated%
 > # Related #
 > * [[Blog-Archive]]
@@ -17,6 +18,7 @@ TNMetadata:
 > * [[Safari]]
 > * [[Applescript]]
 > * [[SyntaxHighlighter]]
+</pre>
 
 
 __Safari__ provides an option to "Reopen All Windows From Last Session" under the "History" menu, but unfortunately does not allow one to automate this upon startup.  

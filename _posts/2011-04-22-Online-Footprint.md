@@ -10,13 +10,13 @@ TNMetadata:
 ---
 
 
-<pre class="ideaaction"> 
+<pre class="action ideaaction"> 
 [Disqus](http://disqus.com/tub78/)
-</pre>
 
 >%hdrrelated%
 ># Related
 > * [[Blog-Archive]]
+</pre>
 
 You can learn more about me by following these links.
 
