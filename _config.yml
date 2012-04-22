@@ -6,6 +6,8 @@ markdown: redcarpet
 redcarpet:
   extensions: ['autolink', 'fenced_code', 'tables', 'strikethrough', 'lax_htmlblock', 'no_intraemphasis']
 
+# Github defaults ['fenced_code', 'tables', 'strikethrough', 'lax_htmlblock', 'gh_blockcode']
+# Github comment defaults ['fenced_code', 'tables', 'strikethrough', 'lax_htmlblock', 'gh_blockcode', 'hard_wrap', 'autolink]'
 
 # extensions: ['no_intra_emphasis', 'tables', 'fenced_code_blocks', 'autolink', 'space_after_headers', 'superscript']
 # render_options: ['filter_html', 'with_toc_data']
