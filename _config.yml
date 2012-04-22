@@ -4,16 +4,18 @@ pygments: true
 
 markdown: redcarpet
 redcarpet:
-  extensions: ['no_intra_emphasis', 'tables', 'fenced_code_blocks', 'autolink', 'space_after_headers', 'superscript']
-  render_options: ['filter_html', 'with_toc_data']
+  extensions: ['autolink', 'fenced_code', 'tables', 'strikethrough', 'lax_htmlblock', 'no_intraemphasis']
+
+
+# extensions: ['no_intra_emphasis', 'tables', 'fenced_code_blocks', 'autolink', 'space_after_headers', 'superscript']
+# render_options: ['filter_html', 'with_toc_data']
 
 # markdown: rdiscount
 # rdiscount:
 #   extensions:
 
 
-exclude: [ 'vendor'
-            #'2011-11-28-About-This-Blog.md',
+exclude: [ #'2011-11-28-About-This-Blog.md',
             #'2011-11-16-Low-Hanging-Fruit.md',
             #'2011-11-09-Mac-OSX-Universal-Access.md',
             #'2011-11-07-MathJax-v2.md',
@@ -32,5 +34,6 @@ exclude: [ 'vendor'
             #'2011-03-22-MathJax.md',
             #'2011-03-22-SyntaxHighlighter.md',
             #'2011-03-22-SyntaxHighlighterBash.md',
-            #'2011-03-14-BlogTemplate.md'
+            #'2011-03-14-BlogTemplate.md',
+            'vendor'
             ]
