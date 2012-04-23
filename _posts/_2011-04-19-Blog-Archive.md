@@ -1,6 +1,9 @@
 ---
 layout: post
 title: Blog Archive
+tags: [Organization, Index]
+comments: true
+analytics: true
 TNTitle: Blog-Archive
 TNTimestamp: 2001-01-01 01:01:01 -0100
 TNLast Accessed: 2001-01-01 01:01:01 -0100

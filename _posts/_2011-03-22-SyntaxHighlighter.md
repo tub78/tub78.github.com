@@ -1,6 +1,9 @@
 ---
 layout: post
 title: Syntax Highlighter
+tags: [Javascript, Html]
+comments: true
+analytics: true
 TNTitle: SyntaxHighlighter
 TNTimestamp: 2011-02-02 01:31:56 +0000
 TNLast Accessed: 2001-01-01 02:01:01 +0000

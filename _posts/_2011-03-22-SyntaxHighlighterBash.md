@@ -1,6 +1,9 @@
 ---
 layout: post
 title: Bash Syntax Highlighter Example
+tags: [Javascript, Html, CmdLine]
+comments: true
+analytics: true
 TNTitle: SyntaxHighlighterBash
 TNTimestamp: 2011-02-01 20:36:43 +0000
 TNLast Accessed: 2001-01-01 02:01:01 +0000

@@ -1,6 +1,9 @@
 ---
 layout: post
-title: BlogTemplate
+title: Blog Template
+tags: [Html, Markdown]
+comments: true
+analytics: true
 TNTitle: BlogTemplate
 TNTimestamp: 2011-03-13 18:38:09 +0000
 TNLast Accessed: 2001-01-01 02:01:01 +0000

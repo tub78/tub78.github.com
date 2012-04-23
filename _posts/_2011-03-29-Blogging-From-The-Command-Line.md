@@ -1,6 +1,9 @@
 ---
 layout: post
 title: Blogging From The Command Line
+tags: [CmdLine, Markdown, Discount, GoogleCL, Bash, SyntaxHighlighter]
+comments: true
+analytics: true
 TNTitle: Blogging-From-The-Command-Line
 TNTimestamp: 2011-04-14 01:29:30 +0000
 TNLast Accessed: 2001-01-01 02:01:01 +0000
