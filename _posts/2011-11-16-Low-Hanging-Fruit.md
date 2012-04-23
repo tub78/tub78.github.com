@@ -32,12 +32,26 @@ TNMetadata:
 [False Discovery Rate]: http://en.wikipedia.org/wiki/False_Discovery_Rate
 
 
+[Figure_1]: sim.t.test.density-p-value-p1.jpg "Figure 1"
+[Figure_2]: sim.t.test.density-p-value-p2.jpg "Figure 2"
+[Figure_3]: sim.t.test.density-p-value-p3.jpg "Figure 3"
+[Figure_4]: sim.t.test.density-p-value-p4.jpg "Figure 4"
+
 <!--
 [sim.t.test.density-p-value-p1.jpg]: http://lh3.ggpht.com/-AHYz5NXycB0/TsRmvcFx40I/AAAAAAAABLE/i-OFk4ttoMc/sim.t.test.density-p-value-p1.jpg =340x "Figure 1"
 [sim.t.test.density-p-value-p2.jpg]: http://lh5.ggpht.com/-wJop5cKhbjo/TsRmwHgEGII/AAAAAAAABLI/dnim9avBhAE/sim.t.test.density-p-value-p2.jpg =340x "Figure 2"
 [sim.t.test.density-p-value-p3.jpg]: http://lh3.ggpht.com/-uSfKnS_-WRQ/TsRmwxz7EBI/AAAAAAAABLM/yKqLXcC4RwI/sim.t.test.density-p-value-p3.jpg =340x "Figure 3"
 [sim.t.test.density-p-value-p4.jpg]: http://lh4.ggpht.com/-OY15_MfRzdE/TsRmxXjKp0I/AAAAAAAABLQ/_EF_TaGBlyw/sim.t.test.density-p-value-p4.jpg =340x "Figure 4"
 # Low-Hanging Fruit
+> %justcenter%
+> ![sim.t.test.density-p-value-p1.jpg][]
+>
+> Figure 1
+>
+> ![sim.t.test.density-p-value-p2.jpg][]
+>
+> Figure 2
+<div class="justcenter"> </div>
 -->
 
 A central problem in genomics is the identification of the molecular machinery that is responsible for the phenotype, the set of all observable characteristics, of an organism.  One of the more informative sources of evidence is _gene expression_, which is the abundance of molecules that a gene produces in a given context.  The advent of high-throughput technologies and related statistical methods provide a means to pick the most probable candidate genes - the "low-hanging fruit" - that determine phenotype.
@@ -95,14 +109,8 @@ In the figures below, the shape and variability of the distribution of p-values 
 
 Figure 1 shows the distribution of p-values when the groups are differentially expressed, with [](raw:\( \mu_i = 0 \)) and [](raw:\( \nu_i = 1 \)) for all [](raw:\( i \)) .  By design, a large proportion of p-values are close to zero, and for [](raw:\( N \geq 7 \)),  below the commonly-used [](raw:\( \alpha = 0.05 \)) level-of-significance.  However, each distribution has a long tail that extends toward [](raw:\( p_i = 1 \)).  This effect is most pronounced for [](raw:\( N=3 \)), which is a reflection of the diminishing power of the T-test as [](raw:\( N \)) decreases.  Thus, for [](raw:\( N \geq 7 \)), it is relatively easy to detect differential expression.
 
-> %justcenter%
-> ![sim.t.test.density-p-value-p1.jpg][]
->
-> Figure 1
->
-> ![sim.t.test.density-p-value-p2.jpg][]
->
-> Figure 2
+Figure 1 & 2: ![Figure_1][] ![Figure_2][]
+
 
 Figure 2 shows the distribution of p-values when groups [](raw:\( A_i \)) and [](raw:\( B_i \)) have the same mean [](raw:\( \mu_i = \nu_i \)) for all [](raw:\( i \)), and so are not differentially expressed.  The p-values are approximately uniformly distributed, in accordance with a classical result in statistics.  Roughly speaking, since under the null-hypothesis (non-DE) the test statistic follows a Student's-t distribution, the p-value is obtained from its cumulative distribution function, and is therefore uniform.  See [[here][here1]], [[here][here2]], and [[here][here3]] for details.
 
@@ -119,14 +127,8 @@ Figures 3 and 4 show the effect of FDR-correction on the distributions of p-valu
 
 For example, for [](raw:\( N=3 \)) in Figure 3, the red curve shows an estimated false discovery rate of between 10-20% amongst the first selected DE genes.  Fortunately, as shown in Figure 4, non-DE genes are assigned FDR-corrected p-values close to 1 thereby diminishing the chance that these genes will be selected. 
 
-> %justcenter%
-> ![sim.t.test.density-p-value-p3.jpg][]
->
-> Figure 3
->
-> ![sim.t.test.density-p-value-p4.jpg][]
->
-> Figure 4
+Figure 3 & 4: ![Figure_3][] ![Figure_4][]
+
 
 Caveat 
 : In practice, FDR-correction is applied to the mixture of p-values from DE and non-DE genes.  Figures 3 and 4 do not accurately represent the behaviour of FDR-correction on this mixture, because each corrected p-value depends on the input collection to which it belongs.  A more informative result could be obtained by performing FDR-correction on the entire set of simulated genes, DE and non-DE, before segregating and plotting.

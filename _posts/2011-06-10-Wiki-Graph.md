@@ -17,6 +17,12 @@ TNMetadata:
 > * [[Blog]]
 </pre>
 
+[Figure_1]: wg-family-bicycle-work-rev2_2011-06-10_23-23-35.jpg "Figure 1"
+[Figure_2]: wg-prog-2011_06_11-23_40_56.jpg "Figure 2"
+[Figure_3]: wg-software-2011_06_12-00_07_06.jpg "Figure 3"
+
+<!-- ![XXX-wg-family-bicycle-work-rev2_2011-06-10_23-23-35.png][] -->
+
 Recently, reflecting upon personal and community wikis, I realized that I had little insight into general patterns of linking that they followed.  This prompted a cursory expidition on Wikipedia, where I found the following quote, attributed to Vannevar Bush, 1945.
 
  > "Wholly new forms of encyclopedias will appear, ready-made with a mesh of associative trails running through them, ready to be dropped into the memex and there amplified." - Vannevar Bush^1
@@ -25,11 +31,7 @@ What great vision!  To develop a better understanding of the "mesh of associativ
 
 _WikiGraph_ is a tool that I wrote in Python to extract and visualize the [[hyperlink]] structure from a collection of wiki pages.  Below is an example of the output it generates.  Pages are represented by nodes whose labels consist of the page title, and links from one page to another are directed edges.
 
-![XXX-wg-family-bicycle-work-rev2_2011-06-10_23-23-35.jpg][XXX-wg-family-bicycle-work-rev2_2011-06-10_23-23-35.jpg]
-[XXX-wg-family-bicycle-work-rev2_2011-06-10_23-23-35.jpg]: http://lh3.ggpht.com/-tlIKybACStc/TfLlhFKoh7I/AAAAAAAABHM/nVseuLoi6Lw/wg-family-bicycle-work-rev2_2011-06-10_23-23-35.jpg =600
-
-<!-- ![XXX-wg-family-bicycle-work-rev2_2011-06-10_23-23-35.png][] -->
-
+![Figure_1][]
 
 # Usage
 
@@ -141,13 +143,10 @@ After using _WikiGraph_ for only a short while, I confirmed several opinions tha
 
 Here are two additional examples summarizing the `Prog` and `Software` tags, respectively:
 
-![XXX-wg-prog-2011_06_11-23_40_56.jpg][XXX-wg-prog-2011_06_11-23_40_56.jpg]
+![Figure_2][]
 
-[XXX-wg-prog-2011_06_11-23_40_56.jpg]: http://lh3.ggpht.com/-WtTfrcREV9k/TfQ2NaWlZVI/AAAAAAAABHc/UjpyUJyCIhc/wg-prog-2011_06_11-23_40_56.jpg =600x
+![Figure_3][]
 
-![XXX-wg-software-2011_06_12-00_07_06.jpg][XXX-wg-software-2011_06_12-00_07_06.jpg]
-
-[XXX-wg-software-2011_06_12-00_07_06.jpg]: http://lh4.ggpht.com/-ug2yr8S4Zsg/TfUKc9m3jUI/AAAAAAAABH4/TeSSfS2AQoU/wg-software-2011_06_12-00_07_06.jpg =600x
 
 While link creation has been simplified by editors and lightweight markup syntaxes, to a degree, the size of the benefit of maintaining a wiki reflects the amount of time invested.  This raises the question: Can the ongoing maintenance of a wiki, and especially its link structure, be automated in some manner?  Perhaps there is a way of harnessing existing wikis, knowledge databases, or [[ontologies][Ontology]] to automatically link wiki pages.  After all, there are continuing and new efforts to build structured databases of various sorts.  A recent example is _Freebase_, described [[here][Freebase Home]] and [[here][Freebase Wiki]].  Based on my initial observations, harnessing this knowledge could work insofar as it could predict hubs and authorities, as opposed to hierarchical structure.  A related problem has recently been addressed in this [[paper][Learning Structured Embeddings of Knowledge Bases]].
 

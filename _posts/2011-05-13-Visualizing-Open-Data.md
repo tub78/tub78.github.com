@@ -17,12 +17,13 @@ TNMetadata:
 > * [Sparse Matrix Collection]
 </pre>
 
+[Figure_1]: Andrews@Andrews.jpg "Figure 1"
  
 # A Recent Discovery
 
 As I was investigating software to visualize large graphs, I was delighted to discover the following image:
 
-![Andrews@Andrews.jpg][]
+![Figure_1][]
 
 This was produced by `sfdp`, an algorithm from the [[Graphviz package]] that [[Yifan Hu]] designed to handle large graphs.  Yifan has generated an impressive [[gallery of images]] from the entire [[Sparse Matrix Collection]]
  from the University of Florida.
