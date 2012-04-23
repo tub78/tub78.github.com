@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Visualizing Open Data
+description: 
 tags: [Graph, Visualization, MachineLearning, OpenData]
 comments: true
 analytics: true

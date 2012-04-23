@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Bash Syntax Highlighter Example
+description: 
 tags: [Javascript, Html, CmdLine]
 comments: true
 analytics: true

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Blog Archive
+description: 
 tags: [Organization, Index]
 comments: true
 analytics: true

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Blog Template
+description: 
 tags: [Html, Markdown]
 comments: true
 analytics: true

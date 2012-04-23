@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Syntax Highlighter
+description: 
 tags: [Javascript, Html]
 comments: true
 analytics: true

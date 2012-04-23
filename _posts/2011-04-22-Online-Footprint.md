@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Online Footprint
+description: 
 tags: [Social, Web, Index, Prog]
 comments: true
 analytics: true

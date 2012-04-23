@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Wiki Graph
+description: 
 tags: [Python, Wiki, Graph]
 comments: true
 analytics: true

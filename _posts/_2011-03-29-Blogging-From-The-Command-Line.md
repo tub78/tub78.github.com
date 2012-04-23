@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Blogging From The Command Line
+description: 
 tags: [CmdLine, Markdown, Discount, GoogleCL, Bash, SyntaxHighlighter]
 comments: true
 analytics: true

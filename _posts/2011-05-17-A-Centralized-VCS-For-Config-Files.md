@@ -1,6 +1,7 @@
 ---
 layout: post
 title: A Centralized VCS For Config Files
+description: 
 tags: [VCS, Bash, Hg]
 comments: true
 analytics: true

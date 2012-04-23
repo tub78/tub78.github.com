@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Cmdline Convert Word Doc 2 Pdf
+description: 
 tags: [CmdLine, GoogleCL, Bash, Pdf]
 comments: true
 analytics: true
@@ -56,8 +57,8 @@ Please check [https://github.com/tub78/GDocs2Pdf](https://github.com/tub78/GDocs
 
 {% highlight bash %}
 #!/bin/bash
-# usage: gdocs2pdf.sh &lt;file&gt;
-[ $# -eq 1 ] || { echo "usage: $(basename $0) &lt;file&gt;"; exit 1; }
+# usage: gdocs2pdf.sh <file>
+[ $# -eq 1 ] || { echo "usage: $(basename $0) <file>"; exit 1; }
 TITLE=$(basename "$1")
 DIR=$(dirname "$1")
 FOLDER=GDocs2Pdf

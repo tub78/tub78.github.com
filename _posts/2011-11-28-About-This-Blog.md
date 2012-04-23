@@ -1,6 +1,7 @@
 ---
 layout: post
 title: About This Blog
+description: 
 tags: [VimWiki, TrunkNotes, Markdown, Discount, MathJax, SyntaxHighlighter, Javascript, JQuery, Css, Html]
 comments: true
 analytics: true

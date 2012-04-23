@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Mac OSX Universal Access
+description: 
 tags: [Tutorial, MacOSX, Visualization]
 comments: true
 analytics: true

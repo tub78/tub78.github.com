@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Switching Gears With Applescript
+description: 
 tags: [Applescript, Safari, MacVim, Skim]
 comments: true
 analytics: true

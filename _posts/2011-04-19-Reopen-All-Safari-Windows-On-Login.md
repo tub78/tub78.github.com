@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Reopen All Safari Windows On Login
+description: 
 tags: [Applescript, Safari]
 comments: true
 analytics: true

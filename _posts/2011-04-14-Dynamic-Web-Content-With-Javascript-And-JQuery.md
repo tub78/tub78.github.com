@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Dynamic Web Content With Javascript And JQuery
+description: 
 tags: [Html, Javascript]
 comments: true
 analytics: true
