@@ -1,6 +1,26 @@
 
-
+auto: true
 pygments: true
+
+
+title : Internal Structure
+tagline: Tagline
+author :
+  name : Stuart Andrews
+  email : blah@email.test
+  github : tub78
+  twitter : tub78
+  feedburner : feedname
+
+analytics :
+  provider : google 
+  google : 
+    tracking_id : 'UA-2216067-4'
+
+comments :
+  provider : disqus
+  disqus :
+    short_name : 'istructure'
 
 markdown: redcarpet
 redcarpet:
@@ -37,5 +57,5 @@ exclude: [ #'2011-11-28-About-This-Blog.md',
             #'2011-03-22-SyntaxHighlighter.md',
             #'2011-03-22-SyntaxHighlighterBash.md',
             #'2011-03-14-BlogTemplate.md',
-            'vendor'
+            'vendor',
             ]
