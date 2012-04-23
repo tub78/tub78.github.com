@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Wiki Graph
+title: Wiki Graph - A Visualization Tool For Wikis
 description: 
 tags: [Python, Wiki, Graph]
 comments: true

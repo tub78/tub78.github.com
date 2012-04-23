@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Mac OSX Universal Access
+title: Using Magnifaction In Mac OSX
 description: 
 tags: [Tutorial, MacOSX, Visualization]
 comments: true

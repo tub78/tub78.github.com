@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Cmdline Convert Word Doc 2 Pdf
-description: 
+title: Convert To Pdf From The Cmdline
+description: Convert Files (.doc, .ppt, .txt, etc.) To Pdf From The Cmdline
 tags: [CmdLine, GoogleCL, Bash, Pdf]
 comments: true
 analytics: true

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Low Hanging Fruit
+title: An Empirical Justification Of False Discovery Rate Correction With Small Samples
 description: 
 tags: [Gene, Genomics, Biology, Rstats, Ttest]
 comments: true
