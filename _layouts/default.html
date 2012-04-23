@@ -47,6 +47,7 @@
         <a class="extra" href="/">home</a>
         <button id="daynight">Day/Night</button>
         <span class="tiny">[<a href="/about.html">About</a>]</span>
+        <hr>
       </div>
 
       <div class="content">
@@ -56,12 +57,8 @@
         <div class="contact">
           <p>
           by {{ site.author.name }}
-          </p>
-        </div>
-        <div class="contact">
-          <p>
-          <a href="http://github.com/{{ site.author.github }}/">github.com/{{ site.author.github }}</a><br />
-          <a href="http://twitter.com/{{ site.author.twitter }}/">twitter.com/{{ site.author.twitter }}</a>
+          <a href="http://github.com/{{ site.author.github }}/">{{ site.author.github }}@github</a>
+          <a href="http://twitter.com/{{ site.author.twitter }}/">{{ site.author.twitter }}@twitter</a>
           </p>
         </div>
       </div>
