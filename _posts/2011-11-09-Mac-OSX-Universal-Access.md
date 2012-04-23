@@ -1,6 +1,9 @@
 ---
 layout: post
 title: Mac OSX Universal Access
+tags: [Tutorial, MacOSX, Visualization]
+comments: true
+analytics: true
 TNTitle: Mac-OSX-Universal-Access
 TNTimestamp: 2011-11-09 21:46:48 +0000
 TNCreated: 2011-11-09 12:04:34 +0000

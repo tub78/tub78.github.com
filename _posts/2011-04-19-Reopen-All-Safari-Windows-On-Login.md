@@ -1,6 +1,9 @@
 ---
 layout: post
 title: Reopen All Safari Windows On Login
+tags: [Applescript, Safari]
+comments: true
+analytics: true
 TNTitle: Reopen-All-Safari-Windows-On-Login
 TNTimestamp: 2011-04-19 17:18:32 +0000
 TNLast Accessed: 2001-01-01 02:01:01 +0000

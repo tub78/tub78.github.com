@@ -1,6 +1,9 @@
 ---
 layout: post
 title: Visualizing Open Data
+tags: [Graph, Visualization, MachineLearning, OpenData]
+comments: true
+analytics: true
 TNTitle: Visualizing-Open-Data
 TNTimestamp: 2011-05-13 19:58:55 +0000
 TNCreated: 2011-05-14 17:21:10 +0000

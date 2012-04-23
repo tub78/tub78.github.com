@@ -1,6 +1,9 @@
 ---
 layout: post
 title: Switching Gears With Applescript
+tags: [Applescript, Safari, MacVim, Skim]
+comments: true
+analytics: true
 TNTitle: Switching-Gears-With-Applescript
 TNTimestamp: 2011-04-18 21:07:37 +0000
 TNLast Accessed: 2001-01-01 02:01:01 +0000

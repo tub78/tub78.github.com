@@ -1,6 +1,9 @@
 ---
 layout: post
 title: About This Blog
+tags: [VimWiki, TrunkNotes, Markdown, Discount, MathJax, SyntaxHighlighter, Javascript, JQuery, Css, Html]
+comments: true
+analytics: true
 TNTitle: About-This-Blog
 TNTimestamp: 2011-11-28 17:05:21 +0000
 TNCreated: 2011-11-28 09:31:54 +0000

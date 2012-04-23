@@ -1,6 +1,9 @@
 ---
 layout: post
 title: Online Footprint
+tags: [Social, Web, Index, Prog]
+comments: true
+analytics: true
 TNTitle: Online-Footprint
 TNTimestamp: 2011-04-22 20:04:05 +0000
 TNLast Accessed: 2001-01-01 02:01:01 +0000

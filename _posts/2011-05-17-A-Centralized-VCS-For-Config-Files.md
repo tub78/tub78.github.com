@@ -1,6 +1,9 @@
 ---
 layout: post
 title: A Centralized VCS For Config Files
+tags: [VCS, Bash, Hg]
+comments: true
+analytics: true
 TNTitle: A-Centralized-VCS-For-Config-Files
 TNTimestamp: 2011-05-17 01:54:19 +0000
 TNCreated: 2011-05-17 02:31:21 +0000

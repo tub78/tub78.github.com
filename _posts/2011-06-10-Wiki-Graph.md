@@ -1,6 +1,9 @@
 ---
 layout: post
 title: Wiki Graph
+tags: [Python, Wiki, Graph]
+comments: true
+analytics: true
 TNTitle: Wiki-Graph
 TNTimestamp: 2001-01-01 01:01:01 -0100
 TNLast Accessed: 2001-01-01 01:01:01 -0100

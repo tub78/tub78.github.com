@@ -1,6 +1,9 @@
 ---
 layout: post
 title: Hadoop Filesystem Tools
+tags: [CmdLine, Bash, Hadoop, HDFS]
+comments: true
+analytics: true
 TNTitle: Hadoop-Filesystem-Tools
 TNTimestamp: 2011-09-08 01:53:45 +0000
 TNCreated: 2011-09-08 14:44:08 +0000
