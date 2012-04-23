@@ -1,18 +1,19 @@
 <!doctype html>
 <!-- !doctype html public "-//W3C//DTD HTML 4.0 Transitional //EN"> -->
 <html>
-<head>
+  <head>
     <meta http-equiv="content-type" content="text/html; charset=utf8" /> 
     <title>{{ page.title }}</title>
-    <meta name="author"  content="Stuart Andrews"/>
+    {% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
+    <meta name="author"  content="{{ site.author.name }}"/>
 
     <!-- 2011-03-21 START CUSTOM HEADER -->
 
-    <!-- Stylesheet: Homepage -->
-    <link href='/css/style-combined.css' type='text/css' rel='stylesheet'/>
-
     <!-- Stylesheet: Pygments -->
     <link href='/css/pygments.css' type='text/css' rel='stylesheet'/>
+
+    <!-- Stylesheet: Homepage -->
+    <link href='/css/style-combined.css' type='text/css' rel='stylesheet'/>
 
     <!-- MATHJAX hosted CDN.MATHJAX.ORG -->
     <script type='text/javascript' src='http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML'> MathJax.Hub.Config({ extensions: ["tex2jax.js","MathMenu.js","MathZoom.js"], jax: ["input/TeX","output/HTML-CSS"], tex2jax: {inlineMath: [["\\(","\\)"]], skipTags: ["script","noscript","style","textarea","pre"], processEnvironments: true}, TeX: { extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"] } }); </script>
@@ -22,89 +23,64 @@
 
     <!-- DAYTIME/NIGHTTIME JAVASCRIPT -->
     <script language="javascript">//<![CDATA[ 
-        $(document).ready(function(){
-            // Display day mode between 7am and 8pm 
-            var currentTime = new Date().getHours();
-            // 2011-11-19 if (currentTime < 19) {
-            if (7 <= currentTime && currentTime < 19) {
-                $(".todoaction,.ideaaction,.bugaction,.doneaction,body,h1,h2,h3,h4,h5,h6,a,a.missing-wiki-link,th,blockquote,code").addClass("day");
-            } else {
-                $(".todoaction,.ideaaction,.bugaction,.doneaction,body,h1,h2,h3,h4,h5,h6,a,a.missing-wiki-link,th,blockquote,code").addClass("night");
-            }
-
-            $("button#daynight").click(function(){
-                $(".todoaction,.ideaaction,.bugaction,.doneaction,body,h1,h2,h3,h4,h5,h6,a,a.missing-wiki-link,th,blockquote,code").toggleClass("day");
-                $(".todoaction,.ideaaction,.bugaction .doneaction,body,h1,h2,h3,h4,h5,h6,a,a.missing-wiki-link,th,blockquote,code").toggleClass("night");
-            });
-
-            $("button#hdrcontents").click(function(){ $("div.hdrcontents").toggle(); });
-            $("button#hdrtags").click(function(){ $("div.hdrtags").toggle(); });
-            $("button#hdrbacklinks").click(function(){ $("div.hdrbacklinks").toggle(); });
-            $("button#hdrrelated").click(function(){ $("div.hdrrelated").toggle(); });
-
+      $(document).ready(function(){
+        // Display day mode between 7am and 8pm 
+        var currentTime = new Date().getHours();
+        if (7 <= currentTime && currentTime < 19) {
+          $(".todoaction,.ideaaction,.bugaction,.doneaction,body,h1,h2,h3,h4,h5,h6,a,a.missing-wiki-link,th,blockquote,code").addClass("day");
+          } else {
+          $(".todoaction,.ideaaction,.bugaction,.doneaction,body,h1,h2,h3,h4,h5,h6,a,a.missing-wiki-link,th,blockquote,code").addClass("night");
+        }
+        $("button#daynight").click(function(){
+          $(".todoaction,.ideaaction,.bugaction,.doneaction,body,h1,h2,h3,h4,h5,h6,a,a.missing-wiki-link,th,blockquote,code").toggleClass("day");
+          $(".todoaction,.ideaaction,.bugaction .doneaction,body,h1,h2,h3,h4,h5,h6,a,a.missing-wiki-link,th,blockquote,code").toggleClass("night");
         });
-    //]]></script>
+      });
+      //]]></script>
     <!-- 2011-03-21 END CUSTOM HEADER -->
-</head>
-<body>
-<!-- START BODY -->
-<div class="site">
-    <!-- HEADER -->
-    <div class="title">
-        <a href="/">Internal Structure</a>
+  </head>
+  <body>
+    <!-- START BODY -->
+    <div class="site">
+      <div class="title">
+        <a href="/">{{ site.title }}</a>
         <a class="extra" href="/">home</a>
-        <!-- BUTTONS -->
         <button id="daynight">Day/Night</button>
-        <button id="hdrcontents">Contents</button>
-        <!-- <button id="hdrtags">Tags</button> -->
-        <!-- <button id="hdrbacklinks">Backlinks</button> -->
-        <button id="hdrrelated">Related</button>
-        <span class="tiny">[<a href="/2011/11/28/About-This-Blog.html">About</a>]</span>
-    </div>
-    <hr>
-    <!-- CONTENTS -->
-    <!-- 
-    <div class="hdrcontents">
-    <h1>Contents</h1>
-    <?theme toc?>
-    </div>
-    -->
-    <!-- TAGS -->
-    <!-- BACKLINKS -->
+        <span class="tiny">[<a href="/about.html">About</a>]</span>
+      </div>
 
-    <!-- CONTENT -->
-    {{ content }}
-
-    <!-- FOOTER -->
-    <div class="footer">
+      <div class="content">
+        {{ content }}
+      </div>
+      <div class="footer">
         <div class="contact">
-            <p>
-            by Stuart Andrews
-            </p>
+          <p>
+          by {{ site.author.name }}
+          </p>
         </div>
         <div class="contact">
-            <p>
-            <a href="http://github.com/tub78/">github.com/tub78</a><br />
-            <a href="http://twitter.com/tub78/">twitter.com/tub78</a>
-            </p>
+          <p>
+          <a href="http://github.com/{{ site.author.github }}/">github.com/{{ site.author.github }}</a><br />
+          <a href="http://twitter.com/{{ site.author.twitter }}/">twitter.com/{{ site.author.twitter }}</a>
+          </p>
         </div>
-    </div>
-</div>
+      </div>
+    </div> <!-- site -->
 
-<!-- Google Analytics -->
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-2216067-4']);
-  _gaq.push(['_trackPageview']);
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
-<!-- Google Analytics end -->
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', '{{ site.analytics.google.tracking_id }}']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+       })();
+     </script>
+     <!-- Google Analytics end -->
 
-<!-- END BODY -->
-</body>
-</html>
+     <!-- END BODY -->
+   </body>
+ </html>
 
