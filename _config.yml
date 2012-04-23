@@ -57,5 +57,5 @@ exclude: [ #'2011-11-28-About-This-Blog.md',
             #'2011-03-22-SyntaxHighlighter.md',
             #'2011-03-22-SyntaxHighlighterBash.md',
             #'2011-03-14-BlogTemplate.md',
-            'vendor',
+            'vendor'
             ]
