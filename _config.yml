@@ -37,25 +37,5 @@ redcarpet:
 #   extensions:
 
 
-exclude: [ #'2011-11-28-About-This-Blog.md',
-            #'2011-11-16-Low-Hanging-Fruit.md',
-            #'2011-11-09-Mac-OSX-Universal-Access.md',
-            #'2011-11-07-MathJax-v2.md',
-            #'2011-09-06-Hadoop-Filesystem-Tools.md',
-            #'2011-06-10-Wiki-Graph.md',
-            #'2011-05-17-A-Centralized-VCS-For-Config-Files.md',
-            #'2011-05-13-Visualizing-Open-Data.md',
-            #'2011-05-06-Cmdline-Convert-Word-Doc-2-Pdf.md',
-            #'2011-04-22-Online-Footprint.md',
-            #'2011-04-19-Blog-Archive.md',
-            #'2011-04-19-Reopen-All-Safari-Windows-On-Login.md',
-            #'2011-04-18-Switching-Gears-With-Applescript.md',
-            #'2011-04-14-Ooops-Broken-Link.md',
-            #'2011-04-14-Dynamic-Web-Content-With-Javascript-And-JQuery.md',
-            #'2011-03-29-Blogging-From-The-Command-Line.md',
-            #'2011-03-22-MathJax.md',
-            #'2011-03-22-SyntaxHighlighter.md',
-            #'2011-03-22-SyntaxHighlighterBash.md',
-            #'2011-03-14-BlogTemplate.md',
-            'vendor'
+exclude: [ 'vendor'
             ]
