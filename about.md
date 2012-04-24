@@ -2,7 +2,6 @@
 layout: default
 title: About This Blog
 description: 
-tags: [VimWiki, TrunkNotes, Markdown, Discount, MathJax, SyntaxHighlighter, Javascript, JQuery, Css, Html]
 comments: true
 analytics: true
 TNTitle: About-This-Blog
@@ -25,17 +24,23 @@ TNTags: VimWiki, TrunkNotes, Markdown, Discount, MathJax, SyntaxHighlighter, Jav
 
 ## Acknowledgements
 
-Built with Vimwiki, Trunk Notes, Markdown, Discount, MathJax, Syntax Highlighter, Javascript, JQuery, CSS & Html.
+Built with Vimwiki, Trunk Notes, Jekyll, RedCarpet, Pygments & MathJax
 
-## Environments (For Local Access Only)
+## Environments
 ### iOS
 
- * Discount Template: [SpecialHeader.html](file:///Users/stu/Desktop/Dropbox/Documents/TrunkNotes/Html/SpecialHeader.html)
- * CSS: [Snippet_csscombined.html](file:///Users/stu/Desktop/Dropbox/Documents/TrunkNotes/Html/Snippet_csscombined.html)
+ * [[Discount Template][TNDiscount_Template]]
+ * [[Stylesheet][TNStylesheet]]
 
-### Local
+[TNDiscount_Template]: http://github.com/tub78/TrunkNotes/Html/SpecialHeader.html
+[TNStylesheet]: http://github.com/tub78/TrunkNotes/Html/Snippet_csscombined.html
 
- * Jekyll Template: [default.html](file:///Users/stu/Desktop/Dropbox/Documents/TrunkNotes/tub78.github.com/_layouts/default.html)
- * CSS: [style-combined.css](file:///Users/stu/Desktop/Dropbox/Documents/TrunkNotes/tub78.github.com/css/style-combined.css)
+### Web
 
+ * [[Default Template][Default_Template]]
+ * [[Post Template][Post_Template]]
+ * [[Stylesheet][Stylesheet]]
 
+[Default_Template]: https://github.com/tub78/tub78.github.com/blob/master/_layouts/default.html
+[Post_Template]: https://github.com/tub78/tub78.github.com/blob/master/_layouts/post.html
+[Stylesheet]: https://github.com/tub78/tub78.github.com/blob/master/css/style-combined.css
