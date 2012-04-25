@@ -23,17 +23,18 @@
 
     <!-- DAYTIME/NIGHTTIME JAVASCRIPT -->
     <script language="javascript">//<![CDATA[ 
+      /* $(window).load(function() { */
       $(document).ready(function(){
         // Display day mode between 7am and 8pm 
         var currentTime = new Date().getHours();
         if (7 <= currentTime && currentTime < 19) {
-          $(".todoaction,.ideaaction,.bugaction,.doneaction,body,h1,h2,h3,h4,h5,h6,a,a.missing-wiki-link,th,blockquote,code").addClass("day");
+          $(".title,.todoaction,.ideaaction,.bugaction,.doneaction,body,h1,h2,h3,h4,h5,h6,a,a.missing-wiki-link,th,blockquote,code").addClass("day");
           } else {
-          $(".todoaction,.ideaaction,.bugaction,.doneaction,body,h1,h2,h3,h4,h5,h6,a,a.missing-wiki-link,th,blockquote,code").addClass("night");
+          $(".title,.todoaction,.ideaaction,.bugaction,.doneaction,body,h1,h2,h3,h4,h5,h6,a,a.missing-wiki-link,th,blockquote,code").addClass("night");
         }
         $("button#daynight").click(function(){
-          $(".todoaction,.ideaaction,.bugaction,.doneaction,body,h1,h2,h3,h4,h5,h6,a,a.missing-wiki-link,th,blockquote,code").toggleClass("day");
-          $(".todoaction,.ideaaction,.bugaction .doneaction,body,h1,h2,h3,h4,h5,h6,a,a.missing-wiki-link,th,blockquote,code").toggleClass("night");
+          $(".title,.todoaction,.ideaaction,.bugaction,.doneaction,body,h1,h2,h3,h4,h5,h6,a,a.missing-wiki-link,th,blockquote,code").toggleClass("day");
+          $(".title,.todoaction,.ideaaction,.bugaction .doneaction,body,h1,h2,h3,h4,h5,h6,a,a.missing-wiki-link,th,blockquote,code").toggleClass("night");
         });
       });
       //]]></script>
@@ -42,12 +43,10 @@
   <body>
     <!-- START BODY -->
     <div class="site">
-      <div class="title">
-        <a href="/">{{ site.title }}</a>
-        <a class="extra" href="/">home</a>
+      <div class="header">
+        <span class="title"><a href="/">{{ site.title }}</a></span>
         <button id="daynight">Day/Night</button>
-        <span class="tiny">[<a href="/about.html">About</a>]</span>
-        <hr>
+        <!-- <hr> -->
       </div>
 
       <div class="content">
@@ -59,6 +58,7 @@
           by {{ site.author.name }}
           <a href="http://github.com/{{ site.author.github }}/">@{{ site.author.github }} (github)</a>
           <a href="http://twitter.com/{{ site.author.twitter }}/">@{{ site.author.twitter }} (twitter)</a>
+          <span class="tiny">[<a href="/about.html">About this blog</a>]</span>
           </p>
         </div>
       </div>

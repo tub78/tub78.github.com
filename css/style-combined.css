@@ -236,12 +236,16 @@ h6.night {
 a {
     text-decoration: none;
     border-bottom: 1px dotted;
+    color: #6C71C4;
 }
 a.day {
-    color: #0000FF;
+    /* color: #0000FF; */
+    /* color: #CB4B16 */
+    /* color: #6C71C4; */
 }
 a.night {
-    color: #63B8FF;
+    /* color: #63B8FF; */
+    /* color: #6C71C4; */
 }
 /* color: #C0C0E8; */
 a.wiki-link {
@@ -365,5 +369,71 @@ code.night {
     /* color: #FFFFFF; */
     /* background-color: #555555; */
 }
+
+/* tag_box ======================================================== */
+
+.tag_box {
+	list-style:none;
+	margin:0;
+	padding:5px 0 ;
+	overflow:hidden;
+}
+.tag_box li {
+    display: inline;
+	line-height:28px;
+}
+.tag_box.inline li {
+	float:left;
+}
+.tag_box a {
+	padding: 3px 6px;
+	margin: 2px;
+	background: #eee;
+	color:#005F6B;
+	border-radius: 3px;
+	text-decoration:none;
+}
+.tag_box a span{
+	vertical-align:super;
+	font-size:0.8em;
+}
+.tag_box a.active {
+	background:#57A957;
+	border:1px solid #4C964D;
+	color:#FFF;
+}
+
+/* daynight button ================================================ */
+
+button#daynight {
+	float:right;
+    vertical-align:bottom;
+	padding: 3px 6px;
+	margin: 2px;
+	background: #eee;
+	color:#005F6B;
+	border-radius: 3px;
+    border: 0px;
+    border-bottom: 1px dotted;
+	text-decoration:none;
+}
+
+.header {
+    margin: 1em 0em 1em 0em;
+}
+.title {
+    font-family: helvetica,arial,freesans,clean,sans-serif;
+    font-size: 2.4em;
+    /* line-height: 1.5em; */
+}
+.title.day {
+    color: #657B83;
+    background-color: #FDF6E3;
+}
+.title.night {
+    color: #839496;
+    background-color: #002B36;
+}
+
 
 
