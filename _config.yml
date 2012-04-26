@@ -6,7 +6,7 @@ exclude: [ 'vendor'
 
 lsi: true
 
-title : Internal Structure
+title : stuartjandrews.com
 tagline: Tagline
 author :
   name : Stuart Andrews
