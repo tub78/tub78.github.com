@@ -28,7 +28,7 @@ Built with [[Vimwiki]], [[Trunk Notes][TrunkNotes]], [[Jekyll]], [[RedCarpet]], 
 [Vimwiki]: http://code.google.com/p/vimwiki
 [TrunkNotes]: http://www.appsonthemove.com/trunk.htm
 [Jekyll]: http://jekyllrb.com/
-[RedCarpet]: http://jekyllrb.com/
+[RedCarpet]: https://github.com/tanoku/redcarpet
 [Pygments]: http://pygments.org/
 [MathJax]: http://www.mathjax.org/
 [Solarized]: http://ethanschoonover.com/solarized
