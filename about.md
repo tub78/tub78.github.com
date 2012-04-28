@@ -12,8 +12,6 @@ TNTimes Accessed: 1
 TNTags: VimWiki, TrunkNotes, Markdown, Discount, MathJax, SyntaxHighlighter, Javascript, JQuery, Css, Html
 ---
 
-
-
 <pre class="action ideaaction">
 >%hdrrelated%
 ># Related
@@ -22,9 +20,19 @@ TNTags: VimWiki, TrunkNotes, Markdown, Discount, MathJax, SyntaxHighlighter, Jav
 > * TN CSS [[Snippet_csscombined]]
 </pre>
 
+
 ## Acknowledgements
 
-Built with Vimwiki, Trunk Notes, Jekyll, RedCarpet, Pygments & MathJax
+Built with [[Vimwiki]], [[Trunk Notes][TrunkNotes]], [[Jekyll]], [[RedCarpet]], [[Pygments]] & [[MathJax]].  Colors are from [[Solarized]].
+
+[Vimwiki]: http://code.google.com/p/vimwiki
+[TrunkNotes]: http://www.appsonthemove.com/trunk.htm
+[Jekyll]: http://jekyllrb.com/
+[RedCarpet]: http://jekyllrb.com/
+[Pygments]: http://pygments.org/
+[MathJax]: http://www.mathjax.org/
+[Solarized]: http://ethanschoonover.com/solarized
+
 
 ## Environments
 ### iOS
