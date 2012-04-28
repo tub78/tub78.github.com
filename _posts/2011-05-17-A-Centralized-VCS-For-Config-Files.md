@@ -41,7 +41,7 @@ Here's a solution that was based on a suggestion by Casey Dahlin on Doug Warner'
 
 The idea is to create and manage __a single repository__ for these files that will be easy to manage.  Files can be added manually.  Regular commits will be made on an ongoing basis, and can even be automated.
 
-## > initialization
+## Initialization
 
 First, create the repo in your home directory
 
@@ -50,7 +50,7 @@ First, create the repo in your home directory
   hg init
 {% endhighlight %}
 
-## > safety precautions
+## Safety Precautions
 
 [[Peter Manis]] points out that the `hg purge` command can remove all files in the __working directory__ that are not added to the repo!!  He advises to explicitly disable this command for the repo by adding the following to the project-level `.hgrc` file located in `$HOME/.hg/hgrc`
 
@@ -59,7 +59,7 @@ First, create the repo in your home directory
   hgext.purge = !
 {% endhighlight %}
 
-## > list, add, forget, remove, commit, status
+## List, Add, Forget, Remove, Commit, & Status
 
 You can list, add, forget, remove, and commit files to the repo with the following commands
 
@@ -77,7 +77,7 @@ The status command reports on all files in the __working directory__ whether the
   hg status
 {% endhighlight %}
 
-## > the default repo
+## The Default Repo
 
 To access the centralized repo from directories other than your `$HOME` directory, set the __default__ path in your user-level `.hgrc` file located in `$HOME/.hgrc`
 
@@ -107,7 +107,7 @@ An easier solution is to add the following to your user-level `.hgrc` file
 This way, whenevery you type `hg status` or `hg manifest`, you will be told which repo is active.
 
 
-## > the .hgignore file
+## The .hgignore File
 
 An alternative strategy for managing repo files, is to create an `.hgignore` file listing the files that you do not wish to be tracked, and then add / commit everything else.
 
@@ -146,7 +146,7 @@ hg commit -A -m "Added/removed/changed file(s)"
 hg manifest
 {% endhighlight %}
 
-## > .file & .directory sizes
+## File & Directory Sizes
 
 One trick for building `.hgignore` is to detect and exclude __LARGE__ dotfiles and directories.  At first, I tried to these using
 
@@ -175,7 +175,7 @@ This will produce sorted output, for example
   ...
 {% endhighlight %}
 
-## > resetting the repo
+## Resetting The Repo
 
 If you are not happy with the current manifest, and are willing to start again __from scratch__, use the following commands.  WARNING: This will erase any history!
 
