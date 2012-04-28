@@ -54,7 +54,7 @@ First, create the repo in your home directory
 
 [[Peter Manis]] points out that the `hg purge` command can remove all files in the __working directory__ that are not added to the repo!!  He advises to explicitly disable this command for the repo by adding the following to the project-level `.hgrc` file located in `$HOME/.hg/hgrc`
 
-{% highlight text %}
+{% highlight cfg %}
   [extensions]
   hgext.purge = !
 {% endhighlight %}
@@ -65,9 +65,9 @@ You can list, add, forget, remove, and commit files to the repo with the followi
 
 {% highlight bash %}
   hg manifest
-  hg add &lt;files&gt;
-  hg forget &lt;files&gt;
-  hg remove &lt;files&gt;
+  hg add <files>
+  hg forget <files>
+  hg remove <files>
   hg commit -m "Added/removed/changed file(s)"
 {% endhighlight %}
 
@@ -81,7 +81,7 @@ The status command reports on all files in the __working directory__ whether the
 
 To access the centralized repo from directories other than your `$HOME` directory, set the __default__ path in your user-level `.hgrc` file located in `$HOME/.hgrc`
 
-{% highlight text %}
+{% highlight cfg %}
   [path]
   default = $HOME
 {% endhighlight %}
@@ -98,7 +98,7 @@ hg showconfig bundle.mainreporoot
 
 An easier solution is to add the following to your user-level `.hgrc` file
 
-{% highlight text %}
+{% highlight cfg %}
   [hooks]
   pre-status = echo "======\nMAIN REPO ROOT = $PWD\n======"
   pre-manifest = echo "======\nMAIN REPO ROOT = $PWD\n======"
