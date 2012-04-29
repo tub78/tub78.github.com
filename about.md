@@ -40,8 +40,9 @@ Built with [[Vimwiki]], [[Trunk Notes][TrunkNotes]], [[Jekyll]], [[RedCarpet]], 
  * [[Discount Template][TNDiscount_Template]]
  * [[Stylesheet][TNStylesheet]]
 
-[TNDiscount_Template]: http://github.com/tub78/TrunkNotes/Html/SpecialHeader.html
-[TNStylesheet]: http://github.com/tub78/TrunkNotes/Html/Snippet_csscombined.html
+[TNDiscount_Template]: https://raw.github.com/tub78/TrunkNotes/master/Notes/SpecialHeader.md
+[TNStylesheet]: https://raw.github.com/tub78/TrunkNotes/master/Notes/Snippet_csscombined.md
+
 
 ### Web
 
