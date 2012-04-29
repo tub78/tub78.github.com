@@ -37,10 +37,10 @@ Built with [[Vimwiki]], [[Trunk Notes][TrunkNotes]], [[Jekyll]], [[RedCarpet]], 
 ## Environments
 ### iOS
 
- * [[Discount Template][TNDiscount_Template]]
+ * [[TrunkNotes Special:Header][Special_Header]]
  * [[Stylesheet][TNStylesheet]]
 
-[TNDiscount_Template]: https://raw.github.com/tub78/TrunkNotes/master/Notes/SpecialHeader.md
+[Special_Header]: https://raw.github.com/tub78/TrunkNotes/master/Notes/SpecialHeader.md
 [TNStylesheet]: https://raw.github.com/tub78/TrunkNotes/master/Notes/Snippet_csscombined.md
 
 
