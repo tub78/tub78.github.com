@@ -28,10 +28,10 @@ TNMetadata:
 
 If you're like me, you get frustrated by the amount of typing that is required to copy a file from your Hadoop filesystem to your local filesystem, e.g.:
 
-{% highlight bash %}
-hdfs dfs -get hdfs://xxx/very/long/path/to/a/file \
-    /yyy/very/long/path/to/a/file
-{% endhighlight %}
+``` bash
+  hdfs dfs -get hdfs://xxx/very/long/path/to/a/file \
+      /yyy/very/long/path/to/a/file
+```
 
 Also, if you are like me, you want the directory structures of the two filesystems to be mirror-images.  This means you typically have to type a common path component twice, which is redundant, time consuming, and error prone. 
 
@@ -43,15 +43,15 @@ To enable *HDFS-Tools*, one must first designate a directory to hold the _root_ 
 
 Once this is done, copying data between *HDFS* and your _local_ copy is simply a matter of getting or putting a file; e.g.:
 
-{% highlight bash %}
-hget <path> 
-{% endhighlight %}
+``` bash
+  hget <path> 
+```
 
 *HDFS-Tools* deals with the task of expanding the `path` arguments to create the conventional command format, using the `HDFS_PREFIX` and your *HDFS*'s configuration.  Furthermore, with some code from [rapleaf's dev blog](http://blog.rapleaf.com/dev/2009/11/17/command-line-auto-completion-for-hadoop-dfs-commands/), these commands have been augmented with filename auto-completion. Together, these features make `hget`, `hput`, etc., more convenient than using:
 
-{% highlight bash %}
-hdfs dfs -get <hdfs_path> <local_path>
-{% endhighlight %}
+``` bash
+  hdfs dfs -get <hdfs_path> <local_path>
+```
 
 Say goodbye to the frustration of typing long paths in *HDFS*.  Indeed, you rarely need to type more than the commands themselves.
 
@@ -101,9 +101,10 @@ Note: *HDFS-Tools* are configured for use with Hadoop 0.21.0.
  1. `HDFS_PREFIX` - Select the _local_ directory where you wish to mirror *HDFS*
  1. `HADOOP_CONF_DIR` - Select the directory containing the active configuration, in order to lookup information on *HDFS*
  1. Add the following line to your `.bash_profile`
-{% highlight bash %}
-source <HDFS-TOOLS>/henv
-{% endhighlight %}
+
+    ``` bash
+      source <HDFS-TOOLS>/henv
+    ```
 
 ### For Remote Connections
 
@@ -121,106 +122,118 @@ The first set of examples demonstrate the behavior of *HDFS-Tools* with `CWD=HDF
 
 ### List Files
 
- * -> `hls`
-{% highlight bash %}
-Found 3 items
-drwxr-xr-x   - stu supergroup          0 2011-09-03 21:50 /Users
-drwxr-xr-x   - stu supergroup          0 2011-09-03 21:51 /jobtracker
-drwxr-xr-x   - stu supergroup          0 2011-09-03 21:51 /user
-{% endhighlight %}
+ 1. -> `hls`
+
+    ``` bash
+      Found 3 items
+      drwxr-xr-x   - stu supergroup          0 2011-09-03 21:50 /Users
+      drwxr-xr-x   - stu supergroup          0 2011-09-03 21:51 /jobtracker
+      drwxr-xr-x   - stu supergroup          0 2011-09-03 21:51 /user
+    ```
 
 
- * -> `hls -v user/stu`
-{% highlight bash %}
-HDFS_PREFIX=/Users/stu/Data/Hdfs-2011-08-28
-HDFS_PWD=
-HDFS_URL=/user/stu/input/hdfs-site.xml
-Found 2 items
-drwxr-xr-x   - stu supergroup          0 2011-09-03 21:45 /user/stu/input
-drwxr-xr-x   - stu supergroup          0 2011-09-03 21:51 /user/stu/output
-{% endhighlight %}
+ 1. -> `hls -v user/stu`
+
+    ``` bash
+      HDFS_PREFIX=/Users/stu/Data/Hdfs-2011-08-28
+      HDFS_PWD=
+      HDFS_URL=/user/stu/input/hdfs-site.xml
+      Found 2 items
+      drwxr-xr-x   - stu supergroup          0 2011-09-03 21:45 /user/stu/input
+      drwxr-xr-x   - stu supergroup          0 2011-09-03 21:51 /user/stu/output
+    ```
 
 
- * -> `hls -v not/a/valid/file`
-{% highlight bash %}
-HDFS_PREFIX=/Users/stu/Data/Hdfs-2011-08-28
-HDFS_PWD=
-HDFS_URL=not/a/valid/file
-ls: Cannot access hdfs://localhost:9000//not/a/valid/file: No such file or directory.
-{% endhighlight %}
+ 1. -> `hls -v not/a/valid/file`
+
+    ``` bash
+      HDFS_PREFIX=/Users/stu/Data/Hdfs-2011-08-28
+      HDFS_PWD=
+      HDFS_URL=not/a/valid/file
+      ls: Cannot access hdfs://localhost:9000//not/a/valid/file: No such file or directory.
+    ```
 
 
 ### Get Files
 
- * -> `hget /user/stu/output`
-{% highlight bash %}
-hget > Local path already exists /Users/stu/Data/Hdfs-2011-08-28/user/stu/output/
-{% endhighlight %}
+ 1. -> `hget /user/stu/output`
 
- * -> `hget -vf /user/stu/output`
-{% highlight bash %}
-hget > Local path already exists /Users/stu/Data/Hdfs-2011-08-28/user/stu/output/
-HDFS_PREFIX=/Users/stu/Data/Hdfs-2011-08-28
-HDFS_PWD=
-HDFS_URL=user/stu/output/
-LOCAL_URL=/Users/stu/Data/Hdfs-2011-08-28/user/stu/output/
-LOCAL_DIR=/Users/stu/Data/Hdfs-2011-08-28/user/stu
-{% endhighlight %}
+    ``` bash
+      hget > Local path already exists /Users/stu/Data/Hdfs-2011-08-28/user/stu/output/
+    ```
+
+ 1. -> `hget -vf /user/stu/output`
+
+    ``` bash
+      hget > Local path already exists /Users/stu/Data/Hdfs-2011-08-28/user/stu/output/
+      HDFS_PREFIX=/Users/stu/Data/Hdfs-2011-08-28
+      HDFS_PWD=
+      HDFS_URL=user/stu/output/
+      LOCAL_URL=/Users/stu/Data/Hdfs-2011-08-28/user/stu/output/
+      LOCAL_DIR=/Users/stu/Data/Hdfs-2011-08-28/user/stu
+    ```
 
 
 ### Put Files
 
- * -> `hput /user/stu/output`
-{% highlight bash %}
-put: Target hdfs://localhost:9000/user/stu/output is a directory
-{% endhighlight %}
+ 1. -> `hput /user/stu/output`
+
+    ``` bash
+      put: Target hdfs://localhost:9000/user/stu/output is a directory
+    ```
 
 
- * -> `hput -vf /user/stu/output`
-{% highlight bash %}
-HDFS_PREFIX=/Users/stu/Data/Hdfs-2011-08-28
-HDFS_PWD=
-HDFS_URL=user/stu/output
-LOCAL_URL=/Users/stu/Data/Hdfs-2011-08-28/user/stu/output
-HDFS_DIR=user/stu
-{% endhighlight %}
+ 1. -> `hput -vf /user/stu/output`
+
+    ``` bash
+      HDFS_PREFIX=/Users/stu/Data/Hdfs-2011-08-28
+      HDFS_PWD=
+      HDFS_URL=user/stu/output
+      LOCAL_URL=/Users/stu/Data/Hdfs-2011-08-28/user/stu/output
+      HDFS_DIR=user/stu
+    ```
 
 
 ### Tab Completion
 
- * -> `hls <TAB>`
-{% highlight bash %}
-Users       jobtracker  user
--> hls *
-{% endhighlight %}
+ 1. -> `hls <TAB>`
 
- * -> `hget u<TAB>`
-{% highlight bash %}
--> hget user/stu *
-{% endhighlight %}
+    ``` bash
+      Users       jobtracker  user
+      -> hls *
+    ```
 
- * -> `hput user/stu<TAB>`
-{% highlight bash %}
-/user/stu/input   /user/stu/output
--> hput /user/stu/ *
-{% endhighlight %}
+ 1. -> `hget u<TAB>`
 
- * -> `hput user/stu/<TAB>`
-{% highlight bash %}
-/user/stu/input   /user/stu/output
--> hput /user/stu/*
-{% endhighlight %}
+    ``` bash
+      -> hget user/stu *
+    ```
+
+ 1. -> `hput user/stu<TAB>`
+
+    ``` bash
+      /user/stu/input   /user/stu/output
+      -> hput /user/stu/ *
+    ```
+
+ 1. -> `hput user/stu/<TAB>`
+
+    ``` bash
+      /user/stu/input   /user/stu/output
+      -> hput /user/stu/*
+    ```
 
 
 ## Examples Part 2
 
 When the `CWD` is located below `HDFS_PREFIX`, *HDFS-Tools* use relative paths.  For example, with `CWD=$(HDFS_PREFIX)/user/stu`
 
- * -> `hget <TAB>` 
-{% highlight bash %}
-input   output
--> hget *
-{% endhighlight %}
+ 1. -> `hget <TAB>` 
+
+    ``` bash
+      input   output
+      -> hget *
+    ```
 
 
 
@@ -228,65 +241,70 @@ input   output
 
 When the `CWD` is not below `HDFS_PREFIX`, *HDFS-Tools* behave as though they were involked from `HDFS_PREFIX`.  The only difference is that paths on the command line are prefixed with `/`.  In this case, we are using `CWD=~`
 
- * -> `hls` 
-{% highlight bash %}
-Found 3 items
-drwxr-xr-x   - stu supergroup          0 2011-09-03 21:50 /Users
-drwxr-xr-x   - stu supergroup          0 2011-09-03 21:51 /jobtracker
-drwxr-xr-x   - stu supergroup          0 2011-09-03 21:51 /user
-{% endhighlight %}
+ 1. -> `hls` 
+
+    ``` bash
+      Found 3 items
+      drwxr-xr-x   - stu supergroup          0 2011-09-03 21:50 /Users
+      drwxr-xr-x   - stu supergroup          0 2011-09-03 21:51 /jobtracker
+      drwxr-xr-x   - stu supergroup          0 2011-09-03 21:51 /user
+    ```
 
 
- * -> `hls <TAB>` 
-{% highlight bash %}
-/Users       /jobtracker  /user
--> hls /*
-{% endhighlight %}
+ 1. -> `hls <TAB>` 
+
+    ``` bash
+      /Users       /jobtracker  /user
+      -> hls /*
+    ```
 
 
- * -> `hput /use<TAB>` 
-{% highlight bash %}
--> hput /user/ *
-{% endhighlight %}
+ 1. -> `hput /use<TAB>` 
+
+    ``` bash
+      -> hput /user/ *
+    ```
 
 
- * -> `hget /user/stu/input` 
-{% highlight bash %}
-hget > Local path already exists /Users/stu/Data/Hdfs-2011-08-28/user/stu/input
-{% endhighlight %}
+ 1. -> `hget /user/stu/input` 
+
+    ``` bash
+      hget > Local path already exists /Users/stu/Data/Hdfs-2011-08-28/user/stu/input
+    ```
 
 
 ## Examples Part 4
 
- * -> `hconnect -c`
-{% highlight bash %}
-ENABLED:  0
-RUNNING PROCESS: 
-{% endhighlight %}
+ 1. -> `hconnect -c`
 
- * -> `hconnect -t`
-{% highlight bash %}
-ENABLED:  0
-PID:
-  ssh -ND 2600 user@email.com
-Started HDFS tunnel with PID: '7647'
-{% endhighlight %}
+    ``` bash
+      ENABLED:  0
+      RUNNING PROCESS: 
+    ```
 
- * -> `hconnect -c`
-{% highlight bash %}
-ENABLED:  1
-RUNNING PROCESS:  7647 ssh -ND 2600 user@email.com
-{% endhighlight %}
+ 1. -> `hconnect -t`
 
- * -> `hconnect`
-{% highlight bash %}
-ENABLED:  1
-PID:  7647
-Stopping HDFS tunnel with PID: '7647'
-kill -9 7647
-{% endhighlight %}
+    ``` bash
+      ENABLED:  0
+      PID:
+        ssh -ND 2600 user@email.com
+      Started HDFS tunnel with PID: '7647'
+    ```
 
+ 1. -> `hconnect -c`
 
+    ``` bash
+      ENABLED:  1
+      RUNNING PROCESS:  7647 ssh -ND 2600 user@email.com
+    ```
 
+ 1. -> `hconnect`
+
+    ``` bash
+      ENABLED:  1
+      PID:  7647
+      Stopping HDFS tunnel with PID: '7647'
+      kill -9 7647
+    ```
 
 

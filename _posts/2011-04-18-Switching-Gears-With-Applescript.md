@@ -46,70 +46,70 @@ Ideally, this script should be extended
  1. to attempt to download a remote file before trying to open it locally
 
 
-{% highlight applescript %}
-(*
-Purpose: Use this script to re-open using "MacVim" a document that is open in
-"Safari".  The script detects the full path of the local file and re-opens it.
-Ideally, the script would also close the file in "Safari", but this has not
-been implemented.  
+``` applescript
+  (*
+  Purpose: Use this script to re-open using "MacVim" a document that is open in
+  "Safari".  The script detects the full path of the local file and re-opens it.
+  Ideally, the script would also close the file in "Safari", but this has not
+  been implemented.  
 
-Usage: This script should be run from the applescript menu when the document is
-open-and-frontmost in Safari.
+  Usage: This script should be run from the applescript menu when the document is
+  open-and-frontmost in Safari.
 
-Installation: Place the script in ~/Library/Scripts/Applications/Safari/  To
-access this script, make sure to select "Show script menu in menu bar" in the
-AppleScript Utility application (10.5) or in Preferences &gt; General of the
-AppleScript Editor application (10.6).
+  Installation: Place the script in ~/Library/Scripts/Applications/Safari/  To
+  access this script, make sure to select "Show script menu in menu bar" in the
+  AppleScript Utility application (10.5) or in Preferences &gt; General of the
+  AppleScript Editor application (10.6).
 
-Installation for mouse and trackpad-free access:  Choose a keyboard shortcut
-that will "Move focus to status menus in the menu bar".  This can be set up in
-the "Keyboard & Mouse" System Preferences.
+  Installation for mouse and trackpad-free access:  Choose a keyboard shortcut
+  that will "Move focus to status menus in the menu bar".  This can be set up in
+  the "Keyboard & Mouse" System Preferences.
 
-Author: Stuart J. D. Andrews;
-Email: sunny day in nyc at gmail com
-Date: April 15, 2011
-Environment: Script Editor 2.3; AppleScript 2.1.2; Mac OS X 10.6.7
+  Author: Stuart J. D. Andrews;
+  Email: sunny day in nyc at gmail com
+  Date: April 15, 2011
+  Environment: Script Editor 2.3; AppleScript 2.1.2; Mac OS X 10.6.7
 
-*)
+  *)
 
-property myapp : "Safari"
-property debug : false
--- property debug : true
+  property myapp : "Safari"
+  property debug : false
+  -- property debug : true
 
-try
-	set front_process to application "Finder"
-	--
-	tell application "Safari"
-		set VVV to URL of document 1
-	end tell
-	
-	-- remove leading "file://"
-	do shell script "echo " & quoted form of VVV & "| cut -c 8-"
-	set VVV to result
-	errmsg(VVV, front_process)
-	
-	-- open file in Skim
-	tell application "MacVim"
-		activate
-		open VVV
-	end tell
-	
-	
-on error the error_message number the error_number
-	errmsg("Error: " & the error_number & ". " & the error_message, front_process)
-	
-end try
+  try
+    set front_process to application "Finder"
+    --
+    tell application "Safari"
+      set VVV to URL of document 1
+    end tell
+    
+    -- remove leading "file://"
+    do shell script "echo " & quoted form of VVV & "| cut -c 8-"
+    set VVV to result
+    errmsg(VVV, front_process)
+    
+    -- open file in Skim
+    tell application "MacVim"
+      activate
+      open VVV
+    end tell
+    
+    
+  on error the error_message number the error_number
+    errmsg("Error: " & the error_number & ". " & the error_message, front_process)
+    
+  end try
 
 
-on errmsg(VVV, active_process)
-	if debug then
-		tell active_process
-			activate
-			display dialog "Value: " & VVV buttons {"OK"} default button 1
-		end tell
-	end if
-end errmsg
+  on errmsg(VVV, active_process)
+    if debug then
+      tell active_process
+        activate
+        display dialog "Value: " & VVV buttons {"OK"} default button 1
+      end tell
+    end if
+  end errmsg
 
-{% endhighlight %}
+```
 
 

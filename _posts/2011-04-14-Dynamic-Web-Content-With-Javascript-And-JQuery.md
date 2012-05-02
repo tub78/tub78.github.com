@@ -59,54 +59,54 @@ In the body, there is
 1. A "Day/Night" `button` with ID equal to `daynight`
 1. A `div` element containing instructions with class equal to `optional`
 
-{% highlight xml %}
-<!doctype html>
-<!-- !doctype html public "-//W3C//DTD HTML 4.0 Transitional //EN"> -->
-<html>
-<head>
-    <!-- STYLESHEET -->
-    <style type="text/css">
-        /* insert stylesheet here */
-    </style>
+``` xml
+  <!doctype html>
+  <!-- !doctype html public "-//W3C//DTD HTML 4.0 Transitional //EN"> -->
+  <html>
+  <head>
+      <!-- STYLESHEET -->
+      <style type="text/css">
+          /* insert stylesheet here */
+      </style>
 
-    <!-- JAVASCRIPT -->
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-    <script language="javascript">//<![CDATA[
-        /* insert js code here */
-    //]]></script>
-</head>
-<body>
+      <!-- JAVASCRIPT -->
+      <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+      <script language="javascript">//<![CDATA[
+          /* insert js code here */
+      //]]></script>
+  </head>
+  <body>
 
-<button id="optional">Help</button>
-<button id="daynight">Day/Night</button>
-<div class="optional">
-<h1>Buttons</h1>
- * Toggle visibility of this text by pressing the "Help" button
- * Toggle appearance by pressing the "Day/Night" button
-</div>
-</body>
-</html>
-{% endhighlight %}
+  <button id="optional">Help</button>
+  <button id="daynight">Day/Night</button>
+  <div class="optional">
+  <h1>Buttons</h1>
+   * Toggle visibility of this text by pressing the "Help" button
+   * Toggle appearance by pressing the "Day/Night" button
+  </div>
+  </body>
+  </html>
+```
 
 ## Stylesheet
 
 The style of Html elements is specified in a stylesheet included in the header.  There are separate styles `day` and `night` for the `<body>` tag.  These styles alter the foreground (text) and background colors.  Elements with class `optional` are initialized to be invisible `display: none`.
 
-{% highlight css %}
-body { /* static body style: e.g. margins, font, etc. */
-}
-body.day { /* day body style */
-    color: #000000;
-    background-color: #FFFFFF;
-}
-body.night { /* night body style */
-    color: #AAAAAA;
-    background-color: #191919;
-}
-.optional {
-    display: none;
-}
-{% endhighlight %}
+``` css
+  body { /* static body style: e.g. margins, font, etc. */
+  }
+  body.day { /* day body style */
+      color: #000000;
+      background-color: #FFFFFF;
+  }
+  body.night { /* night body style */
+      color: #AAAAAA;
+      background-color: #191919;
+  }
+  .optional {
+      display: none;
+  }
+```
 
 
 ## Javascript
@@ -119,28 +119,28 @@ The response to button clicks is governed by Javascript, written with the help o
 1. Lines 8-13 initialize the CSS classes for the `<body>` tag.  If it is daytime, the CSS style `body.day` is used; for nighttime, the CSS style `body.night` is used.
 1. In lines 15-18, JQuery is used to toggle the classes for the same elements.  The instantiated styles are removed by one of the `toggle()` commands, and the alternate styles are included by the other.
 
-{% highlight jscript %}
-$(document).ready(function(){
-    /* Toggle visibility of element */
-    $("button#optional").click(function(){
-        $("div.optional").toggle();
-    });
+``` javascript
+  $(document).ready(function(){
+      /* Toggle visibility of element */
+      $("button#optional").click(function(){
+          $("div.optional").toggle();
+      });
 
-    /* Display day mode between 7am and 7pm */
-    var currentTime = new Date().getHours();
-    if (7 <= currentTime && currentTime < 19) {
-        $("body").addClass("day");
-    } else {
-        $("body").addClass("night");
-    }
+      /* Display day mode between 7am and 7pm */
+      var currentTime = new Date().getHours();
+      if (7 <= currentTime && currentTime < 19) {
+          $("body").addClass("day");
+      } else {
+          $("body").addClass("night");
+      }
 
-    $("button#daynight").click(function(){
-        $("body").toggleClass("day");
-        $("body").toggleClass("night");
-    });
+      $("button#daynight").click(function(){
+          $("body").toggleClass("day");
+          $("body").toggleClass("night");
+      });
 
-});
-{% endhighlight %}
+  });
+```
 
 
 # Wrap Up

@@ -41,16 +41,16 @@ _WikiGraph_ is a tool that I wrote in Python to extract and visualize the [[hype
 
 _WikiGraph_ can be used to quickly visualize a wiki.  The image displayed above was generated with the following command:
 
-{% highlight bash %}
-wikigraph.py --directory $NOTES \
-             --extension txt \
-             --layout sfdp \
-             --labels \
-             --tags Fun Family Events Exercise Health TrunkNotes Python Javascript \
-             --numcomponents 1 \
-             --figdpi 200 \
-             node_size 80 font_size 5 width 0.5 alpha 0.7
-{% endhighlight %}
+``` bash
+  wikigraph.py --directory $NOTES \
+               --extension txt \
+               --layout sfdp \
+               --labels \
+               --tags Fun Family Events Exercise Health TrunkNotes Python Javascript \
+               --numcomponents 1 \
+               --figdpi 200 \
+               node_size 80 font_size 5 width 0.5 alpha 0.7
+```
 
 _WikiGraph_ makes several assumptions:
 
@@ -68,76 +68,76 @@ _WikiGraph_ only captures local links.  Links to other local (non-wiki) resource
 
 The following display captures the core functionality.  It scans a wiki, extracts links and tags, filters and prunes the resulting graph, and draws it.
 
-{% highlight python %}
-WG = WikiGraph()
-WG.add_pages(get_files_from_path_with_ext(DIRECTORY, EXTENSION))
-WG.add_links()
+``` python
+  WG = WikiGraph()
+  WG.add_pages(get_files_from_path_with_ext(DIRECTORY, EXTENSION))
+  WG.add_links()
 
-if not(KEEPUNKNOWN):
-    Nrm_nodes = WG.prune_unknown_paths()
-    print "Removed {} nodes with unknown paths".format(Nrm_nodes)
+  if not(KEEPUNKNOWN):
+      Nrm_nodes = WG.prune_unknown_paths()
+      print "Removed {} nodes with unknown paths".format(Nrm_nodes)
 
-if len(TAGS) > 0:
-    tagset = set(TAGS)
-    WG.add_tags()
-    Nrm_nodes = WG.filter_by_tag(ALLTAGS, tagset)
-    print "Removed {} nodes not related to tags: '{}'".format(Nrm_nodes, str(TAGS))
+  if len(TAGS) > 0:
+      tagset = set(TAGS)
+      WG.add_tags()
+      Nrm_nodes = WG.filter_by_tag(ALLTAGS, tagset)
+      print "Removed {} nodes not related to tags: '{}'".format(Nrm_nodes, str(TAGS))
 
-if NUMCOMPONENTS>0:
-    Nrm_nodes, Nrm_comp = WG.prune_ccomponents(NUMCOMPONENTS)
-    print "Removed {} nodes from {} smallest components".format(Nrm_nodes, Nrm_comp)
+  if NUMCOMPONENTS>0:
+      Nrm_nodes, Nrm_comp = WG.prune_ccomponents(NUMCOMPONENTS)
+      print "Removed {} nodes from {} smallest components".format(Nrm_nodes, Nrm_comp)
 
-if not(KEEPISOLATES):
-    Nrm_nodes = WG.prune_isolates()
-    print "Removed {} isolated nodes".format(Nrm_nodes)
+  if not(KEEPISOLATES):
+      Nrm_nodes = WG.prune_isolates()
+      print "Removed {} isolated nodes".format(Nrm_nodes)
 
-WG.draw(layout=LAYOUT, labels=LABELS, **KWARGS)
-{% endhighlight %}
+  WG.draw(layout=LAYOUT, labels=LABELS, **KWARGS)
+```
 
 WikiGraph has many configurable parameters which are listed in uppercase in the display above.  Further details are included in the program's help text, shown below
 
-{% highlight text %}
-usage: wikigraph.py [-h] [--verbosity VERBOSITY] [--directory DIRECTORY]
-                    [--extension EXTENSION] [--keepunknown] [--keepisolates]
-                    [--numcomponents NUMCOMPONENTS] [--tags [TAGS [TAGS ...]]]
-                    [--alltags]
-                    [--layout {mpl,circ,spec,neato,twopi,fdp,sfdp}] [--labels]
-                    [--figalpha FIGALPHA] [--figdpi {72,100,200,300}]
-                    [--figtype {png,pdf,ps,eps,svg}] [--output OUTPUT]
+``` text
+  usage: wikigraph.py [-h] [--verbosity VERBOSITY] [--directory DIRECTORY]
+                      [--extension EXTENSION] [--keepunknown] [--keepisolates]
+                      [--numcomponents NUMCOMPONENTS] [--tags [TAGS [TAGS ...]]]
+                      [--alltags]
+                      [--layout {mpl,circ,spec,neato,twopi,fdp,sfdp}] [--labels]
+                      [--figalpha FIGALPHA] [--figdpi {72,100,200,300}]
+                      [--figtype {png,pdf,ps,eps,svg}] [--output OUTPUT]
 
-Extract and visualize the link structure of a wiki
+  Extract and visualize the link structure of a wiki
 
-optional arguments:
-  -h, --help            show this help message and exit
-  --verbosity VERBOSITY
-                        Level of verbosity for logging
-  --directory DIRECTORY
-                        Directory where files containing wiki pages are stored
-                        (flat)
-  --extension EXTENSION
-                        Extension of files containing wiki pages
-  --keepunknown         Whether to keep linked pages if no corresponding file
-                        is found
-  --keepisolates        Whether to keep isolated pages
-  --numcomponents NUMCOMPONENTS
-                        Number of largest connected components to keep (0
-                        selects all)
-  --tags [TAGS [TAGS ...]]
-                        Tags to filter
-  --alltags             If true, only returns pages that contain ALL tags
-  --layout {mpl,circ,spec,neato,twopi,fdp,sfdp}
-                        The layout algorithm to use (from graphviz, etc.)
-  --labels              Whether to show labels in displays
-  --figalpha FIGALPHA   Transparency level for figure background
-  --figdpi {72,100,200,300}
-                        DPI for saved figure
-  --figtype {png,pdf,ps,eps,svg}
-                        Type of saved figure
-  --output OUTPUT       Prefix of saved figure
+  optional arguments:
+    -h, --help            show this help message and exit
+    --verbosity VERBOSITY
+                          Level of verbosity for logging
+    --directory DIRECTORY
+                          Directory where files containing wiki pages are stored
+                          (flat)
+    --extension EXTENSION
+                          Extension of files containing wiki pages
+    --keepunknown         Whether to keep linked pages if no corresponding file
+                          is found
+    --keepisolates        Whether to keep isolated pages
+    --numcomponents NUMCOMPONENTS
+                          Number of largest connected components to keep (0
+                          selects all)
+    --tags [TAGS [TAGS ...]]
+                          Tags to filter
+    --alltags             If true, only returns pages that contain ALL tags
+    --layout {mpl,circ,spec,neato,twopi,fdp,sfdp}
+                          The layout algorithm to use (from graphviz, etc.)
+    --labels              Whether to show labels in displays
+    --figalpha FIGALPHA   Transparency level for figure background
+    --figdpi {72,100,200,300}
+                          DPI for saved figure
+    --figtype {png,pdf,ps,eps,svg}
+                          Type of saved figure
+    --output OUTPUT       Prefix of saved figure
 
-Additional arguments pairs are passed to the drawing routine as keyword-values
-(floats assumed).
-{% endhighlight %}
+  Additional arguments pairs are passed to the drawing routine as keyword-values
+  (floats assumed).
+```
 
 The code for _WikiGraph_ is on [[GitHub][GitHub]].  Beyond several standard packages, it depends on `matplotlib` and `networkx`.
 

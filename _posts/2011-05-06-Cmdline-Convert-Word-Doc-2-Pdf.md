@@ -55,19 +55,19 @@ While I regularly use this script to convert Word documents to Pdf, other input 
 
 Please check [https://github.com/tub78/GDocs2Pdf](https://github.com/tub78/GDocs2Pdf) for updates to this script.
 
-{% highlight bash %}
-#!/bin/bash
-# usage: gdocs2pdf.sh <file>
-[ $# -eq 1 ] || { echo "usage: $(basename $0) <file>"; exit 1; }
-TITLE=$(basename "$1")
-DIR=$(dirname "$1")
-FOLDER=GDocs2Pdf
-GOOGLECL=/usr/local/bin/google
-echo $GOOGLECL docs upload --title="$TITLE" --folder="$FOLDER" "$1"
-$GOOGLECL docs upload --title="$TITLE" --folder="$FOLDER" "$1"
-echo $GOOGLECL docs get --format=pdf --title="$TITLE" --folder="$FOLDER" --dest="$DIR"
-$GOOGLECL docs get --format=pdf --title="$TITLE" --folder="$FOLDER" --dest="$DIR"
-{% endhighlight %}
+``` bash
+  #!/bin/bash
+  # usage: gdocs2pdf.sh <file>
+  [ $# -eq 1 ] || { echo "usage: $(basename $0) <file>"; exit 1; }
+  TITLE=$(basename "$1")
+  DIR=$(dirname "$1")
+  FOLDER=GDocs2Pdf
+  GOOGLECL=/usr/local/bin/google
+  echo $GOOGLECL docs upload --title="$TITLE" --folder="$FOLDER" "$1"
+  $GOOGLECL docs upload --title="$TITLE" --folder="$FOLDER" "$1"
+  echo $GOOGLECL docs get --format=pdf --title="$TITLE" --folder="$FOLDER" --dest="$DIR"
+  $GOOGLECL docs get --format=pdf --title="$TITLE" --folder="$FOLDER" --dest="$DIR"
+```
 
 __Notes__
 
