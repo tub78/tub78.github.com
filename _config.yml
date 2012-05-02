@@ -15,9 +15,13 @@ author :
   twitter : tub78
   feedburner : feedname
 
-markdown: redcarpet
+markdown: redcarpet2
 redcarpet:
-  extensions: ['autolink', 'fenced_code', 'tables', 'strikethrough', 'lax_htmlblock', 'no_intraemphasis']
+  extensions: ['autolink', 'fenced_code_blocks', 'tables', 'strikethrough', 'lax_html_block', 'no_intra_emphasis', 'superscript', 'with_toc_data']
+
+# markdown: redcarpet
+# redcarpet:
+#   extensions: ['autolink', 'fenced_code', 'tables', 'strikethrough', 'lax_htmlblock', 'no_intraemphasis']
 
 # Github defaults ['fenced_code', 'tables', 'strikethrough', 'lax_htmlblock', 'gh_blockcode']
 # Github comment defaults ['fenced_code', 'tables', 'strikethrough', 'lax_htmlblock', 'gh_blockcode', 'hard_wrap', 'autolink]'
@@ -40,7 +44,7 @@ redcarpet:
 # Else if you are pushing to username.github.com, replace with your username.
 # Finally if you are pushing to a GitHub project page, include the project name at the end.
 #
-production_url : http://tub78.github.com
+production_url : http://stuartjandrews.com
 
 # All Jekyll-Bootstrap specific configurations are namespaced into this hash
 #
