@@ -19,8 +19,8 @@ rsync -avu --include-from ".gitignore" --exclude "*" .hide/ ./
 # Copy site folder 
 cp -r .site/* .
 
+# Display changes
 git status -s
-exit;
 
 # Commit and push
 git add -A
@@ -31,6 +31,7 @@ git push origin master
 git checkout source
 [ $? -eq 0 ] || exit;
 
+exit;
 
 
 # Check status
