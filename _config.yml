@@ -1,7 +1,9 @@
 
 auto: true
 pygments: true
-exclude: [ 'vendor'
+exclude: [ 'vendor', 
+            'bin',
+            '.bundle'
             ]
 
 lsi: true
