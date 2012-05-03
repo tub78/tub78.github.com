@@ -19,6 +19,6 @@ git push origin source
 # Build site
 mkdir -p .site
 bin/jekyll --no-auto .site
-[ $? -eq 0 ] || { echo "Jekyll Failed"; exit; };
+[ $? -eq 0 ] || { echo "Jekyll Build Failed"; exit; };
 
-echo 'Build complete!'
+echo 'Jekyll Build Complete!'
