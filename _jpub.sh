@@ -12,9 +12,10 @@ git checkout master
 
 # Wipe-clean repo, except dot files and ".gitignore" files
 mkdir -p .hide
-rsync -avu --cvs-exclude --include-from ".gitignore" --exclude "/*" ./ .hide/
+rsync -avu --cvs-exclude --include-from "hide.gitignore" --exclude "/*" ./ .hide/
 rm -rf *
-rsync -avu --cvs-exclude --include-from ".gitignore" --exclude "/*" .hide/ ./
+rsync -avu --cvs-exclude --include-from "hide.gitignore" --exclude "/*" .hide/ ./
+rm -f hide.gitignore
 
 # Copy site folder 
 cp -r _site/* .
