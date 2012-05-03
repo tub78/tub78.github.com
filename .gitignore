@@ -6,7 +6,7 @@ Thumbs.db
 .DS_Store
 .rbenv-version
 .bundle
-vendor/bundle/ruby
+vendor/
 bin/
 LOG.sh
 
