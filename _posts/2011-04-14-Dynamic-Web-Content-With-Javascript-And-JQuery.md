@@ -23,9 +23,9 @@ TNMetadata:
 </pre>
 
 
-This post describes how to use Javascript to create dynamic web content.  It also demonstrates [[SyntaxHighlighter]] for highlighting Html, CSS, and Javascript.
+This post describes how to use Javascript to create dynamic web content.
 
-# Dynamic Web Content
+## Example: Changing Appearances
 
 It is relatively simple to enhance a webpage with interactive features.  For example, this post contains buttons that change its appearance.  Click the "Help" button to learn more.
 
@@ -35,15 +35,20 @@ The buttons and their actions are implemented via a combination of Html, CSS and
 
 The code segments necessary to recreate these dynamic elements are explained below.
 
-<button id="hdrtags">Help</button>
-<button id="daynight">Day/Night</button>
+<hr>
+<button id="optional" style="float:left">Help</button>
+<button id="daynight" style="float:left">Day/Night</button>
 
->%hdrtags%
-># Buttons
-> Help
-> : Toggle visibility of this text by pressing the button
-> Day/Night
-> : Toggle appearance of blog by pressing the button
+<div class="optional">
+<hr>
+<h3>Description of Buttons (Toggle Me!)</h3>
+<ol>
+<li> Help<br /> Toggle visibility of this text by pressing the button </li>
+<li> Day/Night<br /> Toggle appearance of blog by pressing the button </li>
+</li>
+</ol>
+</div>
+<hr>
 
 ## Html
 
@@ -143,7 +148,7 @@ The response to button clicks is governed by Javascript, written with the help o
 ```
 
 
-# Wrap Up
+## Wrap Up
 
 That's about it.
 

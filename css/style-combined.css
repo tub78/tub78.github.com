@@ -405,7 +405,7 @@ code.night {
 
 /* daynight button ================================================ */
 
-button#daynight {
+button#daynight, button#optional {
 	float:right;
     vertical-align:bottom;
 	padding: 3px 6px;

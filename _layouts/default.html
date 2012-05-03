@@ -43,6 +43,10 @@
           var daytime_selected = $.cookie('tub78_daytime_selected') || 'yes';
           $.cookie('tub78_daytime_selected', (daytime_selected == 'yes') ? 'no' : 'yes', { expires: 1, path: '/' });
         });
+        /* Toggle visibility of 'help' button */
+        $("button#optional").click(function(){
+            $("div.optional").toggle();
+        });
       });
       //]]></script>
     <!-- 2011-03-21 END CUSTOM HEADER -->
