@@ -1,11 +1,11 @@
-_site/*
-.site/*
+_site/
+.site/
 
 
 Thumbs.db
 .DS_Store
 .rbenv-version
-.bundle
+.bundle/
 vendor/
 bin/
 
