@@ -18,8 +18,11 @@ bin/jekyll --no-auto .site
 git checkout master
 
 # Empty my repo, except ".git"
+mkdir -p .hide
+rsync -avu --exclude "*" --include-from .gitignore ./ .hide/
 rm -r *
-cp -r /_site/* .
+rsync -avu --exclude "*" --include-from .gitignore .hide/ ./
+cp -r .site/* .
 git add -A
 git commit -m "$(git status -s)"
 git push origin master
