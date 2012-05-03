@@ -9,7 +9,6 @@ Thumbs.db
 .bundle
 vendor/
 bin/
-LOG.sh
 
 
 _*.html
