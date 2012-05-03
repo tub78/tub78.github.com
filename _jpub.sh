@@ -22,8 +22,6 @@ cp -r .site/* .
 # Display changes
 git status -s
 
-exit;
-
 # Commit and push
 git add -A
 git commit -m "$(git status -s)"
