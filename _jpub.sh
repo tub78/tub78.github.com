@@ -22,6 +22,8 @@ cp -r .site/* .
 # Display changes
 git status -s
 
+exit;
+
 # Commit and push
 git add -A
 git commit -m "$(git status -s)"
@@ -31,7 +33,6 @@ git push origin master
 git checkout source
 [ $? -eq 0 ] || exit;
 
-exit;
 
 
 # Check status

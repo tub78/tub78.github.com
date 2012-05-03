@@ -1,0 +1,31 @@
+
+drwxr-xr-x  31 stu  stu  1054 May  3 13:27 ./
+drwxr-xr-x  24 stu  stu   816 May  3 10:40 ../
+drwxr-xr-x   3 stu  stu   102 May  1 22:32 .bundle/
+drwxr-xr-x  13 stu  stu   442 May  3 13:27 .git/
+-rw-r--r--   1 stu  stu   298 May  3 13:21 .gitignore
+drwxr-xr-x   5 stu  stu   170 May  3 13:19 .hide/
+-rw-r--r--   1 stu  stu     0 May  2 22:56 .nojekyll
+drwxr-xr-x  12 stu  stu   408 May  3 13:18 .site/
+drwxr-xr-x   5 stu  stu   170 May  3 13:21 2011/
+-rw-r--r--   1 stu  stu   170 May  3 13:19 404.html
+-rw-r--r--   1 stu  stu    19 May  3 13:19 CNAME
+-rw-r--r--   1 stu  stu   323 May  3 13:19 Gemfile
+-rw-r--r--   1 stu  stu   728 May  3 13:21 Gemfile.lock
+-rw-r--r--   1 stu  stu   683 May  3 13:21 _LOG.sh
+drwxr-xr-x  48 stu  stu  1632 May  3 13:21 _cache/
+-rw-r--r--   1 stu  stu  4600 May  3 13:21 _config.yml
+drwxr-xr-x   3 stu  stu   102 May  3 13:21 _includes/
+-rw-r--r--   1 stu  stu  2701 May  3 13:21 _index.md
+-rwxr-xr-x   1 stu  stu   555 May  3 13:27 _jbuild.sh*
+-rwxr-xr-x   1 stu  stu   956 May  3 13:24 _jpub.sh*
+drwxr-xr-x   4 stu  stu   136 May  3 13:21 _layouts/
+drwxr-xr-x   5 stu  stu   170 May  3 13:21 _plugins/
+drwxr-xr-x  13 stu  stu   442 May  3 13:21 _posts/
+-rw-r--r--   1 stu  stu  1691 May  3 13:21 about.md
+drwxr-xr-x  10 stu  stu   340 May  3 13:19 bin/
+drwxr-xr-x   4 stu  stu   136 May  3 13:19 css/
+-rw-r--r--   1 stu  stu  6260 May  3 13:19 index.html
+-rw-r--r--   1 stu  stu   376 May  3 13:21 tags.html
+drwxr-xr-x   3 stu  stu   102 May  3 13:23 vendor/
+
