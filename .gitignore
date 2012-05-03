@@ -1,13 +1,13 @@
-.site/*
-_site/*
+_site/***
+.site/***
 
 
 Thumbs.db
 .DS_Store
 .rbenv-version
 .bundle
-vendor/*
-bin/*
+vendor/***
+bin/***
 
 
 _*.html
