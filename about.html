@@ -1,0 +1,110 @@
+<!doctype html>
+<!-- !doctype html public "-//W3C//DTD HTML 4.0 Transitional //EN"> -->
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf8" /> 
+    <title>About This Blog</title>
+    
+    <meta name="author"  content="Stuart Andrews"/>
+
+    <!-- 2011-03-21 START CUSTOM HEADER -->
+
+    <!-- Stylesheet: Pygments -->
+    <link href='/css/pygments.css' type='text/css' rel='stylesheet'/>
+
+    <!-- Stylesheet: Homepage -->
+    <link href='/css/style-combined.css' type='text/css' rel='stylesheet'/>
+
+    <!-- MATHJAX hosted CDN.MATHJAX.ORG -->
+    <script type='text/javascript' src='http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML'> MathJax.Hub.Config({ extensions: ["tex2jax.js","MathMenu.js","MathZoom.js"], jax: ["input/TeX","output/HTML-CSS"], tex2jax: {inlineMath: [["\\(","\\)"]], skipTags: ["script","noscript","style","textarea","pre"], processEnvironments: true}, TeX: { extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"] } }); </script>
+
+    <!-- GOOGLEAPIS hosted JQUERY.MIN -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+
+    <!-- GITHUB hosted JQUERY.COOKIE.JS -->
+    <script type="text/javascript" src="https://raw.github.com/carhartl/jquery-cookie/master/jquery.cookie.js"></script>
+
+    <!-- DAYTIME/NIGHTTIME JAVASCRIPT -->
+    <script language="javascript">//<![CDATA[ 
+      $(document).ready(function(){
+        // Display day mode between 7am and 8pm 
+        var currentTime = new Date().getHours();
+        var daytime_selected = (7 <= currentTime && currentTime < 19) ? 'yes' : 'no';
+        daytime_selected = $.cookie('tub78_daytime_selected') || daytime_selected;
+        if (daytime_selected == 'yes') {
+          $(".title,.todoaction,.ideaaction,.bugaction,.doneaction,body,h1,h2,h3,h4,h5,h6,a,a.missing-wiki-link,th,blockquote,code").addClass("day");
+        } else {
+          $(".title,.todoaction,.ideaaction,.bugaction,.doneaction,body,h1,h2,h3,h4,h5,h6,a,a.missing-wiki-link,th,blockquote,code").addClass("night");
+        }
+        $.cookie('tub78_daytime_selected', daytime_selected, { expires: 1, path: '/' });
+        $("button#daynight").click(function(){
+          $(".title,.todoaction,.ideaaction,.bugaction,.doneaction,body,h1,h2,h3,h4,h5,h6,a,a.missing-wiki-link,th,blockquote,code").toggleClass("day");
+          $(".title,.todoaction,.ideaaction,.bugaction .doneaction,body,h1,h2,h3,h4,h5,h6,a,a.missing-wiki-link,th,blockquote,code").toggleClass("night");
+          var daytime_selected = $.cookie('tub78_daytime_selected') || 'yes';
+          $.cookie('tub78_daytime_selected', (daytime_selected == 'yes') ? 'no' : 'yes', { expires: 1, path: '/' });
+        });
+        /* Toggle visibility of 'help' button */
+        $("button#optional").click(function(){
+            $("div.optional").toggle();
+        });
+      });
+      //]]></script>
+    <!-- 2011-03-21 END CUSTOM HEADER -->
+  </head>
+  <body>
+    <!-- START BODY -->
+    <div class="site">
+      <div class="header">
+        <span class="title"><a href="/">stuartjandrews.com</a></span>
+        <button id="daynight">Day/Night</button>
+        <!-- <hr> -->
+      </div>
+
+      <div class="content">
+        <pre class="action ideaaction">
+>%hdrrelated%
+># Related
+> * [Blogging-From-The-Command-Line]
+> * TN Discount Template [Special:Header]
+> * TN CSS [Snippet_csscombined]
+</pre>
+
+<h2 id="toc_51">Acknowledgements</h2>
+
+<p>Built with <a href="http://code.google.com/p/vimwiki">Vimwiki</a>, <a href="http://www.appsonthemove.com/trunk.htm">Trunk Notes</a>, <a href="http://jekyllrb.com/">Jekyll</a>, <a href="https://github.com/tanoku/redcarpet">RedCarpet</a>, <a href="http://pygments.org/">Pygments</a> &amp; <a href="http://www.mathjax.org/">MathJax</a>.  Colors are from <a href="http://ethanschoonover.com/solarized">Solarized</a>.</p>
+
+<h2 id="toc_52">Environments</h2>
+
+<h3 id="toc_53">iOS</h3>
+
+<ul>
+<li><a href="https://raw.github.com/tub78/TrunkNotes/master/Notes/SpecialHeader.md">TrunkNotes Special:Header</a></li>
+<li><a href="https://raw.github.com/tub78/TrunkNotes/master/Notes/Snippet_csscombined.md">Stylesheet</a></li>
+</ul>
+
+<h3 id="toc_54">Web</h3>
+
+<ul>
+<li><a href="https://github.com/tub78/tub78.github.com/blob/master/_layouts/default.html">Default Template</a></li>
+<li><a href="https://github.com/tub78/tub78.github.com/blob/master/_layouts/post.html">Post Template</a></li>
+<li><a href="https://github.com/tub78/tub78.github.com/blob/master/css/style-combined.css">Stylesheet</a></li>
+</ul>
+
+      </div>
+      <div class="footer">
+        <div class="contact">
+          <p>
+          by Stuart Andrews
+          <a href="http://github.com/tub78/">@tub78 (github)</a>
+          <a href="http://twitter.com/tub78/">@tub78 (twitter)</a>
+          <span class="tiny">[<a href="/about.html">About this blog</a>]</span>
+          </p>
+        </div>
+      </div>
+    </div> <!-- site -->
+
+    
+    <!-- END BODY -->
+  </body>
+</html>
+

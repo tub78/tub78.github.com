@@ -1,0 +1,183 @@
+<!doctype html>
+<!-- !doctype html public "-//W3C//DTD HTML 4.0 Transitional //EN"> -->
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf8" /> 
+    <title>Visualizing Open Data</title>
+    
+    <meta name="author"  content="Stuart Andrews"/>
+
+    <!-- 2011-03-21 START CUSTOM HEADER -->
+
+    <!-- Stylesheet: Pygments -->
+    <link href='/css/pygments.css' type='text/css' rel='stylesheet'/>
+
+    <!-- Stylesheet: Homepage -->
+    <link href='/css/style-combined.css' type='text/css' rel='stylesheet'/>
+
+    <!-- MATHJAX hosted CDN.MATHJAX.ORG -->
+    <script type='text/javascript' src='http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML'> MathJax.Hub.Config({ extensions: ["tex2jax.js","MathMenu.js","MathZoom.js"], jax: ["input/TeX","output/HTML-CSS"], tex2jax: {inlineMath: [["\\(","\\)"]], skipTags: ["script","noscript","style","textarea","pre"], processEnvironments: true}, TeX: { extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"] } }); </script>
+
+    <!-- GOOGLEAPIS hosted JQUERY.MIN -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+
+    <!-- GITHUB hosted JQUERY.COOKIE.JS -->
+    <script type="text/javascript" src="https://raw.github.com/carhartl/jquery-cookie/master/jquery.cookie.js"></script>
+
+    <!-- DAYTIME/NIGHTTIME JAVASCRIPT -->
+    <script language="javascript">//<![CDATA[ 
+      $(document).ready(function(){
+        // Display day mode between 7am and 8pm 
+        var currentTime = new Date().getHours();
+        var daytime_selected = (7 <= currentTime && currentTime < 19) ? 'yes' : 'no';
+        daytime_selected = $.cookie('tub78_daytime_selected') || daytime_selected;
+        if (daytime_selected == 'yes') {
+          $(".title,.todoaction,.ideaaction,.bugaction,.doneaction,body,h1,h2,h3,h4,h5,h6,a,a.missing-wiki-link,th,blockquote,code").addClass("day");
+        } else {
+          $(".title,.todoaction,.ideaaction,.bugaction,.doneaction,body,h1,h2,h3,h4,h5,h6,a,a.missing-wiki-link,th,blockquote,code").addClass("night");
+        }
+        $.cookie('tub78_daytime_selected', daytime_selected, { expires: 1, path: '/' });
+        $("button#daynight").click(function(){
+          $(".title,.todoaction,.ideaaction,.bugaction,.doneaction,body,h1,h2,h3,h4,h5,h6,a,a.missing-wiki-link,th,blockquote,code").toggleClass("day");
+          $(".title,.todoaction,.ideaaction,.bugaction .doneaction,body,h1,h2,h3,h4,h5,h6,a,a.missing-wiki-link,th,blockquote,code").toggleClass("night");
+          var daytime_selected = $.cookie('tub78_daytime_selected') || 'yes';
+          $.cookie('tub78_daytime_selected', (daytime_selected == 'yes') ? 'no' : 'yes', { expires: 1, path: '/' });
+        });
+        /* Toggle visibility of 'help' button */
+        $("button#optional").click(function(){
+            $("div.optional").toggle();
+        });
+      });
+      //]]></script>
+    <!-- 2011-03-21 END CUSTOM HEADER -->
+  </head>
+  <body>
+    <!-- START BODY -->
+    <div class="site">
+      <div class="header">
+        <span class="title"><a href="/">stuartjandrews.com</a></span>
+        <button id="daynight">Day/Night</button>
+        <!-- <hr> -->
+      </div>
+
+      <div class="content">
+        <h1>Visualizing Open Data</h1>
+
+<div id="post">
+<pre class="action ideaaction">
+>%hdrrelated%
+># Related
+> * [Blog-Archive]
+> * [Sparse Matrix Collection]
+</pre>
+
+<h1 id="toc_12">A Recent Discovery</h1>
+
+<p>As I was investigating software to visualize large graphs, I was delighted to discover the following image:</p>
+
+<p><img src="Andrews@Andrews.jpg" alt="Figure_1" title="Figure 1"></p>
+
+<p>This was produced by <code>sfdp</code>, an algorithm from the <a href="http://www.graphviz.org/">Graphviz package</a> that <a href="http://www2.research.att.com/%7Eyifanhu/index.html">Yifan Hu</a> designed to handle large graphs.  Yifan has generated an impressive <a href="http://www2.research.att.com/%7Eyifanhu/GALLERY/GRAPHS/index.html">gallery of images</a> from the entire <a href="http://www.cise.ufl.edu/research/sparse/matrices/">Sparse Matrix Collection</a>
+ from the University of Florida.</p>
+
+<p>One of the reasons I was happy to find this visualization is that <strong>I helped make it</strong> (eight years ago).  The nodes represent instances of handwritten digits 0 through 9, and the edges connect similar instances.  Shameless plug aside, credit is due to Yifan Hu for creating the software and also to Tim Davis from the University of Florida who created and maintained the public <a href="http://www.cise.ufl.edu/research/sparse/matrices/">Sparse Matrix Collection</a>, enabling scientists to benefit from shared data.  I just fiddled another dataset (the canonical MNIST digits) and uploaded it as described below.</p>
+
+<p>Another reason why I was glad to see this visualization is that it confirms the opinion that, when done well and used judiciously, visualizations of large graphs can be meaningful.  In this case, visualizing the graph is meaningful because the separation of ten clusters in 2-dimensions is a proxy for their separation in a k-dimensional embedding.  Since embeddings are commonly used to analyze relationships of similarity, we gain some insight into their effectiveness for a particular domain.</p>
+
+<h1 id="toc_13">Eight Years Ago</h1>
+
+<p>I was working at a research institute in Boston for the summer.  For a project there, I needed to benchmark our newly-developed, memory-efficient classification algorithm against the current state-of-the-art.</p>
+
+<p>This boiled down to solving a large eigenvalue problem using the method as described in a corresponding paper.  The problem was so large that we ran out of memory.  This was back in the days of 32-bit addressing and we had maxed-out our memory.</p>
+
+<p>Seeking advice, I wrote Tim Davis who is the author of the eigenvalue solver that was prescribed.  He suggested that I submit this dataset to his <a href="http://www.cise.ufl.edu/research/sparse/matrices/">Sparse Matrix Collection</a>, and said he would get back to me.  He did get back to me, rather promptly I might add, to say that his off-the-shelf solver would not be able to handle this problem, period.  At the time, this was good news because it validated our decision to focus on memory-efficiency.</p>
+
+</div>
+
+<div id="related">
+  <h2>Related Posts</h2>
+  <ul class="posts">
+    
+    <li><span>09 Nov 2011</span> &raquo; <a href="/2011/11/09/Mac-OSX-Universal-Access.html">Using Magnifaction In Mac OSX</a></li>
+    
+    <li><span>06 May 2011</span> &raquo; <a href="/2011/05/06/Cmdline-Convert-Word-Doc-2-Pdf.html">Convert To Pdf From The Cmdline</a></li>
+    
+    <li><span>10 Jun 2011</span> &raquo; <a href="/2011/06/10/Wiki-Graph.html">Wiki Graph - A Visualization Tool For Wikis</a></li>
+    
+    <li><span>16 Nov 2011</span> &raquo; <a href="/2011/11/16/Low-Hanging-Fruit.html">An Empirical Justification Of False Discovery Rate Correction With Small Samples</a></li>
+    
+  </ul>
+</div>
+
+<hr>
+
+
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'istructure'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+
+<div class="span4">
+  
+    <h4>Tags</h4>
+    <ul class="tag_box">
+    
+    
+
+
+  
+     
+    	<li><a href="/tags.html#Graph-ref">Graph <span>2</span></a></li>
+     
+    	<li><a href="/tags.html#Visualization-ref">Visualization <span>2</span></a></li>
+     
+    	<li><a href="/tags.html#MachineLearning-ref">MachineLearning <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#OpenData-ref">OpenData <span>1</span></a></li>
+    
+  
+
+
+
+    </ul>
+  
+  <h4>Published</h4>
+  <div class="date"><span>13 May 2011</span></div>
+</div>
+
+
+
+      </div>
+      <div class="footer">
+        <div class="contact">
+          <p>
+          by Stuart Andrews
+          <a href="http://github.com/tub78/">@tub78 (github)</a>
+          <a href="http://twitter.com/tub78/">@tub78 (twitter)</a>
+          <span class="tiny">[<a href="/about.html">About this blog</a>]</span>
+          </p>
+        </div>
+      </div>
+    </div> <!-- site -->
+
+    
+    <!-- END BODY -->
+  </body>
+</html>
+

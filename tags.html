@@ -1,0 +1,837 @@
+<!doctype html>
+<!-- !doctype html public "-//W3C//DTD HTML 4.0 Transitional //EN"> -->
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf8" /> 
+    <title>Tags</title>
+    
+    <meta name="author"  content="Stuart Andrews"/>
+
+    <!-- 2011-03-21 START CUSTOM HEADER -->
+
+    <!-- Stylesheet: Pygments -->
+    <link href='/css/pygments.css' type='text/css' rel='stylesheet'/>
+
+    <!-- Stylesheet: Homepage -->
+    <link href='/css/style-combined.css' type='text/css' rel='stylesheet'/>
+
+    <!-- MATHJAX hosted CDN.MATHJAX.ORG -->
+    <script type='text/javascript' src='http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML'> MathJax.Hub.Config({ extensions: ["tex2jax.js","MathMenu.js","MathZoom.js"], jax: ["input/TeX","output/HTML-CSS"], tex2jax: {inlineMath: [["\\(","\\)"]], skipTags: ["script","noscript","style","textarea","pre"], processEnvironments: true}, TeX: { extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"] } }); </script>
+
+    <!-- GOOGLEAPIS hosted JQUERY.MIN -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+
+    <!-- GITHUB hosted JQUERY.COOKIE.JS -->
+    <script type="text/javascript" src="https://raw.github.com/carhartl/jquery-cookie/master/jquery.cookie.js"></script>
+
+    <!-- DAYTIME/NIGHTTIME JAVASCRIPT -->
+    <script language="javascript">//<![CDATA[ 
+      $(document).ready(function(){
+        // Display day mode between 7am and 8pm 
+        var currentTime = new Date().getHours();
+        var daytime_selected = (7 <= currentTime && currentTime < 19) ? 'yes' : 'no';
+        daytime_selected = $.cookie('tub78_daytime_selected') || daytime_selected;
+        if (daytime_selected == 'yes') {
+          $(".title,.todoaction,.ideaaction,.bugaction,.doneaction,body,h1,h2,h3,h4,h5,h6,a,a.missing-wiki-link,th,blockquote,code").addClass("day");
+        } else {
+          $(".title,.todoaction,.ideaaction,.bugaction,.doneaction,body,h1,h2,h3,h4,h5,h6,a,a.missing-wiki-link,th,blockquote,code").addClass("night");
+        }
+        $.cookie('tub78_daytime_selected', daytime_selected, { expires: 1, path: '/' });
+        $("button#daynight").click(function(){
+          $(".title,.todoaction,.ideaaction,.bugaction,.doneaction,body,h1,h2,h3,h4,h5,h6,a,a.missing-wiki-link,th,blockquote,code").toggleClass("day");
+          $(".title,.todoaction,.ideaaction,.bugaction .doneaction,body,h1,h2,h3,h4,h5,h6,a,a.missing-wiki-link,th,blockquote,code").toggleClass("night");
+          var daytime_selected = $.cookie('tub78_daytime_selected') || 'yes';
+          $.cookie('tub78_daytime_selected', (daytime_selected == 'yes') ? 'no' : 'yes', { expires: 1, path: '/' });
+        });
+        /* Toggle visibility of 'help' button */
+        $("button#optional").click(function(){
+            $("div.optional").toggle();
+        });
+      });
+      //]]></script>
+    <!-- 2011-03-21 END CUSTOM HEADER -->
+  </head>
+  <body>
+    <!-- START BODY -->
+    <div class="site">
+      <div class="header">
+        <span class="title"><a href="/">stuartjandrews.com</a></span>
+        <button id="daynight">Day/Night</button>
+        <!-- <hr> -->
+      </div>
+
+      <div class="content">
+        
+
+<ul class="tag_box inline">
+    
+  
+
+
+  
+     
+    	<li><a href="/tags.html#Html-ref">Html <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#Javascript-ref">Javascript <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#Applescript-ref">Applescript <span>2</span></a></li>
+     
+    	<li><a href="/tags.html#Safari-ref">Safari <span>2</span></a></li>
+     
+    	<li><a href="/tags.html#MacVim-ref">MacVim <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#Skim-ref">Skim <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#Social-ref">Social <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#Web-ref">Web <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#Index-ref">Index <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#Prog-ref">Prog <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#CmdLine-ref">CmdLine <span>2</span></a></li>
+     
+    	<li><a href="/tags.html#GoogleCL-ref">GoogleCL <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#Bash-ref">Bash <span>3</span></a></li>
+     
+    	<li><a href="/tags.html#Pdf-ref">Pdf <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#Graph-ref">Graph <span>2</span></a></li>
+     
+    	<li><a href="/tags.html#Visualization-ref">Visualization <span>2</span></a></li>
+     
+    	<li><a href="/tags.html#MachineLearning-ref">MachineLearning <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#OpenData-ref">OpenData <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#VCS-ref">VCS <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#Hg-ref">Hg <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#Python-ref">Python <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#Wiki-ref">Wiki <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#Hadoop-ref">Hadoop <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#HDFS-ref">HDFS <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#Tutorial-ref">Tutorial <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#MacOSX-ref">MacOSX <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#Gene-ref">Gene <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#Genomics-ref">Genomics <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#Biology-ref">Biology <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#Rstats-ref">Rstats <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#Ttest-ref">Ttest <span>1</span></a></li>
+    
+  
+
+
+
+</ul>
+
+
+ 
+  <h3 id="Html-ref">Html</h3>
+  <ul>
+      
+    
+
+
+  
+    
+      
+      	
+      	<li><a href="/2011/04/14/Dynamic-Web-Content-With-Javascript-And-JQuery.html">Dynamic Web Content With Javascript And JQuery</a></li>
+      	
+      
+    
+  
+
+
+
+  </ul>
+ 
+  <h3 id="Javascript-ref">Javascript</h3>
+  <ul>
+      
+    
+
+
+  
+    
+      
+      	
+      	<li><a href="/2011/04/14/Dynamic-Web-Content-With-Javascript-And-JQuery.html">Dynamic Web Content With Javascript And JQuery</a></li>
+      	
+      
+    
+  
+
+
+
+  </ul>
+ 
+  <h3 id="Applescript-ref">Applescript</h3>
+  <ul>
+      
+    
+
+
+  
+    
+      
+      	
+      	<li><a href="/2011/04/19/Reopen-All-Safari-Windows-On-Login.html">Reopen All Safari Windows On Login</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/2011/04/18/Switching-Gears-With-Applescript.html">Switching Gears With Applescript</a></li>
+      	
+      
+    
+  
+
+
+
+  </ul>
+ 
+  <h3 id="Safari-ref">Safari</h3>
+  <ul>
+      
+    
+
+
+  
+    
+      
+      	
+      	<li><a href="/2011/04/19/Reopen-All-Safari-Windows-On-Login.html">Reopen All Safari Windows On Login</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/2011/04/18/Switching-Gears-With-Applescript.html">Switching Gears With Applescript</a></li>
+      	
+      
+    
+  
+
+
+
+  </ul>
+ 
+  <h3 id="MacVim-ref">MacVim</h3>
+  <ul>
+      
+    
+
+
+  
+    
+      
+      	
+      	<li><a href="/2011/04/18/Switching-Gears-With-Applescript.html">Switching Gears With Applescript</a></li>
+      	
+      
+    
+  
+
+
+
+  </ul>
+ 
+  <h3 id="Skim-ref">Skim</h3>
+  <ul>
+      
+    
+
+
+  
+    
+      
+      	
+      	<li><a href="/2011/04/18/Switching-Gears-With-Applescript.html">Switching Gears With Applescript</a></li>
+      	
+      
+    
+  
+
+
+
+  </ul>
+ 
+  <h3 id="Social-ref">Social</h3>
+  <ul>
+      
+    
+
+
+  
+    
+      
+      	
+      	<li><a href="/2011/04/22/Online-Footprint.html">Online Footprint</a></li>
+      	
+      
+    
+  
+
+
+
+  </ul>
+ 
+  <h3 id="Web-ref">Web</h3>
+  <ul>
+      
+    
+
+
+  
+    
+      
+      	
+      	<li><a href="/2011/04/22/Online-Footprint.html">Online Footprint</a></li>
+      	
+      
+    
+  
+
+
+
+  </ul>
+ 
+  <h3 id="Index-ref">Index</h3>
+  <ul>
+      
+    
+
+
+  
+    
+      
+      	
+      	<li><a href="/2011/04/22/Online-Footprint.html">Online Footprint</a></li>
+      	
+      
+    
+  
+
+
+
+  </ul>
+ 
+  <h3 id="Prog-ref">Prog</h3>
+  <ul>
+      
+    
+
+
+  
+    
+      
+      	
+      	<li><a href="/2011/04/22/Online-Footprint.html">Online Footprint</a></li>
+      	
+      
+    
+  
+
+
+
+  </ul>
+ 
+  <h3 id="CmdLine-ref">CmdLine</h3>
+  <ul>
+      
+    
+
+
+  
+    
+      
+      	
+      	<li><a href="/2011/09/06/Hadoop-Filesystem-Tools.html">Hadoop Filesystem Tools</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/2011/05/06/Cmdline-Convert-Word-Doc-2-Pdf.html">Convert To Pdf From The Cmdline</a></li>
+      	
+      
+    
+  
+
+
+
+  </ul>
+ 
+  <h3 id="GoogleCL-ref">GoogleCL</h3>
+  <ul>
+      
+    
+
+
+  
+    
+      
+      	
+      	<li><a href="/2011/05/06/Cmdline-Convert-Word-Doc-2-Pdf.html">Convert To Pdf From The Cmdline</a></li>
+      	
+      
+    
+  
+
+
+
+  </ul>
+ 
+  <h3 id="Bash-ref">Bash</h3>
+  <ul>
+      
+    
+
+
+  
+    
+      
+      	
+      	<li><a href="/2011/09/06/Hadoop-Filesystem-Tools.html">Hadoop Filesystem Tools</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/2011/05/17/A-Centralized-VCS-For-Config-Files.html">A Centralized VCS For Config Files</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/2011/05/06/Cmdline-Convert-Word-Doc-2-Pdf.html">Convert To Pdf From The Cmdline</a></li>
+      	
+      
+    
+  
+
+
+
+  </ul>
+ 
+  <h3 id="Pdf-ref">Pdf</h3>
+  <ul>
+      
+    
+
+
+  
+    
+      
+      	
+      	<li><a href="/2011/05/06/Cmdline-Convert-Word-Doc-2-Pdf.html">Convert To Pdf From The Cmdline</a></li>
+      	
+      
+    
+  
+
+
+
+  </ul>
+ 
+  <h3 id="Graph-ref">Graph</h3>
+  <ul>
+      
+    
+
+
+  
+    
+      
+      	
+      	<li><a href="/2011/06/10/Wiki-Graph.html">Wiki Graph - A Visualization Tool For Wikis</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/2011/05/13/Visualizing-Open-Data.html">Visualizing Open Data</a></li>
+      	
+      
+    
+  
+
+
+
+  </ul>
+ 
+  <h3 id="Visualization-ref">Visualization</h3>
+  <ul>
+      
+    
+
+
+  
+    
+      
+      	
+      	<li><a href="/2011/11/09/Mac-OSX-Universal-Access.html">Using Magnifaction In Mac OSX</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/2011/05/13/Visualizing-Open-Data.html">Visualizing Open Data</a></li>
+      	
+      
+    
+  
+
+
+
+  </ul>
+ 
+  <h3 id="MachineLearning-ref">MachineLearning</h3>
+  <ul>
+      
+    
+
+
+  
+    
+      
+      	
+      	<li><a href="/2011/05/13/Visualizing-Open-Data.html">Visualizing Open Data</a></li>
+      	
+      
+    
+  
+
+
+
+  </ul>
+ 
+  <h3 id="OpenData-ref">OpenData</h3>
+  <ul>
+      
+    
+
+
+  
+    
+      
+      	
+      	<li><a href="/2011/05/13/Visualizing-Open-Data.html">Visualizing Open Data</a></li>
+      	
+      
+    
+  
+
+
+
+  </ul>
+ 
+  <h3 id="VCS-ref">VCS</h3>
+  <ul>
+      
+    
+
+
+  
+    
+      
+      	
+      	<li><a href="/2011/05/17/A-Centralized-VCS-For-Config-Files.html">A Centralized VCS For Config Files</a></li>
+      	
+      
+    
+  
+
+
+
+  </ul>
+ 
+  <h3 id="Hg-ref">Hg</h3>
+  <ul>
+      
+    
+
+
+  
+    
+      
+      	
+      	<li><a href="/2011/05/17/A-Centralized-VCS-For-Config-Files.html">A Centralized VCS For Config Files</a></li>
+      	
+      
+    
+  
+
+
+
+  </ul>
+ 
+  <h3 id="Python-ref">Python</h3>
+  <ul>
+      
+    
+
+
+  
+    
+      
+      	
+      	<li><a href="/2011/06/10/Wiki-Graph.html">Wiki Graph - A Visualization Tool For Wikis</a></li>
+      	
+      
+    
+  
+
+
+
+  </ul>
+ 
+  <h3 id="Wiki-ref">Wiki</h3>
+  <ul>
+      
+    
+
+
+  
+    
+      
+      	
+      	<li><a href="/2011/06/10/Wiki-Graph.html">Wiki Graph - A Visualization Tool For Wikis</a></li>
+      	
+      
+    
+  
+
+
+
+  </ul>
+ 
+  <h3 id="Hadoop-ref">Hadoop</h3>
+  <ul>
+      
+    
+
+
+  
+    
+      
+      	
+      	<li><a href="/2011/09/06/Hadoop-Filesystem-Tools.html">Hadoop Filesystem Tools</a></li>
+      	
+      
+    
+  
+
+
+
+  </ul>
+ 
+  <h3 id="HDFS-ref">HDFS</h3>
+  <ul>
+      
+    
+
+
+  
+    
+      
+      	
+      	<li><a href="/2011/09/06/Hadoop-Filesystem-Tools.html">Hadoop Filesystem Tools</a></li>
+      	
+      
+    
+  
+
+
+
+  </ul>
+ 
+  <h3 id="Tutorial-ref">Tutorial</h3>
+  <ul>
+      
+    
+
+
+  
+    
+      
+      	
+      	<li><a href="/2011/11/09/Mac-OSX-Universal-Access.html">Using Magnifaction In Mac OSX</a></li>
+      	
+      
+    
+  
+
+
+
+  </ul>
+ 
+  <h3 id="MacOSX-ref">MacOSX</h3>
+  <ul>
+      
+    
+
+
+  
+    
+      
+      	
+      	<li><a href="/2011/11/09/Mac-OSX-Universal-Access.html">Using Magnifaction In Mac OSX</a></li>
+      	
+      
+    
+  
+
+
+
+  </ul>
+ 
+  <h3 id="Gene-ref">Gene</h3>
+  <ul>
+      
+    
+
+
+  
+    
+      
+      	
+      	<li><a href="/2011/11/16/Low-Hanging-Fruit.html">An Empirical Justification Of False Discovery Rate Correction With Small Samples</a></li>
+      	
+      
+    
+  
+
+
+
+  </ul>
+ 
+  <h3 id="Genomics-ref">Genomics</h3>
+  <ul>
+      
+    
+
+
+  
+    
+      
+      	
+      	<li><a href="/2011/11/16/Low-Hanging-Fruit.html">An Empirical Justification Of False Discovery Rate Correction With Small Samples</a></li>
+      	
+      
+    
+  
+
+
+
+  </ul>
+ 
+  <h3 id="Biology-ref">Biology</h3>
+  <ul>
+      
+    
+
+
+  
+    
+      
+      	
+      	<li><a href="/2011/11/16/Low-Hanging-Fruit.html">An Empirical Justification Of False Discovery Rate Correction With Small Samples</a></li>
+      	
+      
+    
+  
+
+
+
+  </ul>
+ 
+  <h3 id="Rstats-ref">Rstats</h3>
+  <ul>
+      
+    
+
+
+  
+    
+      
+      	
+      	<li><a href="/2011/11/16/Low-Hanging-Fruit.html">An Empirical Justification Of False Discovery Rate Correction With Small Samples</a></li>
+      	
+      
+    
+  
+
+
+
+  </ul>
+ 
+  <h3 id="Ttest-ref">Ttest</h3>
+  <ul>
+      
+    
+
+
+  
+    
+      
+      	
+      	<li><a href="/2011/11/16/Low-Hanging-Fruit.html">An Empirical Justification Of False Discovery Rate Correction With Small Samples</a></li>
+      	
+      
+    
+  
+
+
+
+  </ul>
+
+
+      </div>
+      <div class="footer">
+        <div class="contact">
+          <p>
+          by Stuart Andrews
+          <a href="http://github.com/tub78/">@tub78 (github)</a>
+          <a href="http://twitter.com/tub78/">@tub78 (twitter)</a>
+          <span class="tiny">[<a href="/about.html">About this blog</a>]</span>
+          </p>
+        </div>
+      </div>
+    </div> <!-- site -->
+
+    
+    <!-- END BODY -->
+  </body>
+</html>
+
