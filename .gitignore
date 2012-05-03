@@ -1,5 +1,5 @@
 _site/*
-_cache/*
+.site/*
 
 
 Thumbs.db
@@ -8,7 +8,6 @@ Thumbs.db
 .bundle
 vendor/
 bin/
-LOG.sh
 
 
 _*.html
