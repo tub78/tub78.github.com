@@ -1,0 +1,13 @@
+<div class="highlight"><pre><code class="bash">  <span class="c">#!/bin/bash</span>
+  <span class="c"># usage: gdocs2pdf.sh &lt;file&gt;</span>
+  <span class="o">[</span> <span class="nv">$# </span>-eq 1 <span class="o">]</span> <span class="o">||</span> <span class="o">{</span> <span class="nb">echo</span> <span class="s2">&quot;usage: $(basename $0) &lt;file&gt;&quot;</span>; <span class="nb">exit </span>1; <span class="o">}</span>
+  <span class="nv">TITLE</span><span class="o">=</span><span class="k">$(</span>basename <span class="s2">&quot;$1&quot;</span><span class="k">)</span>
+  <span class="nv">DIR</span><span class="o">=</span><span class="k">$(</span>dirname <span class="s2">&quot;$1&quot;</span><span class="k">)</span>
+  <span class="nv">FOLDER</span><span class="o">=</span>GDocs2Pdf
+  <span class="nv">GOOGLECL</span><span class="o">=</span>/usr/local/bin/google
+  <span class="nb">echo</span> <span class="nv">$GOOGLECL</span> docs upload --title<span class="o">=</span><span class="s2">&quot;$TITLE&quot;</span> --folder<span class="o">=</span><span class="s2">&quot;$FOLDER&quot;</span> <span class="s2">&quot;$1&quot;</span>
+  <span class="nv">$GOOGLECL</span> docs upload --title<span class="o">=</span><span class="s2">&quot;$TITLE&quot;</span> --folder<span class="o">=</span><span class="s2">&quot;$FOLDER&quot;</span> <span class="s2">&quot;$1&quot;</span>
+  <span class="nb">echo</span> <span class="nv">$GOOGLECL</span> docs get --format<span class="o">=</span>pdf --title<span class="o">=</span><span class="s2">&quot;$TITLE&quot;</span> --folder<span class="o">=</span><span class="s2">&quot;$FOLDER&quot;</span> --dest<span class="o">=</span><span class="s2">&quot;$DIR&quot;</span>
+  <span class="nv">$GOOGLECL</span> docs get --format<span class="o">=</span>pdf --title<span class="o">=</span><span class="s2">&quot;$TITLE&quot;</span> --folder<span class="o">=</span><span class="s2">&quot;$FOLDER&quot;</span> --dest<span class="o">=</span><span class="s2">&quot;$DIR&quot;</span>
+</code></pre>
+</div>

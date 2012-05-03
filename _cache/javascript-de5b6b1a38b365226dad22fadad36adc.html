@@ -1,0 +1,22 @@
+<div class="highlight"><pre><code class="javascript">  <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+      <span class="cm">/* Toggle visibility of element */</span>
+      <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;button#optional&quot;</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+          <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;div.optional&quot;</span><span class="p">).</span><span class="nx">toggle</span><span class="p">();</span>
+      <span class="p">});</span>
+
+      <span class="cm">/* Display day mode between 7am and 7pm */</span>
+      <span class="kd">var</span> <span class="nx">currentTime</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">getHours</span><span class="p">();</span>
+      <span class="k">if</span> <span class="p">(</span><span class="mi">7</span> <span class="o">&lt;=</span> <span class="nx">currentTime</span> <span class="o">&amp;&amp;</span> <span class="nx">currentTime</span> <span class="o">&lt;</span> <span class="mi">19</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;body&quot;</span><span class="p">).</span><span class="nx">addClass</span><span class="p">(</span><span class="s2">&quot;day&quot;</span><span class="p">);</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+          <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;body&quot;</span><span class="p">).</span><span class="nx">addClass</span><span class="p">(</span><span class="s2">&quot;night&quot;</span><span class="p">);</span>
+      <span class="p">}</span>
+
+      <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;button#daynight&quot;</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+          <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;body&quot;</span><span class="p">).</span><span class="nx">toggleClass</span><span class="p">(</span><span class="s2">&quot;day&quot;</span><span class="p">);</span>
+          <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;body&quot;</span><span class="p">).</span><span class="nx">toggleClass</span><span class="p">(</span><span class="s2">&quot;night&quot;</span><span class="p">);</span>
+      <span class="p">});</span>
+
+  <span class="p">});</span>
+</code></pre>
+</div>

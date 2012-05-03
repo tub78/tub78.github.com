@@ -1,0 +1,25 @@
+<div class="highlight"><pre><code class="python">  <span class="n">WG</span> <span class="o">=</span> <span class="n">WikiGraph</span><span class="p">()</span>
+  <span class="n">WG</span><span class="o">.</span><span class="n">add_pages</span><span class="p">(</span><span class="n">get_files_from_path_with_ext</span><span class="p">(</span><span class="n">DIRECTORY</span><span class="p">,</span> <span class="n">EXTENSION</span><span class="p">))</span>
+  <span class="n">WG</span><span class="o">.</span><span class="n">add_links</span><span class="p">()</span>
+
+  <span class="k">if</span> <span class="ow">not</span><span class="p">(</span><span class="n">KEEPUNKNOWN</span><span class="p">):</span>
+      <span class="n">Nrm_nodes</span> <span class="o">=</span> <span class="n">WG</span><span class="o">.</span><span class="n">prune_unknown_paths</span><span class="p">()</span>
+      <span class="k">print</span> <span class="s">&quot;Removed {} nodes with unknown paths&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">Nrm_nodes</span><span class="p">)</span>
+
+  <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">TAGS</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+      <span class="n">tagset</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">TAGS</span><span class="p">)</span>
+      <span class="n">WG</span><span class="o">.</span><span class="n">add_tags</span><span class="p">()</span>
+      <span class="n">Nrm_nodes</span> <span class="o">=</span> <span class="n">WG</span><span class="o">.</span><span class="n">filter_by_tag</span><span class="p">(</span><span class="n">ALLTAGS</span><span class="p">,</span> <span class="n">tagset</span><span class="p">)</span>
+      <span class="k">print</span> <span class="s">&quot;Removed {} nodes not related to tags: &#39;{}&#39;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">Nrm_nodes</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">TAGS</span><span class="p">))</span>
+
+  <span class="k">if</span> <span class="n">NUMCOMPONENTS</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+      <span class="n">Nrm_nodes</span><span class="p">,</span> <span class="n">Nrm_comp</span> <span class="o">=</span> <span class="n">WG</span><span class="o">.</span><span class="n">prune_ccomponents</span><span class="p">(</span><span class="n">NUMCOMPONENTS</span><span class="p">)</span>
+      <span class="k">print</span> <span class="s">&quot;Removed {} nodes from {} smallest components&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">Nrm_nodes</span><span class="p">,</span> <span class="n">Nrm_comp</span><span class="p">)</span>
+
+  <span class="k">if</span> <span class="ow">not</span><span class="p">(</span><span class="n">KEEPISOLATES</span><span class="p">):</span>
+      <span class="n">Nrm_nodes</span> <span class="o">=</span> <span class="n">WG</span><span class="o">.</span><span class="n">prune_isolates</span><span class="p">()</span>
+      <span class="k">print</span> <span class="s">&quot;Removed {} isolated nodes&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">Nrm_nodes</span><span class="p">)</span>
+
+  <span class="n">WG</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">layout</span><span class="o">=</span><span class="n">LAYOUT</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">LABELS</span><span class="p">,</span> <span class="o">**</span><span class="n">KWARGS</span><span class="p">)</span>
+</code></pre>
+</div>

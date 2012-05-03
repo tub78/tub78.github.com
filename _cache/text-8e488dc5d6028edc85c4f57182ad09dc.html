@@ -1,0 +1,42 @@
+<div class="highlight"><pre><code class="text">  usage: wikigraph.py [-h] [--verbosity VERBOSITY] [--directory DIRECTORY]
+                      [--extension EXTENSION] [--keepunknown] [--keepisolates]
+                      [--numcomponents NUMCOMPONENTS] [--tags [TAGS [TAGS ...]]]
+                      [--alltags]
+                      [--layout {mpl,circ,spec,neato,twopi,fdp,sfdp}] [--labels]
+                      [--figalpha FIGALPHA] [--figdpi {72,100,200,300}]
+                      [--figtype {png,pdf,ps,eps,svg}] [--output OUTPUT]
+
+  Extract and visualize the link structure of a wiki
+
+  optional arguments:
+    -h, --help            show this help message and exit
+    --verbosity VERBOSITY
+                          Level of verbosity for logging
+    --directory DIRECTORY
+                          Directory where files containing wiki pages are stored
+                          (flat)
+    --extension EXTENSION
+                          Extension of files containing wiki pages
+    --keepunknown         Whether to keep linked pages if no corresponding file
+                          is found
+    --keepisolates        Whether to keep isolated pages
+    --numcomponents NUMCOMPONENTS
+                          Number of largest connected components to keep (0
+                          selects all)
+    --tags [TAGS [TAGS ...]]
+                          Tags to filter
+    --alltags             If true, only returns pages that contain ALL tags
+    --layout {mpl,circ,spec,neato,twopi,fdp,sfdp}
+                          The layout algorithm to use (from graphviz, etc.)
+    --labels              Whether to show labels in displays
+    --figalpha FIGALPHA   Transparency level for figure background
+    --figdpi {72,100,200,300}
+                          DPI for saved figure
+    --figtype {png,pdf,ps,eps,svg}
+                          Type of saved figure
+    --output OUTPUT       Prefix of saved figure
+
+  Additional arguments pairs are passed to the drawing routine as keyword-values
+  (floats assumed).
+</code></pre>
+</div>
