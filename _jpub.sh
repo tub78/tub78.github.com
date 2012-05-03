@@ -3,43 +3,38 @@
 # Using .nojekyll does not help publish speed
 # A smaller repo with symlinks does not help publish speed
 
-pushd $TRUNKNOTES/stuartjandrews.com/
+pushd "$TRUNKNOTES/stuartjandrews.com/"
 
 
-# Commit and push source branch
-git checkout source
-[ $? -eq 0 ] || exit;
-git add -A
-git commit -m "$(git status -s)"
-git push origin source
-[ $? -eq 0 ] || exit;
-
-# Build site
-mkdir -p .site
-bin/jekyll --no-auto .site
-
-exit;
-
-# Push master branch
+# Checkout master branch
 git checkout master
+[ $? -eq 0 ] || exit;
 
-# Empty my repo, except ".git"
+# Wipe-clean repo, except dot files and ".gitignore" files
 mkdir -p .hide
 rsync -avu --include-from ".gitignore" --exclude "*" ./ .hide/
 rm -rf *
 rsync -avu --include-from ".gitignore" --exclude "*" .hide/ ./
 
-# 
+# Copy site folder 
 cp -r .site/* .
+
+git status -s
+exit;
+
+# Commit and push
 git add -A
 git commit -m "$(git status -s)"
 git push origin master
 
 # Back to source branch
 git checkout source
+[ $? -eq 0 ] || exit;
+
+
 
 # Check status
-url="svnpenn.github.com/$(git status -s | head -1 | cut -c4-)"
+url="tub78.github.com/$(git status -s | head -1 | cut -c4-)"
 original=$(wget -qO- $url)
 
 while test "$original" = "$(wget -qO- $url)"; do
