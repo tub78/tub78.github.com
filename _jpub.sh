@@ -2,26 +2,39 @@
 # pages.github.com
 # Using .nojekyll does not help publish speed
 # A smaller repo with symlinks does not help publish speed
-cd $TRUNKNOTES/stuartjandrews.com/
+
+pushd $TRUNKNOTES/stuartjandrews.com/
+
 
 # Commit and push source branch
 git checkout source
-#git add -A
-#git commit -m "$(git status -s)"
-#git push origin source
+[ $? -eq 0 ] || exit;
+
+git add -A
+[ $? -eq 0 ] || exit;
+
+git commit -m "$(git status -s)"
+[ $? -eq 0 ] || exit;
+
+git push origin source
+[ $? -eq 0 ] || exit;
 
 # Build site
 mkdir -p .site
 bin/jekyll --no-auto .site
+
+exit;
 
 # Push master branch
 git checkout master
 
 # Empty my repo, except ".git"
 mkdir -p .hide
-rsync -avu --exclude "*" --include-from .gitignore ./ .hide/
-rm -r *
-rsync -avu --exclude "*" --include-from .gitignore .hide/ ./
+rsync -avu --include-from ".gitignore" --exclude "*" ./ .hide/
+rm -rf *
+rsync -avu --include-from ".gitignore" --exclude "*" .hide/ ./
+
+# 
 cp -r .site/* .
 git add -A
 git commit -m "$(git status -s)"
