@@ -17,7 +17,7 @@ rm -rf *
 rsync -avu --include-from ".gitignore" --exclude "*" .hide/ ./
 
 # Copy site folder 
-cp -r .site/* .
+cp -r _site/* .
 
 # Display changes
 git status -s
