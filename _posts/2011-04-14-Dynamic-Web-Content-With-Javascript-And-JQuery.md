@@ -36,15 +36,16 @@ The buttons and their actions are implemented via a combination of Html, CSS and
 The code segments necessary to recreate these dynamic elements are explained below.
 
 <hr>
-<button id="optional" style="float:left">Help</button>
-<button id="daynight" style="float:left">Day/Night</button>
+<span style="font-size:1.2em">Appearance:</span>
+<button id="daynight" style="float:none">Day/Night</button>
+<span style="font-size:1.2em">Visibility:</span>
+<button id="optional" style="float:none">Show/Hide</button>
 
 <div class="optional">
 <hr>
-<h3>Description of Buttons (Toggle Me!)</h3>
 <ol>
-<li> Help<br /> Toggle visibility of this text by pressing the button </li>
-<li> Day/Night<br /> Toggle appearance of blog by pressing the button </li>
+<li> Appearance<br /> Toggle appearance of blog by pressing the button </li>
+<li> Visibility<br /> Toggle visibility of this text by pressing the button </li>
 </li>
 </ol>
 </div>
