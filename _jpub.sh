@@ -9,13 +9,8 @@ pushd $TRUNKNOTES/stuartjandrews.com/
 # Commit and push source branch
 git checkout source
 [ $? -eq 0 ] || exit;
-
 git add -A
-[ $? -eq 0 ] || exit;
-
 git commit -m "$(git status -s)"
-[ $? -eq 0 ] || exit;
-
 git push origin source
 [ $? -eq 0 ] || exit;
 
