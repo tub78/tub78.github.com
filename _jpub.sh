@@ -31,6 +31,8 @@ git push origin master
 git checkout source
 [ $? -eq 0 ] || exit;
 
+echo 'Jekyll Publish complete!'
+exit;
 
 
 # Check status
