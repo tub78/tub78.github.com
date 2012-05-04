@@ -4,12 +4,12 @@
 # A smaller repo with symlinks does not help publish speed
 
 BLOG="$TRUNKNOTES/stuartjandrews.com"
-BLOGPUB="$BLOG"-0
+BLOGPUB="$BLOG"-1
 
-# Checkout master branch
-pushd "$BLOG"
-git checkout master
-[ $? -eq 0 ] || { echo "Checkout Master Failed"; exit; };
+# # Checkout master branch
+# pushd "$BLOG"
+# git checkout master
+# [ $? -eq 0 ] || { echo "Checkout Master Failed"; exit; };
 
 # Clone blog
 pushd "$TRUNKNOTES"
