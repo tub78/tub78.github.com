@@ -6,15 +6,11 @@
 BLOG="$TRUNKNOTES/stuartjandrews.com"
 BLOGPUB="$BLOG"-1
 
-# # Checkout master branch
-# pushd "$BLOG"
-# git checkout master
-# [ $? -eq 0 ] || { echo "Checkout Master Failed"; exit; };
 
 # Clone blog
-pushd "$TRUNKNOTES"
 git clone "$BLOG" "$BLOGPUB"
 pushd "$BLOGPUB"
+#git remote add origin git@github.com:tub78/tub78.github.com.git
 
 # Checkout master branch
 git checkout master
@@ -24,7 +20,7 @@ git checkout master
 rm -rf *
 
 # Copy site folder 
-cp -r "$BLOG/_site/*" .
+cp -r "$BLOG"/_site/* .
 
 # Display changes
 git status -s
@@ -35,15 +31,10 @@ git commit -m "$(git status -s)"
 git push origin master
 [ $? -eq 0 ] || { echo "Push Failed"; exit; };
 
-# Back to source branch
-git checkout source
-[ $? -eq 0 ] || exit;
-
 # Clean-up
 popd
-echo rm -rf "$BLOGPUB"
+rm -rf "$BLOGPUB"
 echo 'Jekyll Publish complete!'
-popd
 exit;
 
 
