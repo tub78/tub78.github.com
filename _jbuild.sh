@@ -3,13 +3,13 @@
 # Using .nojekyll does not help publish speed
 # A smaller repo with symlinks does not help publish speed
 
-pushd "$TRUNKNOTES/stuartjandrews.com/"
+BLOG="$TRUNKNOTES/stuartjandrews.com"
+pushd "$BLOG"
 
 
 # Checkout source branch
 git checkout source
 [ $? -eq 0 ] || { echo "Checkout Source Failed"; exit; };
-rm -f hide.gitignore
 
 # Commit and push
 git add -A
@@ -20,6 +20,5 @@ git push origin source
 # Build site
 bin/jekyll --no-auto
 [ $? -eq 0 ] || { echo "Jekyll Build Failed"; exit; };
-cp -f .gitignore hide.gitignore
 
 echo 'Jekyll Build Complete!'

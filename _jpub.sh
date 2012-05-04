@@ -3,22 +3,22 @@
 # Using .nojekyll does not help publish speed
 # A smaller repo with symlinks does not help publish speed
 
-pushd "$TRUNKNOTES/stuartjandrews.com/"
+BLOG="$TRUNKNOTES/stuartjandrews.com"
+BLOGPUB="$BLOG"-0
 
+# Clone blog
+pushd "$TRUNKNOTES"
+git clone "$BLOG" "$BLOGPUB"
+pushd "$BLOGPUB"
 
 # Checkout master branch
 git checkout master
-[ $? -eq 0 ] || exit;
 
-# Wipe-clean repo, except dot files and ".gitignore" files
-mkdir -p .hide
-rsync -avu --cvs-exclude --include-from "hide.gitignore" --exclude "/*" ./ .hide/
+# Wipe-clean repo, except dot files
 rm -rf *
-rsync -avu --cvs-exclude --include-from "hide.gitignore" --exclude "/*" .hide/ ./
-rm -f hide.gitignore
 
 # Copy site folder 
-cp -r _site/* .
+cp -r "$BLOG/_site/*" .
 
 # Display changes
 git status -s
@@ -32,7 +32,11 @@ git push origin master
 git checkout source
 [ $? -eq 0 ] || exit;
 
+# Clean-up
+popd
+echo rm -rf "$BLOGPUB"
 echo 'Jekyll Publish complete!'
+popd
 exit;
 
 
