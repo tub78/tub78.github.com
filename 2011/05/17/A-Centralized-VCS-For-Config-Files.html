@@ -1,0 +1,339 @@
+<!doctype html>
+<!-- !doctype html public "-//W3C//DTD HTML 4.0 Transitional //EN"> -->
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf8" /> 
+    <title>A Centralized VCS For Config Files</title>
+    
+    <meta name="author"  content="Stuart Andrews"/>
+
+    <!-- 2011-03-21 START CUSTOM HEADER -->
+
+    <!-- Stylesheet: Pygments -->
+    <link href='/css/pygments.css' type='text/css' rel='stylesheet'/>
+
+    <!-- Stylesheet: Homepage -->
+    <link href='/css/style-combined.css' type='text/css' rel='stylesheet'/>
+
+    <!-- MATHJAX hosted CDN.MATHJAX.ORG -->
+    <script type='text/javascript' src='http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML'> MathJax.Hub.Config({ extensions: ["tex2jax.js","MathMenu.js","MathZoom.js"], jax: ["input/TeX","output/HTML-CSS"], tex2jax: {inlineMath: [["\\(","\\)"]], skipTags: ["script","noscript","style","textarea","pre"], processEnvironments: true}, TeX: { extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"] } }); </script>
+
+    <!-- GOOGLEAPIS hosted JQUERY.MIN -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+
+    <!-- GITHUB hosted JQUERY.COOKIE.JS -->
+    <script type="text/javascript" src="https://raw.github.com/carhartl/jquery-cookie/master/jquery.cookie.js"></script>
+
+    <!-- DAYTIME/NIGHTTIME JAVASCRIPT -->
+    <script language="javascript">//<![CDATA[ 
+      $(document).ready(function(){
+        // Display day mode between 7am and 8pm 
+        var currentTime = new Date().getHours();
+        var daytime_selected = (7 <= currentTime && currentTime < 19) ? 'yes' : 'no';
+        daytime_selected = $.cookie('tub78_daytime_selected') || daytime_selected;
+        if (daytime_selected == 'yes') {
+          $(".title,.todoaction,.ideaaction,.bugaction,.doneaction,body,h1,h2,h3,h4,h5,h6,a,a.missing-wiki-link,th,blockquote,code").addClass("day");
+        } else {
+          $(".title,.todoaction,.ideaaction,.bugaction,.doneaction,body,h1,h2,h3,h4,h5,h6,a,a.missing-wiki-link,th,blockquote,code").addClass("night");
+        }
+        $.cookie('tub78_daytime_selected', daytime_selected, { expires: 1, path: '/' });
+        $("button#daynight").click(function(){
+          $(".title,.todoaction,.ideaaction,.bugaction,.doneaction,body,h1,h2,h3,h4,h5,h6,a,a.missing-wiki-link,th,blockquote,code").toggleClass("day");
+          $(".title,.todoaction,.ideaaction,.bugaction .doneaction,body,h1,h2,h3,h4,h5,h6,a,a.missing-wiki-link,th,blockquote,code").toggleClass("night");
+          var daytime_selected = $.cookie('tub78_daytime_selected') || 'yes';
+          $.cookie('tub78_daytime_selected', (daytime_selected == 'yes') ? 'no' : 'yes', { expires: 1, path: '/' });
+        });
+        /* Toggle visibility of 'help' button */
+        $("button#optional").click(function(){
+            $("div.optional").toggle();
+        });
+      });
+      //]]></script>
+    <!-- 2011-03-21 END CUSTOM HEADER -->
+  </head>
+  <body>
+    <!-- START BODY -->
+    <div class="site">
+      <div class="header">
+        <span class="title"><a href="/">stuartjandrews.com</a></span>
+        <button id="daynight">Day/Night</button>
+        <!-- <hr> -->
+      </div>
+
+      <div class="content">
+        <h1>A Centralized VCS For Config Files</h1>
+
+<div id="post">
+<pre class="action ideaaction">
+>%hdrrelated%
+># Related
+> * [Blog-Archive]
+> * [VersionControlSystems]
+> * [VCS_HgMercurial]
+> * [VCS_Git]
+> * [VCS_HgGit]
+</pre>
+
+<!--
+# A Centralized Version Control Repository For Isolated Configuration Files, Dot Files, Preferences, Etc.
+-->
+
+<p><a href="http://en.wikipedia.org/wiki/Revision_control">Version Control Systems</a> are programs that maintain a history of edits or changes to a collection of files.</p>
+
+<p>I often want to use versioning for individual isolated files, or collections of files, that live somewhere in my directory tree.  However, because management of many independent repositories is hard, I am reluctant to create and maintain a repository wherever the file lives if <strong>the directory itself</strong> is not under active development.</p>
+
+<p>Some examples of files like this are dotfiles in my home directory, and other preference or configuration files throughout my directory tree.</p>
+
+<h1 id="toc_14">Instructions</h1>
+
+<p>Here&#39;s a solution that was based on a suggestion by Casey Dahlin on Doug Warner&#39;s <a href="http://doug.warner.fm/d//blog/2008/07/Version-controlling-my-home-dir">blog</a>.   Comments from Peter Manis, Benjamin Schmidt and Martin Geisler were also helpful <a href="http://pyverted.com/version-control/using-mercurial-on-your-home-directory/2009/08/">here</a>, <a href="http://www.cyberciti.biz/faq/how-do-i-find-the-largest-filesdirectories-on-a-linuxunixbsd-filesystem/">here</a>, and <a href="http://mercurial.selenic.com/wiki/TipsAndTricks">here</a>.</p>
+
+<p>The idea is to create and manage <strong>a single repository</strong> for these files that will be easy to manage.  Files can be added manually.  Regular commits will be made on an ongoing basis, and can even be automated.</p>
+
+<h2 id="toc_15">Initialization</h2>
+
+<p>First, create the repo in your home directory</p>
+<div class="highlight"><pre><code class="bash">  <span class="nb">cd</span> <span class="nv">$HOME</span>
+  hg init
+</code></pre>
+</div>
+
+<h2 id="toc_16">Safety Precautions</h2>
+
+<p><a href="http://pyverted.com/version-control/using-mercurial-on-your-home-directory/2009/08/">Peter Manis</a> points out that the <code>hg purge</code> command can remove all files in the <strong>working directory</strong> that are not added to the repo!!  He advises to explicitly disable this command for the repo by adding the following to the project-level <code>.hgrc</code> file located in <code>$HOME/.hg/hgrc</code></p>
+<div class="highlight"><pre><code class="cfg">  <span class="k">[extensions]</span>
+  <span class="na">hgext.purge</span> <span class="o">=</span> <span class="s">!</span>
+</code></pre>
+</div>
+
+<h2 id="toc_17">List, Add, Forget, Remove, Commit, &amp; Status</h2>
+
+<p>You can list, add, forget, remove, and commit files to the repo with the following commands</p>
+<div class="highlight"><pre><code class="bash">  hg manifest
+  hg add &lt;files&gt;
+  hg forget &lt;files&gt;
+  hg remove &lt;files&gt;
+  hg commit -m <span class="s2">&quot;Added/removed/changed file(s)&quot;</span>
+</code></pre>
+</div>
+
+<p>The status command reports on all files in the <strong>working directory</strong> whether they have been added to the repo or not.  This can take a long time.</p>
+<div class="highlight"><pre><code class="bash">  hg status
+</code></pre>
+</div>
+
+<h2 id="toc_18">The Default Repo</h2>
+
+<p>To access the centralized repo from directories other than your <code>$HOME</code> directory, set the <strong>default</strong> path in your user-level <code>.hgrc</code> file located in <code>$HOME/.hgrc</code></p>
+<div class="highlight"><pre><code class="cfg">  <span class="k">[path]</span>
+  <span class="na">default</span> <span class="o">=</span> <span class="s">$HOME</span>
+</code></pre>
+</div>
+
+<p>The centralized repo is accessible only if the <strong>current working directory</strong> (PWD) is not itself the <strong>working directory</strong> of another repo.</p>
+
+<p><strong>Warning</strong>: A danger of using this preference is that you may end up using the centralized repo when you intended to use a local repo.  For example, if you accidentally call <code>hg</code> from a non-versioned directory.</p>
+
+<p>To identify which repo you are working on, just type</p>
+<div class="highlight"><pre><code class="bash">  hg showconfig bundle.mainreporoot
+</code></pre>
+</div>
+
+<p>An easier solution is to add the following to your user-level <code>.hgrc</code> file</p>
+<div class="highlight"><pre><code class="cfg">  <span class="k">[hooks]</span>
+  <span class="na">pre-status</span> <span class="o">=</span> <span class="s">echo &quot;======\nMAIN REPO ROOT = $PWD\n======&quot;</span>
+<span class="s">  pre-manifest = echo &quot;======\nMAIN REPO ROOT = $PWD\n======&quot;</span>
+</code></pre>
+</div>
+
+<p>This way, whenevery you type <code>hg status</code> or <code>hg manifest</code>, you will be told which repo is active.</p>
+
+<h2 id="toc_19">The .hgignore File</h2>
+
+<p>An alternative strategy for managing repo files, is to create an <code>.hgignore</code> file listing the files that you do not wish to be tracked, and then add / commit everything else.</p>
+
+<p>A simple <code>.hgignore</code> file looks like this.</p>
+<div class="highlight"><pre><code class="text">  syntax: glob
+  *~
+  .*.swp
+  *.swp
+  *.o
+  .hg
+
+  syntax: regexp
+  ^[a-zA-Z]
+
+  .file1
+  ^\.file2\/file3
+</code></pre>
+</div>
+
+<p>This file excludes several standard temporary files, any file named &quot;.file1&quot;, and files matching &quot;file2/file3&quot; in the repo&#39;s root, <strong>working directory</strong>.</p>
+
+<p>After editing the <code>.hgignore</code> file to your liking, you can preview your choices with</p>
+<div class="highlight"><pre><code class="bash">  <span class="c"># 1. show &quot;added&quot; files (will be included in the next commit)</span>
+  hg status -a
+  <span class="c"># 2. show &quot;unknown&quot; files (will not be included in the next commit)</span>
+  hg status -u
+</code></pre>
+</div>
+
+<p>Then, you can use the following shorthand to: 1) add all unknown files and commit the changes to the repo, and 2) view, the resulting contents</p>
+<div class="highlight"><pre><code class="bash">  hg commit -A -m <span class="s2">&quot;Added/removed/changed file(s)&quot;</span>
+  hg manifest
+</code></pre>
+</div>
+
+<h2 id="toc_20">File &amp; Directory Sizes</h2>
+
+<p>One trick for building <code>.hgignore</code> is to detect and exclude <strong>LARGE</strong> dotfiles and directories.  At first, I tried to these using</p>
+<div class="highlight"><pre><code class="bash">  ls -lSd .* | head -20
+</code></pre>
+</div>
+
+<p>However, <code>ls</code> does not measure the size of directories when reporting relative size.  To see the largest items accounting for the total size of directories,
+use the following</p>
+<div class="highlight"><pre><code class="bash">  <span class="k">for </span>X in <span class="k">$(</span>du -s .<span class="o">[</span>a-zA-Z<span class="o">]</span>* | sort -nr | cut -f 2<span class="k">)</span>; <span class="k">do </span>du -hs <span class="nv">$X</span> ; <span class="k">done</span> | head -20
+</code></pre>
+</div>
+
+<p>This will produce sorted output, for example</p>
+<div class="highlight"><pre><code class="text">  8.2G  .Trash
+   99M  .dropbox
+   21M  .m2
+   19M  .groovy
+  6.0M  .macports
+  3.7M  .vim
+  1.8M  .fontconfig
+  976K  .ipython
+  ...
+</code></pre>
+</div>
+
+<h2 id="toc_21">Resetting The Repo</h2>
+
+<p>If you are not happy with the current manifest, and are willing to start again <strong>from scratch</strong>, use the following commands.  WARNING: This will erase any history!</p>
+<div class="highlight"><pre><code class="bash">  <span class="nb">cd</span> <span class="nv">$HOME</span>
+  <span class="se">\r</span>m -rf .hg
+  hg init
+  hg commit -A -m <span class="s2">&quot;Added/removed/changed file(s)&quot;</span>
+  hg manifest
+</code></pre>
+</div>
+
+<p>This can be used to refine the <code>.hgignore</code> file in order to initialize the repo</p>
+
+<h1 id="toc_22">Glossary</h1>
+
+<p>Current Working Directory
+: PWD</p>
+
+<p>Working Directory
+: &quot;To introduce a little terminology, the .hg directory is the “real” repository, and all of the files and directories that coexist with it are said to live in the working directory. An easy way to remember the distinction is that the repository contains the history of your project, while the working directory contains a snapshot of your project at a particular point in history.&quot; <a href="http://hgbook.red-bean.com/read/a-tour-of-mercurial-the-basics.html">quote</a></p>
+
+<p>Hg Init
+: Create a fresh repo.  Fails when an existing repo exists in the working directory.</p>
+
+<p>Hg Manifest
+: List files currently in repo</p>
+
+<p>Hg Add
+: Add a file to repo</p>
+
+<p>Hg Forget
+: Forget files previously added to repo, before committing</p>
+
+<p>Hg Remove
+: Remove files previously added to repo, after they have been committed</p>
+
+<p>Hg Commit
+: Commit all changes to repo</p>
+
+</div>
+
+<div id="related">
+  <h2>Related Posts</h2>
+  <ul class="posts">
+    
+    <li><span>06 Sep 2011</span> &raquo; <a href="/2011/09/06/Hadoop-Filesystem-Tools.html">Hadoop Filesystem Tools</a></li>
+    
+    <li><span>10 Jun 2011</span> &raquo; <a href="/2011/06/10/Wiki-Graph.html">Wiki Graph - A Visualization Tool For Wikis</a></li>
+    
+    <li><span>06 May 2011</span> &raquo; <a href="/2011/05/06/Cmdline-Convert-Word-Doc-2-Pdf.html">Convert To Pdf From The Cmdline</a></li>
+    
+    <li><span>19 Apr 2011</span> &raquo; <a href="/2011/04/19/Reopen-All-Safari-Windows-On-Login.html">Reopen All Safari Windows On Login</a></li>
+    
+  </ul>
+</div>
+
+<hr>
+
+
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'istructure'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+
+<div class="span4">
+  
+    <h4>Tags</h4>
+    <ul class="tag_box">
+    
+    
+
+
+  
+     
+    	<li><a href="/tags.html#VCS-ref">VCS <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#Bash-ref">Bash <span>3</span></a></li>
+     
+    	<li><a href="/tags.html#Hg-ref">Hg <span>1</span></a></li>
+    
+  
+
+
+
+    </ul>
+  
+  <h4>Published</h4>
+  <div class="date"><span>17 May 2011</span></div>
+</div>
+
+
+
+      </div>
+      <div class="footer">
+        <div class="contact">
+          <hr>
+          <p>
+          by Stuart Andrews
+          <a href="http://github.com/tub78/">@tub78 (github)</a>
+          <a href="http://twitter.com/tub78/">@tub78 (twitter)</a>
+          <span class="tiny">[<a href="/about.html">About this blog</a>]</span>
+          </p>
+        </div>
+      </div>
+    </div> <!-- site -->
+
+    
+    <!-- END BODY -->
+  </body>
+</html>
+

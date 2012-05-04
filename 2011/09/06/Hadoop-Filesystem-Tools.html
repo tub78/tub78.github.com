@@ -1,0 +1,417 @@
+<!doctype html>
+<!-- !doctype html public "-//W3C//DTD HTML 4.0 Transitional //EN"> -->
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf8" /> 
+    <title>Hadoop Filesystem Tools</title>
+    
+    <meta name="author"  content="Stuart Andrews"/>
+
+    <!-- 2011-03-21 START CUSTOM HEADER -->
+
+    <!-- Stylesheet: Pygments -->
+    <link href='/css/pygments.css' type='text/css' rel='stylesheet'/>
+
+    <!-- Stylesheet: Homepage -->
+    <link href='/css/style-combined.css' type='text/css' rel='stylesheet'/>
+
+    <!-- MATHJAX hosted CDN.MATHJAX.ORG -->
+    <script type='text/javascript' src='http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML'> MathJax.Hub.Config({ extensions: ["tex2jax.js","MathMenu.js","MathZoom.js"], jax: ["input/TeX","output/HTML-CSS"], tex2jax: {inlineMath: [["\\(","\\)"]], skipTags: ["script","noscript","style","textarea","pre"], processEnvironments: true}, TeX: { extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"] } }); </script>
+
+    <!-- GOOGLEAPIS hosted JQUERY.MIN -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+
+    <!-- GITHUB hosted JQUERY.COOKIE.JS -->
+    <script type="text/javascript" src="https://raw.github.com/carhartl/jquery-cookie/master/jquery.cookie.js"></script>
+
+    <!-- DAYTIME/NIGHTTIME JAVASCRIPT -->
+    <script language="javascript">//<![CDATA[ 
+      $(document).ready(function(){
+        // Display day mode between 7am and 8pm 
+        var currentTime = new Date().getHours();
+        var daytime_selected = (7 <= currentTime && currentTime < 19) ? 'yes' : 'no';
+        daytime_selected = $.cookie('tub78_daytime_selected') || daytime_selected;
+        if (daytime_selected == 'yes') {
+          $(".title,.todoaction,.ideaaction,.bugaction,.doneaction,body,h1,h2,h3,h4,h5,h6,a,a.missing-wiki-link,th,blockquote,code").addClass("day");
+        } else {
+          $(".title,.todoaction,.ideaaction,.bugaction,.doneaction,body,h1,h2,h3,h4,h5,h6,a,a.missing-wiki-link,th,blockquote,code").addClass("night");
+        }
+        $.cookie('tub78_daytime_selected', daytime_selected, { expires: 1, path: '/' });
+        $("button#daynight").click(function(){
+          $(".title,.todoaction,.ideaaction,.bugaction,.doneaction,body,h1,h2,h3,h4,h5,h6,a,a.missing-wiki-link,th,blockquote,code").toggleClass("day");
+          $(".title,.todoaction,.ideaaction,.bugaction .doneaction,body,h1,h2,h3,h4,h5,h6,a,a.missing-wiki-link,th,blockquote,code").toggleClass("night");
+          var daytime_selected = $.cookie('tub78_daytime_selected') || 'yes';
+          $.cookie('tub78_daytime_selected', (daytime_selected == 'yes') ? 'no' : 'yes', { expires: 1, path: '/' });
+        });
+        /* Toggle visibility of 'help' button */
+        $("button#optional").click(function(){
+            $("div.optional").toggle();
+        });
+      });
+      //]]></script>
+    <!-- 2011-03-21 END CUSTOM HEADER -->
+  </head>
+  <body>
+    <!-- START BODY -->
+    <div class="site">
+      <div class="header">
+        <span class="title"><a href="/">stuartjandrews.com</a></span>
+        <button id="daynight">Day/Night</button>
+        <!-- <hr> -->
+      </div>
+
+      <div class="content">
+        <h1>Hadoop Filesystem Tools</h1>
+
+<div id="post">
+<pre class="action ideaaction">
+>%hdrrelated%
+># Related
+> * [Hadoop @ Apache](http://hadoop.apache.org/common/docs/r0.21.0/)
+> * [HDFS @ Apache](http://hadoop.apache.org/hdfs/docs/current/index.html)
+> * [HDFS Shell](http://hadoop.apache.org/common/docs/current/file_system_shell.html)
+> * [HadoopEnv](http://code.google.com/p/hadoopenv/)
+> * [Rapleaf Dev Blog](http://blog.rapleaf.com/dev/2009/11/17/command-line-auto-completion-for-hadoop-dfs-commands/)
+> * [Bash Completion](http://www.caliban.org/bash/#completion)
+> * [Hadoop]
+</pre>
+
+<p>If you&#39;re like me, you get frustrated by the amount of typing that is required to copy a file from your Hadoop filesystem to your local filesystem, e.g.:</p>
+<div class="highlight"><pre><code class="bash">  hdfs dfs -get hdfs://xxx/very/long/path/to/a/file <span class="se">\</span>
+      /yyy/very/long/path/to/a/file
+</code></pre>
+</div>
+
+<p>Also, if you are like me, you want the directory structures of the two filesystems to be mirror-images.  This means you typically have to type a common path component twice, which is redundant, time consuming, and error prone. </p>
+
+<p>To address this issue (and to exercise my Bash scripting skills), I hacked together a collection of shell scripts that automate this process, together called <em>HDFS-Tools</em>.  The <em>HDFS-Tools</em> simplify the management of files in your Hadoop Filesystem by helping to synchronize a <em>local</em> copy of the filesystem with <em>HDFS</em>.</p>
+
+<h2 id="toc_25">How Does It Work?</h2>
+
+<p>To enable <em>HDFS-Tools</em>, one must first designate a directory to hold the <em>root</em> of the <em>local</em> copy; this is done by setting the <code>HDFS_PREFIX</code> environment variable.  Paths relative to <code>HDFS_PREFIX</code> in the local copy are the same as in <em>HDFS</em>.</p>
+
+<p>Once this is done, copying data between <em>HDFS</em> and your <em>local</em> copy is simply a matter of getting or putting a file; e.g.:</p>
+<div class="highlight"><pre><code class="bash">  hget &lt;path&gt; 
+</code></pre>
+</div>
+
+<p><em>HDFS-Tools</em> deals with the task of expanding the <code>path</code> arguments to create the conventional command format, using the <code>HDFS_PREFIX</code> and your <em>HDFS</em>&#39;s configuration.  Furthermore, with some code from <a href="http://blog.rapleaf.com/dev/2009/11/17/command-line-auto-completion-for-hadoop-dfs-commands/">rapleaf&#39;s dev blog</a>, these commands have been augmented with filename auto-completion. Together, these features make <code>hget</code>, <code>hput</code>, etc., more convenient than using:</p>
+<div class="highlight"><pre><code class="bash">  hdfs dfs -get &lt;hdfs_path&gt; &lt;local_path&gt;
+</code></pre>
+</div>
+
+<p>Say goodbye to the frustration of typing long paths in <em>HDFS</em>.  Indeed, you rarely need to type more than the commands themselves.</p>
+
+<h2 id="toc_26">Filename Auto-Completion</h2>
+
+<p>Auto-completion is available for <code>hls</code>, <code>hget</code>, and <code>hput</code>, by pressing <code>&lt;TAB&gt;</code>.  There may be a delay before results are displayed, as the query to the remote <em>HDFS</em> is issued.  When the <code>CWD</code> is below <code>HDFS_PREFIX</code>, filename auto-completion displays paths relative to <code>CWD</code>; otherwise, they are relative to <code>HDFS_PREFIX</code>.  In the later case, the paths are displayed with a <code>/</code> prefix.</p>
+
+<p>Auto-completion for directories is a little clunky because a space character is appended to the result.  In order to extend the path further, you must type <code>&lt;backspace&gt;&lt;TAB&gt;</code>.</p>
+
+<h2 id="toc_27">Details</h2>
+
+<p><em>HDFS-Tools</em> consists of the following:</p>
+
+<p><a href="file:///Users/stu/Research/HDFS-Tools/hpwd">hpwd</a>
+: List corresponding path in <em>HDFS</em>.  When the current working directory resides under <code>HDFS_PREFIX</code>, the <code>hpwd</code> command lists the corresponding location in <em>HDFS</em>.  The result has the form: <code>hdfs://host/path</code>.  The command <code>hpwd -r</code> lists only the <code>path</code> component, while <code>hpwd -p</code> lists only the <code>hdfs://host/</code> component.</p>
+
+<p><a href="file:///Users/stu/Research/HDFS-Tools/hls">hls</a>
+: List files from <em>HDFS</em>.  <code>hls [path ..]</code> lists files from <em>HDFS</em> that correspond to <code>path</code>; e.g. <code>hdfs://host/[path ..]</code>.  When the current working directory resides under <code>HDFS_PREFIX</code>, the path is relative to it; e.g. <code>hdfs://host/CWD/[path ..]</code>.  A recursive directory listing is produced with a <code>-r</code> flag.</p>
+
+<p><a href="file:///Users/stu/Research/HDFS-Tools/hget">hget</a>
+: Retrieve files from <em>HDFS</em>.  <code>hget [path ..]</code> copies the corresponding files from <em>HDFS</em> to the local filesystem.  Directories will not be created unless the <code>-p</code> flag is present.  Local files will not be overwritten, unless the <code>-f</code> flag is included.</p>
+
+<p><a href="file:///Users/stu/Research/HDFS-Tools/hput">hput</a>
+: Copy files to <em>HDFS</em>.  <code>hput [path ..]</code> copies local files to the corresponding locations in <em>HDFS</em>.  <em>HDFS</em> files will not be overwritten, unless the <code>-f</code> flag is included.</p>
+
+<p><a href="file:///Users/stu/Research/HDFS-Tools/hconnect">hconnect</a>
+: Connect to a remote <em>HDFS</em>.  <code>hconnect</code> opens or closes an ssh tunnel for communication with remote <em>HDFS</em>.</p>
+
+<p><a href="file:///Users/stu/Research/HDFS-Tools/henv">henv</a>
+: This is a configuration script for <em>HDFS-Tools</em> auto-completion.</p>
+
+<h3 id="toc_28">Notes</h3>
+
+<ul>
+<li>Use option <code>-h</code> to display help for a command, and <code>-v</code> for extra debugging information.</li>
+<li>When the current working directory is outside of <code>HDFS_PREFIX</code>, <em>HDFS-Tools</em> behave as though they have been invoked with the current working directory set to <code>HDFS_PREFIX</code>.</li>
+<li>One drawback of <em>HDFS-Tools</em> is that filename globbing is not supported, so you can not do things like <code>hget &#39;[io]*&#39;</code>.</li>
+</ul>
+
+<h2 id="toc_29">Installation &amp; Setup</h2>
+
+<p><em>HDFS-Tools</em> are available on <a href="https://github.com/tub78/HDFS-Tools">GitHub</a>.</p>
+
+<p>Note: <em>HDFS-Tools</em> are configured for use with Hadoop 0.21.0.</p>
+
+<h3 id="toc_30">Bare Minimum</h3>
+
+<ol>
+<li>Install these scripts somewhere on your path</li>
+<li><code>HDFS_PREFIX</code> - Select the <em>local</em> directory where you wish to mirror <em>HDFS</em></li>
+<li><code>HADOOP_CONF_DIR</code> - Select the directory containing the active configuration, in order to lookup information on <em>HDFS</em></li>
+<li><p>Add the following line to your <code>.bash_profile</code></p>
+<div class="highlight"><pre><code class="bash">  <span class="nb">source</span> &lt;HDFS-TOOLS&gt;/henv
+</code></pre>
+</div></li>
+</ol>
+
+<h3 id="toc_31">For Remote Connections</h3>
+
+<ol>
+<li><code>HDFS_USER</code> - Set the user name used to connect to the remote hadoop filesystem</li>
+<li><code>HDFS_HOST</code> - Set the host</li>
+<li><code>HDFS_PORT</code> - Set the port</li>
+</ol>
+
+<p><code>hconnect</code> opens an ssh tunnel to the remote host using <code>ssh -ND $HDFS_PORT $HDFS_USER@$HDFS_HOST</code></p>
+
+<h2 id="toc_32">Examples Part 1</h2>
+
+<p>The first set of examples demonstrate the behavior of <em>HDFS-Tools</em> with <code>CWD=HDFS_PREFIX</code>, where <code>HDFS_PREFIX=~/Data/Hdfs-2011-08-28</code>.</p>
+
+<h3 id="toc_33">List Files</h3>
+
+<ol>
+<li><p>-&gt; <code>hls</code></p>
+<div class="highlight"><pre><code class="bash">  Found 3 items
+  drwxr-xr-x   - stu supergroup          0 2011-09-03 21:50 /Users
+  drwxr-xr-x   - stu supergroup          0 2011-09-03 21:51 /jobtracker
+  drwxr-xr-x   - stu supergroup          0 2011-09-03 21:51 /user
+</code></pre>
+</div></li>
+<li><p>-&gt; <code>hls -v user/stu</code></p>
+<div class="highlight"><pre><code class="bash">  <span class="nv">HDFS_PREFIX</span><span class="o">=</span>/Users/stu/Data/Hdfs-2011-08-28
+  <span class="nv">HDFS_PWD</span><span class="o">=</span>
+  <span class="nv">HDFS_URL</span><span class="o">=</span>/user/stu/input/hdfs-site.xml
+  Found 2 items
+  drwxr-xr-x   - stu supergroup          0 2011-09-03 21:45 /user/stu/input
+  drwxr-xr-x   - stu supergroup          0 2011-09-03 21:51 /user/stu/output
+</code></pre>
+</div></li>
+<li><p>-&gt; <code>hls -v not/a/valid/file</code></p>
+<div class="highlight"><pre><code class="bash">  <span class="nv">HDFS_PREFIX</span><span class="o">=</span>/Users/stu/Data/Hdfs-2011-08-28
+  <span class="nv">HDFS_PWD</span><span class="o">=</span>
+  <span class="nv">HDFS_URL</span><span class="o">=</span>not/a/valid/file
+  ls: Cannot access hdfs://localhost:9000//not/a/valid/file: No such file or directory.
+</code></pre>
+</div></li>
+</ol>
+
+<h3 id="toc_34">Get Files</h3>
+
+<ol>
+<li><p>-&gt; <code>hget /user/stu/output</code></p>
+<div class="highlight"><pre><code class="bash">  hget &gt; Local path already exists /Users/stu/Data/Hdfs-2011-08-28/user/stu/output/
+</code></pre>
+</div></li>
+<li><p>-&gt; <code>hget -vf /user/stu/output</code></p>
+<div class="highlight"><pre><code class="bash">  hget &gt; Local path already exists /Users/stu/Data/Hdfs-2011-08-28/user/stu/output/
+  <span class="nv">HDFS_PREFIX</span><span class="o">=</span>/Users/stu/Data/Hdfs-2011-08-28
+  <span class="nv">HDFS_PWD</span><span class="o">=</span>
+  <span class="nv">HDFS_URL</span><span class="o">=</span>user/stu/output/
+  <span class="nv">LOCAL_URL</span><span class="o">=</span>/Users/stu/Data/Hdfs-2011-08-28/user/stu/output/
+  <span class="nv">LOCAL_DIR</span><span class="o">=</span>/Users/stu/Data/Hdfs-2011-08-28/user/stu
+</code></pre>
+</div></li>
+</ol>
+
+<h3 id="toc_35">Put Files</h3>
+
+<ol>
+<li><p>-&gt; <code>hput /user/stu/output</code></p>
+<div class="highlight"><pre><code class="bash">  put: Target hdfs://localhost:9000/user/stu/output is a directory
+</code></pre>
+</div></li>
+<li><p>-&gt; <code>hput -vf /user/stu/output</code></p>
+<div class="highlight"><pre><code class="bash">  <span class="nv">HDFS_PREFIX</span><span class="o">=</span>/Users/stu/Data/Hdfs-2011-08-28
+  <span class="nv">HDFS_PWD</span><span class="o">=</span>
+  <span class="nv">HDFS_URL</span><span class="o">=</span>user/stu/output
+  <span class="nv">LOCAL_URL</span><span class="o">=</span>/Users/stu/Data/Hdfs-2011-08-28/user/stu/output
+  <span class="nv">HDFS_DIR</span><span class="o">=</span>user/stu
+</code></pre>
+</div></li>
+</ol>
+
+<h3 id="toc_36">Tab Completion</h3>
+
+<ol>
+<li><p>-&gt; <code>hls &lt;TAB&gt;</code></p>
+<div class="highlight"><pre><code class="bash">  Users       jobtracker  user
+  -&gt; hls *
+</code></pre>
+</div></li>
+<li><p>-&gt; <code>hget u&lt;TAB&gt;</code></p>
+<div class="highlight"><pre><code class="bash">  -&gt; hget user/stu *
+</code></pre>
+</div></li>
+<li><p>-&gt; <code>hput user/stu&lt;TAB&gt;</code></p>
+<div class="highlight"><pre><code class="bash">  /user/stu/input   /user/stu/output
+  -&gt; hput /user/stu/ *
+</code></pre>
+</div></li>
+<li><p>-&gt; <code>hput user/stu/&lt;TAB&gt;</code></p>
+<div class="highlight"><pre><code class="bash">  /user/stu/input   /user/stu/output
+  -&gt; hput /user/stu/*
+</code></pre>
+</div></li>
+</ol>
+
+<h2 id="toc_37">Examples Part 2</h2>
+
+<p>When the <code>CWD</code> is located below <code>HDFS_PREFIX</code>, <em>HDFS-Tools</em> use relative paths.  For example, with <code>CWD=$(HDFS_PREFIX)/user/stu</code></p>
+
+<ol>
+<li><p>-&gt; <code>hget &lt;TAB&gt;</code> </p>
+<div class="highlight"><pre><code class="bash">  input   output
+  -&gt; hget *
+</code></pre>
+</div></li>
+</ol>
+
+<h2 id="toc_38">Examples Part 3</h2>
+
+<p>When the <code>CWD</code> is not below <code>HDFS_PREFIX</code>, <em>HDFS-Tools</em> behave as though they were involked from <code>HDFS_PREFIX</code>.  The only difference is that paths on the command line are prefixed with <code>/</code>.  In this case, we are using <code>CWD=~</code></p>
+
+<ol>
+<li><p>-&gt; <code>hls</code> </p>
+<div class="highlight"><pre><code class="bash">  Found 3 items
+  drwxr-xr-x   - stu supergroup          0 2011-09-03 21:50 /Users
+  drwxr-xr-x   - stu supergroup          0 2011-09-03 21:51 /jobtracker
+  drwxr-xr-x   - stu supergroup          0 2011-09-03 21:51 /user
+</code></pre>
+</div></li>
+<li><p>-&gt; <code>hls &lt;TAB&gt;</code> </p>
+<div class="highlight"><pre><code class="bash">  /Users       /jobtracker  /user
+  -&gt; hls /*
+</code></pre>
+</div></li>
+<li><p>-&gt; <code>hput /use&lt;TAB&gt;</code> </p>
+<div class="highlight"><pre><code class="bash">  -&gt; hput /user/ *
+</code></pre>
+</div></li>
+<li><p>-&gt; <code>hget /user/stu/input</code> </p>
+<div class="highlight"><pre><code class="bash">  hget &gt; Local path already exists /Users/stu/Data/Hdfs-2011-08-28/user/stu/input
+</code></pre>
+</div></li>
+</ol>
+
+<h2 id="toc_39">Examples Part 4</h2>
+
+<ol>
+<li><p>-&gt; <code>hconnect -c</code></p>
+<div class="highlight"><pre><code class="bash">  ENABLED:  0
+  RUNNING PROCESS: 
+</code></pre>
+</div></li>
+<li><p>-&gt; <code>hconnect -t</code></p>
+<div class="highlight"><pre><code class="bash">  ENABLED:  0
+  PID:
+    ssh -ND 2600 user@email.com
+  Started HDFS tunnel with PID: <span class="s1">&#39;7647&#39;</span>
+</code></pre>
+</div></li>
+<li><p>-&gt; <code>hconnect -c</code></p>
+<div class="highlight"><pre><code class="bash">  ENABLED:  1
+  RUNNING PROCESS:  7647 ssh -ND 2600 user@email.com
+</code></pre>
+</div></li>
+<li><p>-&gt; <code>hconnect</code></p>
+<div class="highlight"><pre><code class="bash">  ENABLED:  1
+  PID:  7647
+  Stopping HDFS tunnel with PID: <span class="s1">&#39;7647&#39;</span>
+  <span class="nb">kill</span> -9 7647
+</code></pre>
+</div></li>
+</ol>
+
+</div>
+
+<div id="related">
+  <h2>Related Posts</h2>
+  <ul class="posts">
+    
+    <li><span>17 May 2011</span> &raquo; <a href="/2011/05/17/A-Centralized-VCS-For-Config-Files.html">A Centralized VCS For Config Files</a></li>
+    
+    <li><span>06 May 2011</span> &raquo; <a href="/2011/05/06/Cmdline-Convert-Word-Doc-2-Pdf.html">Convert To Pdf From The Cmdline</a></li>
+    
+    <li><span>10 Jun 2011</span> &raquo; <a href="/2011/06/10/Wiki-Graph.html">Wiki Graph - A Visualization Tool For Wikis</a></li>
+    
+    <li><span>16 Nov 2011</span> &raquo; <a href="/2011/11/16/Low-Hanging-Fruit.html">An Empirical Justification Of False Discovery Rate Correction With Small Samples</a></li>
+    
+  </ul>
+</div>
+
+<hr>
+
+
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'istructure'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+
+<div class="span4">
+  
+    <h4>Tags</h4>
+    <ul class="tag_box">
+    
+    
+
+
+  
+     
+    	<li><a href="/tags.html#CmdLine-ref">CmdLine <span>2</span></a></li>
+     
+    	<li><a href="/tags.html#Bash-ref">Bash <span>3</span></a></li>
+     
+    	<li><a href="/tags.html#Hadoop-ref">Hadoop <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#HDFS-ref">HDFS <span>1</span></a></li>
+    
+  
+
+
+
+    </ul>
+  
+  <h4>Published</h4>
+  <div class="date"><span>06 September 2011</span></div>
+</div>
+
+
+
+      </div>
+      <div class="footer">
+        <div class="contact">
+          <hr>
+          <p>
+          by Stuart Andrews
+          <a href="http://github.com/tub78/">@tub78 (github)</a>
+          <a href="http://twitter.com/tub78/">@tub78 (twitter)</a>
+          <span class="tiny">[<a href="/about.html">About this blog</a>]</span>
+          </p>
+        </div>
+      </div>
+    </div> <!-- site -->
+
+    
+    <!-- END BODY -->
+  </body>
+</html>
+

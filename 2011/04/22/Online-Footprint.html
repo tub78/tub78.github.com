@@ -1,0 +1,197 @@
+<!doctype html>
+<!-- !doctype html public "-//W3C//DTD HTML 4.0 Transitional //EN"> -->
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf8" /> 
+    <title>Online Footprint</title>
+    
+    <meta name="author"  content="Stuart Andrews"/>
+
+    <!-- 2011-03-21 START CUSTOM HEADER -->
+
+    <!-- Stylesheet: Pygments -->
+    <link href='/css/pygments.css' type='text/css' rel='stylesheet'/>
+
+    <!-- Stylesheet: Homepage -->
+    <link href='/css/style-combined.css' type='text/css' rel='stylesheet'/>
+
+    <!-- MATHJAX hosted CDN.MATHJAX.ORG -->
+    <script type='text/javascript' src='http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML'> MathJax.Hub.Config({ extensions: ["tex2jax.js","MathMenu.js","MathZoom.js"], jax: ["input/TeX","output/HTML-CSS"], tex2jax: {inlineMath: [["\\(","\\)"]], skipTags: ["script","noscript","style","textarea","pre"], processEnvironments: true}, TeX: { extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"] } }); </script>
+
+    <!-- GOOGLEAPIS hosted JQUERY.MIN -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+
+    <!-- GITHUB hosted JQUERY.COOKIE.JS -->
+    <script type="text/javascript" src="https://raw.github.com/carhartl/jquery-cookie/master/jquery.cookie.js"></script>
+
+    <!-- DAYTIME/NIGHTTIME JAVASCRIPT -->
+    <script language="javascript">//<![CDATA[ 
+      $(document).ready(function(){
+        // Display day mode between 7am and 8pm 
+        var currentTime = new Date().getHours();
+        var daytime_selected = (7 <= currentTime && currentTime < 19) ? 'yes' : 'no';
+        daytime_selected = $.cookie('tub78_daytime_selected') || daytime_selected;
+        if (daytime_selected == 'yes') {
+          $(".title,.todoaction,.ideaaction,.bugaction,.doneaction,body,h1,h2,h3,h4,h5,h6,a,a.missing-wiki-link,th,blockquote,code").addClass("day");
+        } else {
+          $(".title,.todoaction,.ideaaction,.bugaction,.doneaction,body,h1,h2,h3,h4,h5,h6,a,a.missing-wiki-link,th,blockquote,code").addClass("night");
+        }
+        $.cookie('tub78_daytime_selected', daytime_selected, { expires: 1, path: '/' });
+        $("button#daynight").click(function(){
+          $(".title,.todoaction,.ideaaction,.bugaction,.doneaction,body,h1,h2,h3,h4,h5,h6,a,a.missing-wiki-link,th,blockquote,code").toggleClass("day");
+          $(".title,.todoaction,.ideaaction,.bugaction .doneaction,body,h1,h2,h3,h4,h5,h6,a,a.missing-wiki-link,th,blockquote,code").toggleClass("night");
+          var daytime_selected = $.cookie('tub78_daytime_selected') || 'yes';
+          $.cookie('tub78_daytime_selected', (daytime_selected == 'yes') ? 'no' : 'yes', { expires: 1, path: '/' });
+        });
+        /* Toggle visibility of 'help' button */
+        $("button#optional").click(function(){
+            $("div.optional").toggle();
+        });
+      });
+      //]]></script>
+    <!-- 2011-03-21 END CUSTOM HEADER -->
+  </head>
+  <body>
+    <!-- START BODY -->
+    <div class="site">
+      <div class="header">
+        <span class="title"><a href="/">stuartjandrews.com</a></span>
+        <button id="daynight">Day/Night</button>
+        <!-- <hr> -->
+      </div>
+
+      <div class="content">
+        <h1>Online Footprint</h1>
+
+<div id="post">
+<pre class="action ideaaction"> 
+[Disqus](http://disqus.com/tub78/)
+
+>%hdrrelated%
+># Related
+> * [Blog-Archive]
+</pre>
+
+<p>You can learn more about me by following these links.</p>
+
+<h3 id="toc_5">Profile</h3>
+
+<ul>
+<li><a href="https://profiles.google.com/stu.andrews">on Google</a></li>
+<li><a href="http://www.linkedin.com/pub/stuart-andrews/2/ba1/98a">on LinkedIn</a></li>
+<li><a href="http://www.meetup.com/NYC-Predictive-Analytics/members/7207689/">on NYC Predictive Analytics @ Meetup</a></li>
+<li><a href="http://www.meetup.com/NYC-Machine-Learning/members/7207689/">on NYC Machine Learning @ Meetup</a></li>
+<li><a href="http://www.meetup.com/nyhackr/members/7207689/">on NY Open Statistical Computing @ Meetup</a></li>
+<li><a href="http://www.meetup.com/NYC-Tech-Talks/members/7207689/">on NYC Tech Talks @ Meetup</a></li>
+</ul>
+
+<h3 id="toc_6">Blogging</h3>
+
+<ul>
+<li><a href="http://stuartjandrews.blogspot.com/">on Blogger</a></li>
+<li><a href="http://twitter.com/tub78">on Twitter</a></li>
+</ul>
+
+<h3 id="toc_7">Code</h3>
+
+<ul>
+<li><a href="https://github.com/tub78">on Github</a></li>
+<li><a href="https://code.google.com/u/stu.andrews/">on Google Code</a></li>
+</ul>
+
+<h3 id="toc_8">Recommendations</h3>
+
+<ul>
+<li><a href="http://hunch.com/tub78/">on Hunch.com</a></li>
+</ul>
+
+</div>
+
+<div id="related">
+  <h2>Related Posts</h2>
+  <ul class="posts">
+    
+    <li><span>10 Jun 2011</span> &raquo; <a href="/2011/06/10/Wiki-Graph.html">Wiki Graph - A Visualization Tool For Wikis</a></li>
+    
+    <li><span>14 Apr 2011</span> &raquo; <a href="/2011/04/14/Dynamic-Web-Content-With-Javascript-And-JQuery.html">Dynamic Web Content With Javascript And JQuery</a></li>
+    
+    <li><span>18 Apr 2011</span> &raquo; <a href="/2011/04/18/Switching-Gears-With-Applescript.html">Switching Gears With Applescript</a></li>
+    
+    <li><span>16 Nov 2011</span> &raquo; <a href="/2011/11/16/Low-Hanging-Fruit.html">An Empirical Justification Of False Discovery Rate Correction With Small Samples</a></li>
+    
+  </ul>
+</div>
+
+<hr>
+
+
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'istructure'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+
+<div class="span4">
+  
+    <h4>Tags</h4>
+    <ul class="tag_box">
+    
+    
+
+
+  
+     
+    	<li><a href="/tags.html#Social-ref">Social <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#Web-ref">Web <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#Index-ref">Index <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#Prog-ref">Prog <span>1</span></a></li>
+    
+  
+
+
+
+    </ul>
+  
+  <h4>Published</h4>
+  <div class="date"><span>22 April 2011</span></div>
+</div>
+
+
+
+      </div>
+      <div class="footer">
+        <div class="contact">
+          <hr>
+          <p>
+          by Stuart Andrews
+          <a href="http://github.com/tub78/">@tub78 (github)</a>
+          <a href="http://twitter.com/tub78/">@tub78 (twitter)</a>
+          <span class="tiny">[<a href="/about.html">About this blog</a>]</span>
+          </p>
+        </div>
+      </div>
+    </div> <!-- site -->
+
+    
+    <!-- END BODY -->
+  </body>
+</html>
+
