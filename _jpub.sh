@@ -13,6 +13,7 @@ pushd "$BLOGPUB"
 
 # Checkout master branch
 git checkout master
+[ $? -eq 0 ] || { echo "Checkout Master Failed"; exit; };
 
 # Wipe-clean repo, except dot files
 rm -rf *
@@ -27,6 +28,7 @@ git status -s
 git add -A
 git commit -m "$(git status -s)"
 git push origin master
+[ $? -eq 0 ] || { echo "Push Failed"; exit; };
 
 # Back to source branch
 git checkout source
