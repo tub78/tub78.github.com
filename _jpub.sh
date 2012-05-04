@@ -6,6 +6,11 @@
 BLOG="$TRUNKNOTES/stuartjandrews.com"
 BLOGPUB="$BLOG"-0
 
+# Checkout master branch
+pushd "$BLOG"
+git checkout master
+[ $? -eq 0 ] || { echo "Checkout Master Failed"; exit; };
+
 # Clone blog
 pushd "$TRUNKNOTES"
 git clone "$BLOG" "$BLOGPUB"
