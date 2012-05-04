@@ -1,7 +1,4 @@
 #!/bin/sh
-# pages.github.com
-# Using .nojekyll does not help publish speed
-# A smaller repo with symlinks does not help publish speed
 
 BLOG="$TRUNKNOTES/stuartjandrews.com"
 BLOGPUB="$BLOG"-0
