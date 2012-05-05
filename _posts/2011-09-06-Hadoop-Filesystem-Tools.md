@@ -14,17 +14,6 @@ TNTags: CmdLine, Bash, Hadoop, HDFS
 TNMetadata:
 ---
 
-<pre class="action ideaaction">
->%hdrrelated%
-># Related
-> * [Hadoop @ Apache](http://hadoop.apache.org/common/docs/r0.21.0/)
-> * [HDFS @ Apache](http://hadoop.apache.org/hdfs/docs/current/index.html)
-> * [HDFS Shell](http://hadoop.apache.org/common/docs/current/file_system_shell.html)
-> * [HadoopEnv](http://code.google.com/p/hadoopenv/)
-> * [Rapleaf Dev Blog](http://blog.rapleaf.com/dev/2009/11/17/command-line-auto-completion-for-hadoop-dfs-commands/)
-> * [Bash Completion](http://www.caliban.org/bash/#completion)
-> * [[Hadoop]]
-</pre>
 
 If you're like me, you get frustrated by the amount of typing that is required to copy a file from your Hadoop filesystem to your local filesystem, e.g.:
 
@@ -307,4 +296,12 @@ When the `CWD` is not below `HDFS_PREFIX`, *HDFS-Tools* behave as though they we
       kill -9 7647
     ```
 
+## Learn More
+
+ * [Hadoop @ Apache](http://hadoop.apache.org/common/docs/r0.21.0/)
+ * [HDFS @ Apache](http://hadoop.apache.org/hdfs/docs/current/index.html)
+ * [HDFS Shell](http://hadoop.apache.org/common/docs/current/file_system_shell.html)
+ * [HadoopEnv](http://code.google.com/p/hadoopenv/)
+ * [Rapleaf Dev Blog](http://blog.rapleaf.com/dev/2009/11/17/command-line-auto-completion-for-hadoop-dfs-commands/)
+ * [Bash Completion](http://www.caliban.org/bash/#completion)
 

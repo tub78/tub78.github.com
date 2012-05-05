@@ -14,18 +14,6 @@ TNMetadata:
 ---
 
 
-<pre class="action ideaaction">
->%hdrrelated%
-> # Related #
-> * [[Blog-Archive]]
-> * [[Mac_OSX]]
-> * [[Safari]]
-> * [[Applescript]]
-> * [[MacVim]]
-> * [[Skim]]
-> * [[SyntaxHighlighter]]
-</pre>
-
 Occasionally, I use Safari to view a local file.  If it is a PDF, I might want to re-open it in another PDF reader (e.g. Preview or Skim).  If the file is a text file with an extension recognized by my text editor, I might want to open it in my preferred text editor.  This post explains how I accomplish this.
 
 The following Applescript _re-opens a local file_ from the frontmost window of __Safari__ into a second application.  As show below, the second application is __MacVim__.  The script can be easily modified to open files using other applications, for example __Skim__.  This script should be run from the Applescript menu when the document is open-and-frontmost in Safari.

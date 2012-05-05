@@ -14,16 +14,6 @@ TNMetadata:
 ---
 
 
-
-<pre class="action ideaaction">
->%hdrrelated%
-># Related
-> * [[Blog-Archive]]
-> * [[Blogging-From-The-Command-Line]]
-> * [[Cmdline-Blogging-With-Images]]
-> * [[GoogleTools]]
-</pre>
-
 Have you ever been in need of a convenient way to convert a Word document (.doc) into a Portable Document Format (.pdf)?
 
 I do this fairly often, which prompted me to write this script using Google Docs.

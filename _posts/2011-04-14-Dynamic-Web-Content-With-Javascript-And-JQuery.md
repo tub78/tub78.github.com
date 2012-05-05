@@ -14,15 +14,6 @@ TNMetadata:
 ---
 
 
-<pre class="action ideaaction">
->%hdrrelated%
-># Related
-> * [[Blog-Archive]]
-> * [[SyntaxHighlighter]]
-> * [[Javascript]]
-</pre>
-
-
 This post describes how to use Javascript to create dynamic web content.
 
 ## Example: Changing Appearances

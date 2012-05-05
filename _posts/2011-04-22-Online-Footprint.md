@@ -14,15 +14,7 @@ TNMetadata:
 ---
 
 
-<pre class="action ideaaction"> 
-[Disqus](http://disqus.com/tub78/)
-
->%hdrrelated%
-># Related
-> * [[Blog-Archive]]
-</pre>
-
-You can learn more about me by following these links.
+Learn more about me by following these links.
 
 ### Profile
 
@@ -33,18 +25,13 @@ You can learn more about me by following these links.
  * [on NY Open Statistical Computing @ Meetup](http://www.meetup.com/nyhackr/members/7207689/)
  * [on NYC Tech Talks @ Meetup](http://www.meetup.com/NYC-Tech-Talks/members/7207689/)
 
-### Blogging
-
- * [on Blogger](http://stuartjandrews.blogspot.com/)
- * [on Twitter](http://twitter.com/tub78)
-
 ### Code
 
  * [on Github](https://github.com/tub78)
  * [on Google Code](https://code.google.com/u/stu.andrews/)
 
-### Recommendations
+### Blogging
 
- * [on Hunch.com](http://hunch.com/tub78/)
-
+ * [on Blogger](http://stuartjandrews.blogspot.com/)
+ * [on Twitter](http://twitter.com/tub78)
 

@@ -14,13 +14,6 @@ TNTags: Graph, Visualization, MachineLearning, OpenData
 TNMetadata:
 ---
 
-<pre class="action ideaaction">
->%hdrrelated%
-># Related
-> * [[Blog-Archive]]
-> * [Sparse Matrix Collection]
-</pre>
-
 [Figure_1]: Andrews@Andrews.jpg "Figure 1"
  
 # A Recent Discovery

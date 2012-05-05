@@ -15,27 +15,6 @@ TNMetadata:
 ---
 
 
-
-<pre class="action ideaaction">
-># Related
-> * [[Genomics]]
-> * [[Gene Expression]]
-> * [[Student's t-test]]
-> * [[Student's t-distribution]]
-> * [[P-value]]
-> * [[Multiple comparisons]]
-> * [[False Discovery Rate]]
-</pre>
-
-[Genomics]: http://en.wikipedia.org/wiki/Genomics
-[Gene Expression]: http://en.wikipedia.org/wiki/Gene_Expression
-[Student's t-test]: http://en.wikipedia.org/wiki/Student\%27s_t-test
-[Student's t-distribution]: http://en.wikipedia.org/wiki/Student\%27s_t-distribution
-[P-value]: http://en.wikipedia.org/wiki/P-value
-[Multiple comparisons]: http://en.wikipedia.org/wiki/Multiple_comparisons
-[False Discovery Rate]: http://en.wikipedia.org/wiki/False_Discovery_Rate
-
-
 [Figure_1]: sim.t.test.density-p-value-p1.jpg "Figure 1"
 [Figure_2]: sim.t.test.density-p-value-p2.jpg "Figure 2"
 [Figure_3]: sim.t.test.density-p-value-p3.jpg "Figure 3"
@@ -149,6 +128,25 @@ Caveat
 # Summary
 
 This post analyzed the behaviour of p-values and the influence of FDR-correction in a simulation study with many genes but only a few samples from each group.  Simulation studies such as this one are useful for illuminating the cost-benefit trade-offs encountered in the search for molecular determinants of phenotype with high-throughput screening.
+
+
+# Learn More
+
+ * [[Genomics]]
+ * [[Gene Expression]]
+ * [[Student's t-test]]
+ * [[Student's t-distribution]]
+ * [[P-value]]
+ * [[Multiple comparisons]]
+ * [[False Discovery Rate]]
+
+[Genomics]: http://en.wikipedia.org/wiki/Genomics
+[Gene Expression]: http://en.wikipedia.org/wiki/Gene_Expression
+[Student's t-test]: http://en.wikipedia.org/wiki/Student\%27s_t-test
+[Student's t-distribution]: http://en.wikipedia.org/wiki/Student\%27s_t-distribution
+[P-value]: http://en.wikipedia.org/wiki/P-value
+[Multiple comparisons]: http://en.wikipedia.org/wiki/Multiple_comparisons
+[False Discovery Rate]: http://en.wikipedia.org/wiki/False_Discovery_Rate
 
 
 

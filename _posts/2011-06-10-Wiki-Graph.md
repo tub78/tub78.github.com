@@ -14,12 +14,6 @@ TNMetadata:
 ---
 
 
-<pre class="action ideaaction">
->%hdrrelated%
-># Related
-> * [[Python_WikiGraph]]
-> * [[Blog]]
-</pre>
 
 [Figure_1]: wg-family-bicycle-work-rev2_2011-06-10_23-23-35.jpg "Figure 1"
 [Figure_2]: wg-prog-2011_06_11-23_40_56.jpg "Figure 2"
