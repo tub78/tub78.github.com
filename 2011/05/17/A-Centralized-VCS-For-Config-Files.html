@@ -41,16 +41,6 @@
         <h1>A Centralized VCS For Config Files</h1>
 
 <div id="post">
-<pre class="action ideaaction">
->%hdrrelated%
-># Related
-> * [Blog-Archive]
-> * [VersionControlSystems]
-> * [VCS_HgMercurial]
-> * [VCS_Git]
-> * [VCS_HgGit]
-</pre>
-
 <!--
 # A Centralized Version Control Repository For Isolated Configuration Files, Dot Files, Preferences, Etc.
 -->
@@ -61,13 +51,13 @@
 
 <p>Some examples of files like this are dotfiles in my home directory, and other preference or configuration files throughout my directory tree.</p>
 
-<h1 id="toc_14">Instructions</h1>
+<h1 id="toc_13">Instructions</h1>
 
 <p>Here&#39;s a solution that was based on a suggestion by Casey Dahlin on Doug Warner&#39;s <a href="http://doug.warner.fm/d//blog/2008/07/Version-controlling-my-home-dir">blog</a>.   Comments from Peter Manis, Benjamin Schmidt and Martin Geisler were also helpful <a href="http://pyverted.com/version-control/using-mercurial-on-your-home-directory/2009/08/">here</a>, <a href="http://www.cyberciti.biz/faq/how-do-i-find-the-largest-filesdirectories-on-a-linuxunixbsd-filesystem/">here</a>, and <a href="http://mercurial.selenic.com/wiki/TipsAndTricks">here</a>.</p>
 
 <p>The idea is to create and manage <strong>a single repository</strong> for these files that will be easy to manage.  Files can be added manually.  Regular commits will be made on an ongoing basis, and can even be automated.</p>
 
-<h2 id="toc_15">Initialization</h2>
+<h2 id="toc_14">Initialization</h2>
 
 <p>First, create the repo in your home directory</p>
 <div class="highlight"><pre><code class="bash">  <span class="nb">cd</span> <span class="nv">$HOME</span>
@@ -75,7 +65,7 @@
 </code></pre>
 </div>
 
-<h2 id="toc_16">Safety Precautions</h2>
+<h2 id="toc_15">Safety Precautions</h2>
 
 <p><a href="http://pyverted.com/version-control/using-mercurial-on-your-home-directory/2009/08/">Peter Manis</a> points out that the <code>hg purge</code> command can remove all files in the <strong>working directory</strong> that are not added to the repo!!  He advises to explicitly disable this command for the repo by adding the following to the project-level <code>.hgrc</code> file located in <code>$HOME/.hg/hgrc</code></p>
 <div class="highlight"><pre><code class="cfg">  <span class="k">[extensions]</span>
@@ -83,7 +73,7 @@
 </code></pre>
 </div>
 
-<h2 id="toc_17">List, Add, Forget, Remove, Commit, &amp; Status</h2>
+<h2 id="toc_16">List, Add, Forget, Remove, Commit, &amp; Status</h2>
 
 <p>You can list, add, forget, remove, and commit files to the repo with the following commands</p>
 <div class="highlight"><pre><code class="bash">  hg manifest
@@ -99,7 +89,7 @@
 </code></pre>
 </div>
 
-<h2 id="toc_18">The Default Repo</h2>
+<h2 id="toc_17">The Default Repo</h2>
 
 <p>To access the centralized repo from directories other than your <code>$HOME</code> directory, set the <strong>default</strong> path in your user-level <code>.hgrc</code> file located in <code>$HOME/.hgrc</code></p>
 <div class="highlight"><pre><code class="cfg">  <span class="k">[path]</span>
@@ -125,7 +115,7 @@
 
 <p>This way, whenevery you type <code>hg status</code> or <code>hg manifest</code>, you will be told which repo is active.</p>
 
-<h2 id="toc_19">The .hgignore File</h2>
+<h2 id="toc_18">The .hgignore File</h2>
 
 <p>An alternative strategy for managing repo files, is to create an <code>.hgignore</code> file listing the files that you do not wish to be tracked, and then add / commit everything else.</p>
 
@@ -161,7 +151,7 @@
 </code></pre>
 </div>
 
-<h2 id="toc_20">File &amp; Directory Sizes</h2>
+<h2 id="toc_19">File &amp; Directory Sizes</h2>
 
 <p>One trick for building <code>.hgignore</code> is to detect and exclude <strong>LARGE</strong> dotfiles and directories.  At first, I tried to these using</p>
 <div class="highlight"><pre><code class="bash">  ls -lSd .* | head -20
@@ -187,7 +177,7 @@ use the following</p>
 </code></pre>
 </div>
 
-<h2 id="toc_21">Resetting The Repo</h2>
+<h2 id="toc_20">Resetting The Repo</h2>
 
 <p>If you are not happy with the current manifest, and are willing to start again <strong>from scratch</strong>, use the following commands.  WARNING: This will erase any history!</p>
 <div class="highlight"><pre><code class="bash">  <span class="nb">cd</span> <span class="nv">$HOME</span>
@@ -200,7 +190,7 @@ use the following</p>
 
 <p>This can be used to refine the <code>.hgignore</code> file in order to initialize the repo</p>
 
-<h1 id="toc_22">Glossary</h1>
+<h1 id="toc_21">Glossary</h1>
 
 <p>Current Working Directory
 : PWD</p>

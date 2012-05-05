@@ -41,18 +41,6 @@
         <h1>Hadoop Filesystem Tools</h1>
 
 <div id="post">
-<pre class="action ideaaction">
->%hdrrelated%
-># Related
-> * [Hadoop @ Apache](http://hadoop.apache.org/common/docs/r0.21.0/)
-> * [HDFS @ Apache](http://hadoop.apache.org/hdfs/docs/current/index.html)
-> * [HDFS Shell](http://hadoop.apache.org/common/docs/current/file_system_shell.html)
-> * [HadoopEnv](http://code.google.com/p/hadoopenv/)
-> * [Rapleaf Dev Blog](http://blog.rapleaf.com/dev/2009/11/17/command-line-auto-completion-for-hadoop-dfs-commands/)
-> * [Bash Completion](http://www.caliban.org/bash/#completion)
-> * [Hadoop]
-</pre>
-
 <p>If you&#39;re like me, you get frustrated by the amount of typing that is required to copy a file from your Hadoop filesystem to your local filesystem, e.g.:</p>
 <div class="highlight"><pre><code class="bash">  hdfs dfs -get hdfs://xxx/very/long/path/to/a/file <span class="se">\</span>
       /yyy/very/long/path/to/a/file
@@ -63,7 +51,7 @@
 
 <p>To address this issue (and to exercise my Bash scripting skills), I hacked together a collection of shell scripts that automate this process, together called <em>HDFS-Tools</em>.  The <em>HDFS-Tools</em> simplify the management of files in your Hadoop Filesystem by helping to synchronize a <em>local</em> copy of the filesystem with <em>HDFS</em>.</p>
 
-<h2 id="toc_25">How Does It Work?</h2>
+<h2 id="toc_24">How Does It Work?</h2>
 
 <p>To enable <em>HDFS-Tools</em>, one must first designate a directory to hold the <em>root</em> of the <em>local</em> copy; this is done by setting the <code>HDFS_PREFIX</code> environment variable.  Paths relative to <code>HDFS_PREFIX</code> in the local copy are the same as in <em>HDFS</em>.</p>
 
@@ -79,13 +67,13 @@
 
 <p>Say goodbye to the frustration of typing long paths in <em>HDFS</em>.  Indeed, you rarely need to type more than the commands themselves.</p>
 
-<h2 id="toc_26">Filename Auto-Completion</h2>
+<h2 id="toc_25">Filename Auto-Completion</h2>
 
 <p>Auto-completion is available for <code>hls</code>, <code>hget</code>, and <code>hput</code>, by pressing <code>&lt;TAB&gt;</code>.  There may be a delay before results are displayed, as the query to the remote <em>HDFS</em> is issued.  When the <code>CWD</code> is below <code>HDFS_PREFIX</code>, filename auto-completion displays paths relative to <code>CWD</code>; otherwise, they are relative to <code>HDFS_PREFIX</code>.  In the later case, the paths are displayed with a <code>/</code> prefix.</p>
 
 <p>Auto-completion for directories is a little clunky because a space character is appended to the result.  In order to extend the path further, you must type <code>&lt;backspace&gt;&lt;TAB&gt;</code>.</p>
 
-<h2 id="toc_27">Details</h2>
+<h2 id="toc_26">Details</h2>
 
 <p><em>HDFS-Tools</em> consists of the following:</p>
 
@@ -107,7 +95,7 @@
 <p><a href="file:///Users/stu/Research/HDFS-Tools/henv">henv</a>
 : This is a configuration script for <em>HDFS-Tools</em> auto-completion.</p>
 
-<h3 id="toc_28">Notes</h3>
+<h3 id="toc_27">Notes</h3>
 
 <ul>
 <li>Use option <code>-h</code> to display help for a command, and <code>-v</code> for extra debugging information.</li>
@@ -115,13 +103,13 @@
 <li>One drawback of <em>HDFS-Tools</em> is that filename globbing is not supported, so you can not do things like <code>hget &#39;[io]*&#39;</code>.</li>
 </ul>
 
-<h2 id="toc_29">Installation &amp; Setup</h2>
+<h2 id="toc_28">Installation &amp; Setup</h2>
 
 <p><em>HDFS-Tools</em> are available on <a href="https://github.com/tub78/HDFS-Tools">GitHub</a>.</p>
 
 <p>Note: <em>HDFS-Tools</em> are configured for use with Hadoop 0.21.0.</p>
 
-<h3 id="toc_30">Bare Minimum</h3>
+<h3 id="toc_29">Bare Minimum</h3>
 
 <ol>
 <li>Install these scripts somewhere on your path</li>
@@ -133,7 +121,7 @@
 </div></li>
 </ol>
 
-<h3 id="toc_31">For Remote Connections</h3>
+<h3 id="toc_30">For Remote Connections</h3>
 
 <ol>
 <li><code>HDFS_USER</code> - Set the user name used to connect to the remote hadoop filesystem</li>
@@ -143,11 +131,11 @@
 
 <p><code>hconnect</code> opens an ssh tunnel to the remote host using <code>ssh -ND $HDFS_PORT $HDFS_USER@$HDFS_HOST</code></p>
 
-<h2 id="toc_32">Examples Part 1</h2>
+<h2 id="toc_31">Examples Part 1</h2>
 
 <p>The first set of examples demonstrate the behavior of <em>HDFS-Tools</em> with <code>CWD=HDFS_PREFIX</code>, where <code>HDFS_PREFIX=~/Data/Hdfs-2011-08-28</code>.</p>
 
-<h3 id="toc_33">List Files</h3>
+<h3 id="toc_32">List Files</h3>
 
 <ol>
 <li><p>-&gt; <code>hls</code></p>
@@ -175,7 +163,7 @@
 </div></li>
 </ol>
 
-<h3 id="toc_34">Get Files</h3>
+<h3 id="toc_33">Get Files</h3>
 
 <ol>
 <li><p>-&gt; <code>hget /user/stu/output</code></p>
@@ -193,7 +181,7 @@
 </div></li>
 </ol>
 
-<h3 id="toc_35">Put Files</h3>
+<h3 id="toc_34">Put Files</h3>
 
 <ol>
 <li><p>-&gt; <code>hput /user/stu/output</code></p>
@@ -210,7 +198,7 @@
 </div></li>
 </ol>
 
-<h3 id="toc_36">Tab Completion</h3>
+<h3 id="toc_35">Tab Completion</h3>
 
 <ol>
 <li><p>-&gt; <code>hls &lt;TAB&gt;</code></p>
@@ -234,7 +222,7 @@
 </div></li>
 </ol>
 
-<h2 id="toc_37">Examples Part 2</h2>
+<h2 id="toc_36">Examples Part 2</h2>
 
 <p>When the <code>CWD</code> is located below <code>HDFS_PREFIX</code>, <em>HDFS-Tools</em> use relative paths.  For example, with <code>CWD=$(HDFS_PREFIX)/user/stu</code></p>
 
@@ -246,7 +234,7 @@
 </div></li>
 </ol>
 
-<h2 id="toc_38">Examples Part 3</h2>
+<h2 id="toc_37">Examples Part 3</h2>
 
 <p>When the <code>CWD</code> is not below <code>HDFS_PREFIX</code>, <em>HDFS-Tools</em> behave as though they were involked from <code>HDFS_PREFIX</code>.  The only difference is that paths on the command line are prefixed with <code>/</code>.  In this case, we are using <code>CWD=~</code></p>
 
@@ -273,7 +261,7 @@
 </div></li>
 </ol>
 
-<h2 id="toc_39">Examples Part 4</h2>
+<h2 id="toc_38">Examples Part 4</h2>
 
 <ol>
 <li><p>-&gt; <code>hconnect -c</code></p>
@@ -302,6 +290,17 @@
 </div></li>
 </ol>
 
+<h2 id="toc_39">Learn More</h2>
+
+<ul>
+<li><a href="http://hadoop.apache.org/common/docs/r0.21.0/">Hadoop @ Apache</a></li>
+<li><a href="http://hadoop.apache.org/hdfs/docs/current/index.html">HDFS @ Apache</a></li>
+<li><a href="http://hadoop.apache.org/common/docs/current/file_system_shell.html">HDFS Shell</a></li>
+<li><a href="http://code.google.com/p/hadoopenv/">HadoopEnv</a></li>
+<li><a href="http://blog.rapleaf.com/dev/2009/11/17/command-line-auto-completion-for-hadoop-dfs-commands/">Rapleaf Dev Blog</a></li>
+<li><a href="http://www.caliban.org/bash/#completion">Bash Completion</a></li>
+</ul>
+
 </div>
 
 <div id="related">
@@ -310,9 +309,9 @@
     
     <li><span>17 May 2011</span> &raquo; <a href="/2011/05/17/A-Centralized-VCS-For-Config-Files.html">A Centralized VCS For Config Files</a></li>
     
-    <li><span>06 May 2011</span> &raquo; <a href="/2011/05/06/Cmdline-Convert-Word-Doc-2-Pdf.html">Convert To Pdf From The Cmdline</a></li>
-    
     <li><span>10 Jun 2011</span> &raquo; <a href="/2011/06/10/Wiki-Graph.html">Wiki Graph - A Visualization Tool For Wikis</a></li>
+    
+    <li><span>06 May 2011</span> &raquo; <a href="/2011/05/06/Cmdline-Convert-Word-Doc-2-Pdf.html">Convert To Pdf From The Cmdline</a></li>
     
     <li><span>16 Nov 2011</span> &raquo; <a href="/2011/11/16/Low-Hanging-Fruit.html">An Empirical Justification Of False Discovery Rate Correction With Small Samples</a></li>
     
