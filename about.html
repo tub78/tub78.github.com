@@ -25,30 +25,7 @@
     <script type="text/javascript" src="https://raw.github.com/carhartl/jquery-cookie/master/jquery.cookie.js"></script>
 
     <!-- DAYTIME/NIGHTTIME JAVASCRIPT -->
-    <script language="javascript">//<![CDATA[ 
-      $(document).ready(function(){
-        // Display day mode between 7am and 8pm 
-        var currentTime = new Date().getHours();
-        var daytime_selected = (7 <= currentTime && currentTime < 19) ? 'yes' : 'no';
-        daytime_selected = $.cookie('tub78_daytime_selected') || daytime_selected;
-        if (daytime_selected == 'yes') {
-          $(".title,.todoaction,.ideaaction,.bugaction,.doneaction,body,h1,h2,h3,h4,h5,h6,a,a.missing-wiki-link,th,blockquote,code").addClass("day");
-        } else {
-          $(".title,.todoaction,.ideaaction,.bugaction,.doneaction,body,h1,h2,h3,h4,h5,h6,a,a.missing-wiki-link,th,blockquote,code").addClass("night");
-        }
-        $.cookie('tub78_daytime_selected', daytime_selected, { expires: 1, path: '/' });
-        $("button#daynight").click(function(){
-          $(".title,.todoaction,.ideaaction,.bugaction,.doneaction,body,h1,h2,h3,h4,h5,h6,a,a.missing-wiki-link,th,blockquote,code").toggleClass("day");
-          $(".title,.todoaction,.ideaaction,.bugaction .doneaction,body,h1,h2,h3,h4,h5,h6,a,a.missing-wiki-link,th,blockquote,code").toggleClass("night");
-          var daytime_selected = $.cookie('tub78_daytime_selected') || 'yes';
-          $.cookie('tub78_daytime_selected', (daytime_selected == 'yes') ? 'no' : 'yes', { expires: 1, path: '/' });
-        });
-        /* Toggle visibility of 'help' button */
-        $("button#optional").click(function(){
-            $("div.optional").toggle();
-        });
-      });
-      //]]></script>
+    <script type="text/javascript" src="/css/daynight.js"></script>
     <!-- 2011-03-21 END CUSTOM HEADER -->
   </head>
   <body>
@@ -80,6 +57,7 @@
 <ul>
 <li><a href="https://raw.github.com/tub78/TrunkNotes/master/Notes/SpecialHeader.md">TrunkNotes Special:Header</a></li>
 <li><a href="https://raw.github.com/tub78/TrunkNotes/master/Notes/Snippet_csscombined.md">Stylesheet</a></li>
+<li><a href="https://raw.github.com/tub78/TrunkNotes/master/Notes/TN_DayNight.md">Javascript</a></li>
 </ul>
 
 <h3 id="toc_54">Web</h3>
@@ -88,6 +66,7 @@
 <li><a href="https://github.com/tub78/tub78.github.com/blob/master/_layouts/default.html">Default Template</a></li>
 <li><a href="https://github.com/tub78/tub78.github.com/blob/master/_layouts/post.html">Post Template</a></li>
 <li><a href="https://github.com/tub78/tub78.github.com/blob/master/css/style-combined.css">Stylesheet</a></li>
+<li><a href="https://github.com/tub78/tub78.github.com/blob/master/css/daynight.js">Javascript</a></li>
 </ul>
 
       </div>
