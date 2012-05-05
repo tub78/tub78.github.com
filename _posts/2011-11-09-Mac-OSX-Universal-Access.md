@@ -26,7 +26,7 @@ TNMetadata:
 [universal-access-page-view7.jpg]: universal-access-page-view7.jpg "Figure 9"
 
 
-# How To Set The Cursor Size And Use Magnification Effectively
+## How To Set The Cursor Size And Use Magnification Effectively
 
 I did some reading about assistive technologies on Mac OS X for a friend of mine who has trouble reading screen fonts.  The following are instructions on how to set the cursor size, and use magnification effectively.  Please note that I am using Snow Leopard (10.6).  If you are using Lion (10.7), or another version of OS X, you might notice some differences in the figures.
 
