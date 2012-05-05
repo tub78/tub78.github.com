@@ -39,17 +39,22 @@ Built with [[Vimwiki]], [[Trunk Notes][TrunkNotes]], [[Jekyll]], [[RedCarpet]], 
 
  * [[TrunkNotes Special:Header][Special_Header]]
  * [[Stylesheet][TNStylesheet]]
+ * [[Javascript][TNJavaScript]]
 
 [Special_Header]: https://raw.github.com/tub78/TrunkNotes/master/Notes/SpecialHeader.md
 [TNStylesheet]: https://raw.github.com/tub78/TrunkNotes/master/Notes/Snippet_csscombined.md
+[TNJavaScript]: https://raw.github.com/tub78/TrunkNotes/master/Notes/TN_DayNight.md
 
 
 ### Web
 
  * [[Default Template][Default_Template]]
  * [[Post Template][Post_Template]]
- * [[Stylesheet][Stylesheet]]
+ * [[Stylesheet][BlogStylesheet]]
+ * [[Javascript][BlogJavaScript]]
 
 [Default_Template]: https://github.com/tub78/tub78.github.com/blob/master/_layouts/default.html
 [Post_Template]: https://github.com/tub78/tub78.github.com/blob/master/_layouts/post.html
-[Stylesheet]: https://github.com/tub78/tub78.github.com/blob/master/css/style-combined.css
+[BlogStylesheet]: https://github.com/tub78/tub78.github.com/blob/master/css/style-combined.css
+[BlogJavaScript]: https://github.com/tub78/tub78.github.com/blob/master/css/daynight.js
+
