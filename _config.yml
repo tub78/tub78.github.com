@@ -5,7 +5,8 @@ exclude: [ 'vendor',
             'bin',
             '.bundle',
             'Blog.md',
-            'vimwiki_site'
+            'vimwiki_site',
+            'vimwiki.vimrc'
             ]
 
 lsi: true
