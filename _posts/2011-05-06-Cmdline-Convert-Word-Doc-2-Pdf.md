@@ -62,10 +62,10 @@ Please check [https://github.com/tub78/GDocs2Pdf](https://github.com/tub78/GDocs
 __Notes__
 
 [1]
-: [[_GoogleCL_ webpage](http://code.google.com/p/googlecl/)].  The utility is written in Python.  Please see this page for installation instructions.
+: [_GoogleCL_ webpage](http://code.google.com/p/googlecl/).  The utility is written in Python.  Please see this page for installation instructions.
 
 [2]
-: Configuration of _GoogleCL_ is required to authorize access to your account.  Configuration settings are initialized upon the first invocation of the tool, whether they are supplied as command line arguments or as answers to the interactive prompts.  These defaults are used unless overridden using the flagged arguments.  To change the defaults, see [[Configuration Options](http://code.google.com/p/googlecl/wiki/ConfigurationOptions)].
+: Configuration of _GoogleCL_ is required to authorize access to your account.  Configuration settings are initialized upon the first invocation of the tool, whether they are supplied as command line arguments or as answers to the interactive prompts.  These defaults are used unless overridden using the flagged arguments.  To change the defaults, see [Configuration Options](http://code.google.com/p/googlecl/wiki/ConfigurationOptions).
 
 
 

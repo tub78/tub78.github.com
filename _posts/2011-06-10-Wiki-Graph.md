@@ -27,7 +27,7 @@ Reflecting upon personal and community wikis, I realized that I had little insig
 
 What great vision!  To develop a better understanding of the "mesh of associative trails" embedded in my personal wiki, I decided to create some basic visualizations.
 
-_WikiGraph_ is a tool that I wrote in Python to extract and visualize the [[hyperlink]] structure from a collection of wiki pages.  Below is an example of the output it generates.  Pages are represented by nodes whose labels consist of the page title, and links from one page to another are directed edges.
+_WikiGraph_ is a tool that I wrote in Python to extract and visualize the [hyperlink][] structure from a collection of wiki pages.  Below is an example of the output it generates.  Pages are represented by nodes whose labels consist of the page title, and links from one page to another are directed edges.
 
 ![Figure_1][]
 
@@ -133,7 +133,7 @@ WikiGraph has many configurable parameters which are listed in uppercase in the 
   (floats assumed).
 ```
 
-The code for _WikiGraph_ is on [[GitHub][GitHub]].  Beyond several standard packages, it depends on `matplotlib` and `networkx`.
+The code for _WikiGraph_ is on [GitHub][].  Beyond several standard packages, it depends on `matplotlib` and `networkx`.
 
 # Discussion
 
@@ -146,7 +146,7 @@ Here are two additional examples summarizing the `Prog` and `Software` tags, res
 ![Figure_3][]
 
 
-While link creation has been simplified by editors and lightweight markup syntaxes, to a degree, the size of the benefit of maintaining a wiki reflects the amount of time invested.  This raises the question: Can the ongoing maintenance of a wiki, and especially its link structure, be automated in some manner?  Perhaps there is a way of harnessing existing wikis, knowledge databases, or [[ontologies][Ontology]] to automatically link wiki pages.  After all, there are continuing and new efforts to build structured databases of various sorts.  A recent example is _Freebase_, described [[here][Freebase Home]] and [[here][Freebase Wiki]].  Based on my initial observations, harnessing this knowledge could work insofar as it could predict hubs and authorities, as opposed to hierarchical structure.  A related problem has recently been addressed in this [[paper][Learning Structured Embeddings of Knowledge Bases]].
+While link creation has been simplified by editors and lightweight markup syntaxes, to a degree, the size of the benefit of maintaining a wiki reflects the amount of time invested.  This raises the question: Can the ongoing maintenance of a wiki, and especially its link structure, be automated in some manner?  Perhaps there is a way of harnessing existing wikis, knowledge databases, or [ontologies][Ontology] to automatically link wiki pages.  After all, there are continuing and new efforts to build structured databases of various sorts.  A recent example is _Freebase_, described [here][Freebase Home] and [here][Freebase Wiki].  Based on my initial observations, harnessing this knowledge could work insofar as it could predict hubs and authorities, as opposed to hierarchical structure.  A related problem has recently been addressed in this [paper][Learning Structured Embeddings of Knowledge Bases].
 
 _Notes_
 [1]

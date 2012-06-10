@@ -91,7 +91,7 @@ $$
 A simulation study involving randomly generated gene expressions for a large number of genes is used to analyze the behaviour of _p-values_ and the influence of _false discovery rate (FDR) correction_ with small sample sizes.  This setting was chosen to resemble the genomics context.  Specifically, a large number of genes are simultaneously screened for differential expression between groups, using only a small number of samples.
 
 1. Each data set, numbered by $ i = 1, \ldots, 2000 $, is comprised of $ N $ randomly generated samples from each of two groups $ A_i $ and $ B_i $.
-1. Samples are assumed to be normally-distributed: $ A_i $'s samples have mean $ \mu_i $, $ B_i $'s samples have mean $ \nu_i $, and both have variance $ \sigma_i^2 = 1 $.
+1. Samples are assumed to be normally-distributed: $ A_i $'s samples have mean $ \mu_i $, $ B_i $'s samples have mean $ \nu_i $, and both have variance $\mathrm{sqr}(\sigma_i) = 1$.
 1. With fixed values of the free parameters: $ N $ , $ \mu_i $ , and $ \nu_i $, a p-value is calculated as above for each comparison, giving rise to a distribution across all 2000 tests.
  
 In the figures below, the shape and variability of the distribution of p-values is analyzed.  Each figure contains three curves corresponding to data sets of varying size: red($ N=3 $), green($ N=5 $), and blue($ N=7 $).  Due to the procedure used for density estimation, the displayed curves extend beyond the unit interval, despite the fact that p-values are bounded $ 0 \leq p_i \leq 1 $.  While in common practice there will be a mixture of: 1) DE, and 2) non-DE genes in a single experiment, these two cases are treated separately for clarity.

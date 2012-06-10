@@ -19,7 +19,7 @@ TNMetadata:
 # A Centralized Version Control Repository For Isolated Configuration Files, Dot Files, Preferences, Etc.
 -->
 
-[[Version Control Systems]] are programs that maintain a history of edits or changes to a collection of files.
+[Version Control Systems][] are programs that maintain a history of edits or changes to a collection of files.
 
 I often want to use versioning for individual isolated files, or collections of files, that live somewhere in my directory tree.  However, because management of many independent repositories is hard, I am reluctant to create and maintain a repository wherever the file lives if __the directory itself__ is not under active development.
 
@@ -27,7 +27,7 @@ Some examples of files like this are dotfiles in my home directory, and other pr
 
 # Instructions
 
-Here's a solution that was based on a suggestion by Casey Dahlin on Doug Warner's [[blog][Doug Warner]].   Comments from Peter Manis, Benjamin Schmidt and Martin Geisler were also helpful [[here][Peter Manis]], [[here][How do I find the largest filesdirectories]], and [[here][Mercurial]].
+Here's a solution that was based on a suggestion by Casey Dahlin on Doug Warner's [blog][Doug Warner].   Comments from Peter Manis, Benjamin Schmidt and Martin Geisler were also helpful [here][Peter Manis], [here][How do I find the largest filesdirectories], and [here][Mercurial].
 
 The idea is to create and manage __a single repository__ for these files that will be easy to manage.  Files can be added manually.  Regular commits will be made on an ongoing basis, and can even be automated.
 
@@ -42,7 +42,7 @@ First, create the repo in your home directory
 
 ## Safety Precautions
 
-[[Peter Manis]] points out that the `hg purge` command can remove all files in the __working directory__ that are not added to the repo!!  He advises to explicitly disable this command for the repo by adding the following to the project-level `.hgrc` file located in `$HOME/.hg/hgrc`
+[Peter Manis][] points out that the `hg purge` command can remove all files in the __working directory__ that are not added to the repo!!  He advises to explicitly disable this command for the repo by adding the following to the project-level `.hgrc` file located in `$HOME/.hg/hgrc`
 
 ``` cfg
   [extensions]
@@ -186,7 +186,7 @@ Current Working Directory
 : PWD
 
 Working Directory
-: "To introduce a little terminology, the .hg directory is the “real” repository, and all of the files and directories that coexist with it are said to live in the working directory. An easy way to remember the distinction is that the repository contains the history of your project, while the working directory contains a snapshot of your project at a particular point in history." [[quote][a-tour-of-mercurial-the-basics]]
+: "To introduce a little terminology, the .hg directory is the “real” repository, and all of the files and directories that coexist with it are said to live in the working directory. An easy way to remember the distinction is that the repository contains the history of your project, while the working directory contains a snapshot of your project at a particular point in history." [quote][a-tour-of-mercurial-the-basics]
 
 Hg Init
 : Create a fresh repo.  Fails when an existing repo exists in the working directory.
