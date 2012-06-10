@@ -16,7 +16,7 @@
     <link href='/css/style-combined.css' type='text/css' rel='stylesheet'/>
 
     <!-- MATHJAX hosted CDN.MATHJAX.ORG -->
-    <script type='text/javascript' src='http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML'> MathJax.Hub.Config({ extensions: ["tex2jax.js","MathMenu.js","MathZoom.js"], jax: ["input/TeX","output/HTML-CSS"], tex2jax: {inlineMath: [["\\(","\\)"]], skipTags: ["script","noscript","style","textarea","pre"], processEnvironments: true}, TeX: { extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"] } }); </script>
+    <script type='text/javascript' src='http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML'> MathJax.Hub.Config({ extensions: ["tex2jax.js","MathMenu.js","MathZoom.js"], jax: ["input/TeX","output/HTML-CSS"], tex2jax: {inlineMath: [["$","$"], ["\\(","\\)"]], skipTags: ["script","noscript","style","textarea","pre"], processEnvironments: true}, TeX: { extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"] } }); </script>
 
     <!-- GOOGLEAPIS hosted JQUERY.MIN -->
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
@@ -73,27 +73,27 @@
 
 <p>Hypothesis testing is used to decide whether an observed DE gene occured by chance (&quot;the null&quot;), or constitutes evidence of an underlying biological effect (&quot;the alternative&quot;).  The p-value for a hypothesis test is the chance of observing measurements as extreme as found in the experiment under the assumption that there is no difference in the two conditions.  It is closely related, but not necessarily equal, to the probability of false discovery, which is the probability that the gene is falsely classified as DE.</p>
 
-<p>Suppose there are <code>\( N \)</code> samples each from conditions <code>\( A \)</code> and <code>\( B \)</code>.  The magnitude of DE is the difference between the two means, <code>\( \bar{x}_A-\bar{x}_B \)</code>.  If the samples are independent, normally-distributed, and the variances of the two groups are the same, then a suitable test is the T-test.  A t-statistic is calculated as</p>
+<p>Suppose there are $ N $ samples each from conditions $ A $ and $ B $.  The magnitude of DE is the difference between the two means, $ \bar{x}_A-\bar{x}_B $.  If the samples are independent, normally-distributed, and the variances of the two groups are the same, then a suitable test is the T-test.  A t-statistic is calculated as</p>
 
-<p><code>\[
+<p>$$
   T =  \frac{\bar{x}_B - \bar{x}_A}{s\sqrt{2/N}}
-\]</code></p>
+$$</p>
 
-<p>where <code>\( s \)</code> is the pooled estimate of the standard deviation.  Under the assumptions of the test, the value <code>\( T\, \)</code> follows a Student&#39;s t-distribution, with <code>\( d = 2 * N - 2 \)</code> degrees of freedom.  The p-value for the 2-sided T-test is computed as</p>
+<p>where $ s $ is the pooled estimate of the standard deviation.  Under the assumptions of the test, the value $ T\, $ follows a Student&#39;s t-distribution, with $ d = 2 * N - 2 $ degrees of freedom.  The p-value for the 2-sided T-test is computed as</p>
 
-<p><code>\[
+<p>$$
   p = 1 - P\left( -|T| &lt; t &lt; |T| \right) .
-\]</code></p>
+$$</p>
 
-<p>If the p-value is less than the level-of-significance <code>\( \alpha \)</code>, then the null hypothesis is rejected, and the observed DE is significant at that <code>\( \alpha \)</code>-significance level.</p>
+<p>If the p-value is less than the level-of-significance $ \alpha $, then the null hypothesis is rejected, and the observed DE is significant at that $ \alpha $-significance level.</p>
 
 <h2 id="toc_45">Example</h2>
 
-<p>Suppose there are <code>\( N=4 \)</code> samples, each, from both conditions with the following gene expression values:  <code>\( A = \left\{ 2, 4, 1, 1 \right\} \)</code> and <code>\( B = \left\{ 9, 11, 10, 7 \right\} \)</code>.  The t-statistic is calculated as [ttest-eg] where <code>\( s \approx 4.14\,\)</code> is the pooled estimate of the standard deviation.  Using the lookup table on <a href="http://en.wikipedia.org/wiki/Student%27s_t-distribution">Student&#39;s t-distribution</a>, the p-value for this 2-sided test is <code>\( p &lt; 0.05 \)</code> supporting the conclusion that significant DE was observed.</p>
+<p>Suppose there are $ N=4 $ samples, each, from both conditions with the following gene expression values:  $ A = \left( 2, 4, 1, 1 \right) $ and $ B = \left( 9, 11, 10, 7 \right) $.  The t-statistic is calculated as [ttest-eg] where $ s \approx 4.14\,$ is the pooled estimate of the standard deviation.  Using the lookup table on <a href="http://en.wikipedia.org/wiki/Student%27s_t-distribution">Student&#39;s t-distribution</a>, the p-value for this 2-sided test is $ p &lt; 0.05 $ supporting the conclusion that significant DE was observed.</p>
 
-<p><code>\[
+<p>$$
   T = \frac{(9 + 11 + 10 + 7)/4 - (2 + 4 + 1 + 1)/4}{s \sqrt{2 / 4}} \approx 2.478\,,
-\]</code></p>
+$$</p>
 
 <!-- x = np.array([[2,4,1,1],[9,11,10,7]]); np.diff(np.mean(x, axis=1))*sqrt(2)/(np.std(x, ddof=1)) -->
 
@@ -101,39 +101,39 @@
 
 <p>When testing a large number of genes, a threshold based on the p-value fails to meaningfully convey the significance of the resulting list of genes because it does not take into account the elevated chance of observing extreme levels of differential expression through repeated, independent trials.  So, for example, while it is unusual to observe a p-value of 0.01 in a single experiment, it is nevertheless expected that such small p-values will be observed with regularity as more and more genes are tested. </p>
 
-<p>In order to provide a meaningful measure of significance, methods have been developed to estimate the false discovery rate for the top-k most DE genes.  For example, the Benjamini-Hochberg–Yekutieli (BH) method estimates the FDR to be the minimum <code>\( q_k \)</code> such that [qval-eqn] where <code>\( p_i \)</code> is the <code>\( i \)</code>-th smallest p-value, and <code>\( m \)</code> is the number of genes tested.  The value <code>\( q_k \)</code> for <code>\( k = 1, \ldots, m \)</code>, associated with the gene at rank k, is referred to as the FDR-corrected p-value.</p>
+<p>In order to provide a meaningful measure of significance, methods have been developed to estimate the false discovery rate for the top-k most DE genes.  For example, the Benjamini-Hochberg–Yekutieli (BH) method estimates the FDR to be the minimum $ q_k $ such that [qval-eqn] where $ p_i $ is the $ i $-th smallest p-value, and $ m $ is the number of genes tested.  The value $ q_k $ for $ k = 1, \ldots, m $, associated with the gene at rank k, is referred to as the FDR-corrected p-value.</p>
 
-<p><code>\[
+<p>$$
   p_i \leq \frac{i}{m} q_k, \quad \forall i\leq k \,. 
-\]</code></p>
+$$</p>
 
 <h1 id="toc_47">Genomics Simulation</h1>
 
 <p>A simulation study involving randomly generated gene expressions for a large number of genes is used to analyze the behaviour of <em>p-values</em> and the influence of <em>false discovery rate (FDR) correction</em> with small sample sizes.  This setting was chosen to resemble the genomics context.  Specifically, a large number of genes are simultaneously screened for differential expression between groups, using only a small number of samples.</p>
 
 <ol>
-<li>Each data set, numbered by <code>\( i = 1, \ldots, 2000 \)</code>, is comprised of <code>\( N \)</code> randomly generated samples from each of two groups <code>\( A_i \)</code> and <code>\( B_i \)</code>.</li>
-<li>Samples are assumed to be normally-distributed: <code>\( A_i \)</code>&#39;s samples have mean <code>\( \mu_i \)</code>, <code>\( B_i \)</code>&#39;s samples have mean <code>\( \nu_i \)</code>, and both have variance <code>\( \sigma_i^2 = 1 \)</code>.</li>
-<li>With fixed values of the free parameters: <code>\( N \)</code> , <code>\( \mu_i \)</code> , and <code>\( \nu_i \)</code>, a p-value is calculated as above for each comparison, giving rise to a distribution across all 2000 tests.</li>
+<li>Each data set, numbered by $ i = 1, \ldots, 2000 $, is comprised of $ N $ randomly generated samples from each of two groups $ A_i $ and $ B_i $.</li>
+<li>Samples are assumed to be normally-distributed: $ A_i $&#39;s samples have mean $ \mu_i $, $ B_i $&#39;s samples have mean $ \nu_i $, and both have variance $\mathrm{sqr}(\sigma_i) = 1$.</li>
+<li>With fixed values of the free parameters: $ N $ , $ \mu_i $ , and $ \nu_i $, a p-value is calculated as above for each comparison, giving rise to a distribution across all 2000 tests.</li>
 </ol>
 
-<p>In the figures below, the shape and variability of the distribution of p-values is analyzed.  Each figure contains three curves corresponding to data sets of varying size: red(<code>\( N=3 \)</code>), green(<code>\( N=5 \)</code>), and blue(<code>\( N=7 \)</code>).  Due to the procedure used for density estimation, the displayed curves extend beyond the unit interval, despite the fact that p-values are bounded <code>\( 0 \leq p_i \leq 1 \)</code>.  While in common practice there will be a mixture of: 1) DE, and 2) non-DE genes in a single experiment, these two cases are treated separately for clarity.</p>
+<p>In the figures below, the shape and variability of the distribution of p-values is analyzed.  Each figure contains three curves corresponding to data sets of varying size: red($ N=3 $), green($ N=5 $), and blue($ N=7 $).  Due to the procedure used for density estimation, the displayed curves extend beyond the unit interval, despite the fact that p-values are bounded $ 0 \leq p_i \leq 1 $.  While in common practice there will be a mixture of: 1) DE, and 2) non-DE genes in a single experiment, these two cases are treated separately for clarity.</p>
 
 <h2 id="toc_48">DE &amp; Non-DE Genes Without FDR Correction</h2>
 
-<p>Figure 1 shows the distribution of p-values when the groups are differentially expressed, with <code>\( \mu_i = 0 \)</code> and <code>\( \nu_i = 1 \)</code> for all <code>\( i \)</code> .  By design, a large proportion of p-values are close to zero, and for <code>\( N \geq 7 \)</code>,  below the commonly-used <code>\( \alpha = 0.05 \)</code> level-of-significance.  However, each distribution has a long tail that extends toward <code>\( p_i = 1 \)</code>.  This effect is most pronounced for <code>\( N=3 \)</code>, which is a reflection of the diminishing power of the T-test as <code>\( N \)</code> decreases.  Thus, for <code>\( N \geq 7 \)</code>, it is relatively easy to detect differential expression.</p>
+<p>Figure 1 shows the distribution of p-values when the groups are differentially expressed, with $ \mu_i = 0 $ and $ \nu_i = 1 $ for all $ i $ .  By design, a large proportion of p-values are close to zero, and for $ N \geq 7 $,  below the commonly-used $ \alpha = 0.05 $ level-of-significance.  However, each distribution has a long tail that extends toward $ p_i = 1 $.  This effect is most pronounced for $ N=3 $, which is a reflection of the diminishing power of the T-test as $ N $ decreases.  Thus, for $ N \geq 7 $, it is relatively easy to detect differential expression.</p>
 
 <p>Figure 1 &amp; 2: <img src="sim.t.test.density-p-value-p1.jpg" alt="Figure_1" title="Figure 1"> <img src="sim.t.test.density-p-value-p2.jpg" alt="Figure_2" title="Figure 2"></p>
 
-<p>Figure 2 shows the distribution of p-values when groups <code>\( A_i \)</code> and <code>\( B_i \)</code> have the same mean <code>\( \mu_i = \nu_i \)</code> for all <code>\( i \)</code>, and so are not differentially expressed.  The p-values are approximately uniformly distributed, in accordance with a classical result in statistics.  Roughly speaking, since under the null-hypothesis (non-DE) the test statistic follows a Student&#39;s-t distribution, the p-value is obtained from its cumulative distribution function, and is therefore uniform.  See <a href="http://stats.stackexchange.com/questions/10613/why-p-values-are-uniformly-distributed">here</a>, <a href="http://en.wikipedia.org/wiki/Probability_integral_transform">here</a>, and <a href="http://pubs.amstat.org/doi/abs/10.1198/000313008X332421">here</a> for details.</p>
+<p>Figure 2 shows the distribution of p-values when groups $ A_i $ and $ B_i $ have the same mean $ \mu_i = \nu_i $ for all $ i $, and so are not differentially expressed.  The p-values are approximately uniformly distributed, in accordance with a classical result in statistics.  Roughly speaking, since under the null-hypothesis (non-DE) the test statistic follows a Student&#39;s-t distribution, the p-value is obtained from its cumulative distribution function, and is therefore uniform.  See <a href="http://stats.stackexchange.com/questions/10613/why-p-values-are-uniformly-distributed">here</a>, <a href="http://en.wikipedia.org/wiki/Probability_integral_transform">here</a>, and <a href="http://pubs.amstat.org/doi/abs/10.1198/000313008X332421">here</a> for details.</p>
 
-<p>The take-home message of this simulation is that one observes <code>\( p_i \leq 0.05 \)</code> about 5% of the time for genes that are not differentially expressed.  This result demonstrates why statistical methods have been developed to compensate for false positives in multiple testing scenarios.</p>
+<p>The take-home message of this simulation is that one observes $ p_i \leq 0.05 $ about 5% of the time for genes that are not differentially expressed.  This result demonstrates why statistical methods have been developed to compensate for false positives in multiple testing scenarios.</p>
 
 <h2 id="toc_49">DE &amp; Non-DE Genes With FDR Correction</h2>
 
-<p>Figures 3 and 4 show the effect of FDR-correction on the distributions of p-values from Figures 1 and 2, respectively.  Again, each figure contains three curves corresponding to data sets of varying size: red(<code>\( N=3 \)</code>), green(<code>\( N=5 \)</code>), and blue(<code>\( N=7 \)</code>).  The dominant effect is that each distribution has been shifted toward <code>\( p=1 \)</code>, lowering the estimated likelihood of discovery for each associated gene. </p>
+<p>Figures 3 and 4 show the effect of FDR-correction on the distributions of p-values from Figures 1 and 2, respectively.  Again, each figure contains three curves corresponding to data sets of varying size: red($ N=3 $), green($ N=5 $), and blue($ N=7 $).  The dominant effect is that each distribution has been shifted toward $ p=1 $, lowering the estimated likelihood of discovery for each associated gene. </p>
 
-<p>For example, for <code>\( N=3 \)</code> in Figure 3, the red curve shows an estimated false discovery rate of between 10-20% amongst the first selected DE genes.  Fortunately, as shown in Figure 4, non-DE genes are assigned FDR-corrected p-values close to 1 thereby diminishing the chance that these genes will be selected. </p>
+<p>For example, for $ N=3 $ in Figure 3, the red curve shows an estimated false discovery rate of between 10-20% amongst the first selected DE genes.  Fortunately, as shown in Figure 4, non-DE genes are assigned FDR-corrected p-values close to 1 thereby diminishing the chance that these genes will be selected. </p>
 
 <p>Figure 3 &amp; 4: <img src="sim.t.test.density-p-value-p3.jpg" alt="Figure_3" title="Figure 3"> <img src="sim.t.test.density-p-value-p4.jpg" alt="Figure_4" title="Figure 4"></p>
 
