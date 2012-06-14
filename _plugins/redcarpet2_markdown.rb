@@ -31,11 +31,11 @@ class Redcarpet2Markdown < Redcarpet::Render::HTML
     end
   end
 
-  def preprocess(full_document)
-    full_document.gsub!(/(?<!`)\[\[([^\]]*)\]\](?!`)/, '[\1]')
-    full_document.gsub!(/(?<!`)\[\[([^\]]*)\]\[([^\]]*)\]\](?!`)/, '[\1][\2]')
-	full_document
-  end
+  # def preprocess(full_document)
+  #   full_document.gsub!(/(?<!`)\[\[([^\]]*)\]\](?!`)/, '[\1]')
+  #   full_document.gsub!(/(?<!`)\[\[([^\]]*)\]\[([^\]]*)\]\](?!`)/, '[\1][\2]')
+  #   full_document
+  # end
 end
 
 class Jekyll::MarkdownConverter
