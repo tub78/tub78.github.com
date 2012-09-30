@@ -1,6 +1,6 @@
 ---
 layout: post
-title: NGS Journal Club : Introduction to Machine Learning
+title:  An Introduction to Machine Learning for Biologists
 description: 
 tags: [ML, NGS]
 comments: true
