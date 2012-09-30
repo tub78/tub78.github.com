@@ -1,0 +1,560 @@
+<!doctype html>
+<!-- !doctype html public "-//W3C//DTD HTML 4.0 Transitional //EN"> -->
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf8" /> 
+    <title>An Introduction to Machine Learning for Biologists</title>
+    
+    <meta name="author"  content="Stuart Andrews"/>
+
+    <!-- 2011-03-21 START CUSTOM HEADER -->
+
+    <!-- Stylesheet: Pygments -->
+    <link href='/css/pygments.css' type='text/css' rel='stylesheet'/>
+
+    <!-- Stylesheet: Homepage -->
+    <link href='/css/style-combined.css' type='text/css' rel='stylesheet'/>
+
+    <!-- MATHJAX hosted CDN.MATHJAX.ORG -->
+    <script type='text/javascript' src='http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML'> MathJax.Hub.Config({ extensions: ["tex2jax.js","MathMenu.js","MathZoom.js"], jax: ["input/TeX","output/HTML-CSS"], tex2jax: {inlineMath: [["$","$"], ["\\(","\\)"]], skipTags: ["script","noscript","style","textarea","pre"], processEnvironments: true}, TeX: { extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"] } }); </script>
+
+    <!-- GOOGLEAPIS hosted JQUERY.MIN -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+
+    <!-- GITHUB hosted JQUERY.COOKIE.JS -->
+    <script type="text/javascript" src="https://raw.github.com/carhartl/jquery-cookie/master/jquery.cookie.js"></script>
+
+    <!-- DAYTIME/NIGHTTIME JAVASCRIPT -->
+    <script type="text/javascript" src="/css/daynight.js"></script>
+    <!-- 2011-03-21 END CUSTOM HEADER -->
+  </head>
+  <body>
+    <!-- START BODY -->
+    <div class="site">
+      <div class="header">
+        <span class="title"><a href="/">stuartjandrews.com</a></span>
+        <button id="daynight">Day/Night</button>
+        <!-- <hr> -->
+      </div>
+
+      <div class="content">
+        <h1>An Introduction to Machine Learning for Biologists</h1>
+
+<div id="post">
+<!--
+>%hdrrelated%
+># Related
+> * [[wiki0:Blog_Pathology]]
+> * [[../Blog]]
+> * -
+> * [[wiki0:Polyphen2]]
+> * -
+> * [vfile: stuartjandrews.com/2012/09/24/VCS.sh][vfile:///Users/stu/Desktop/Dropbox/Documents/TrunkNotes/stuartjandrews.com/2012/09/24/VCS.sh]
+> * -
+
+# 2012-09-24 
+
+ * "elements of statistical learning" kind:pdf
+
+ * Fix [TrunkNotes style-combined.css](vfile:///Users/stu/Desktop/Dropbox/Documents/TrunkNotes/Html/style-combined.css)
+
+Figure 1: ![Figure_1][]
+
+# IMAGES
+
+# NGS Journal Club 
+## Introduction to Machine Learning
+-->
+
+<!-- <img src="spacer.gif" alt="Spacer" height="520"/> -->
+
+<h2 id="toc_52">Journal Club</h2>
+
+<h3 id="toc_53">September 25, 2012</h3>
+
+<ol>
+<li>A Brief Introduction To Machine Learning, Gunnar Rätsch <a href="http://events.ccc.de/congress/2004/fahrplan/files/105-machine-learning-paper.pdf">pdf</a></li>
+<li>ML Bioinformatics Summer Course, Gunnar Rätsch <a href="http://www.raetschlab.org/lectures/MLBioinformatics">web</a></li>
+<li><strong>E</strong>lement of <strong>S</strong>tatistical <strong>L</strong>earning, T. Hastie, R. Tibshirani, J. Friedman <a href="http://www.stanford.edu/%7Ehastie/local.ftp/Springer/ESLII_print5.pdf">pdf</a></li>
+</ol>
+
+<p><em>Images and text are copied from these sources.</em></p>
+
+<!-- <img src="spacer.gif" alt="Spacer" height="200"/> -->
+
+<h1 id="toc_54">Machine Learning</h1>
+
+<h3 id="toc_55">&quot;Aims to mimic intelligent abilities of humans by machines&quot;</h3>
+
+<!-- <img src="spacer.gif" alt="Spacer" height="300"/> -->
+
+<h1 id="toc_56">Machine Learning</h1>
+
+<h3 id="toc_57">What is it used for?</h3>
+
+<!-- <img src="spacer.gif" alt="Spacer" height="300"/> -->
+
+<h1 id="toc_58">Examples</h1>
+
+<h2 id="toc_59">It&#39;s what Google does</h2>
+
+<p><img src="google-r0.jpg" alt="Figure_13" title="Figure_13"></p>
+
+<!-- <img src="spacer.gif" alt="Spacer" height="300"/> -->
+
+<h2 id="toc_60">Netflix Prize</h2>
+
+<p><img src="netflix-top10.jpg" alt="Figure_2" title="Figure 2"></p>
+
+<!-- <img src="spacer.gif" alt="Spacer" height="300"/> -->
+
+<h2 id="toc_61">Bioinformatics</h2>
+
+<p><img src="bioinformatics2-r0.jpg" alt="Figure_9" title="Figure_9"></p>
+
+<!-- <img src="spacer.gif" alt="Spacer" height="300"/> -->
+
+<h2 id="toc_62">Bioinformatics</h2>
+
+<p><img src="bioinformatics1-r0.jpg" alt="Figure_10" title="Figure_10"></p>
+
+<!-- <img src="spacer.gif" alt="Spacer" height="300"/> -->
+
+<h2 id="toc_63">Microarray Analysis</h2>
+
+<ol>
+<li>which samples are most similar</li>
+<li>which genes are most similar</li>
+<li>which expression variations correlate with specific diseases</li>
+</ol>
+
+<p><img src="microarray.jpg" alt="Figure_1" title="Figure 1"></p>
+
+<!-- <img src="spacer.gif" alt="Spacer" height="300"/> -->
+
+<h2 id="toc_64">Polyphen2</h2>
+
+<p>Predicts possible impact of an amino acid substitution</p>
+
+<ul>
+<li>SVM, Naive Bayes (Sunyaev)</li>
+</ul>
+
+<p><img src="polyphen2-r0.jpg" alt="Figure_4" title="Figure 4"></p>
+
+<!--
+## Polyphen2
+
+SVM's, Naive Bayes
+
+![Figure_5][]
+
+## Polyphen2
+
+SVM's, Naive Bayes
+
+![Figure_6][]
+-->
+
+<!-- <img src="spacer.gif" alt="Spacer" height="300"/> -->
+
+<h2 id="toc_65">ArrayCGH</h2>
+
+<p>Predict copy number</p>
+
+<ul>
+<li>Fused Lasso (ESL)</li>
+</ul>
+
+<p><img src="array-cgh-r0.jpg" alt="Figure_7" title="Figure 7"></p>
+
+<!-- <img src="spacer.gif" alt="Spacer" height="300"/> -->
+
+<h2 id="toc_66">Splicing Code</h2>
+
+<p>Predict splicing</p>
+
+<ul>
+<li>SVM, Graphical Model, ...</li>
+</ul>
+
+<p><img src="splicing1-r0.jpg" alt="Figure_8" title="Figure_8"></p>
+
+<!-- <img src="spacer.gif" alt="Spacer" height="300"/> -->
+
+<h2 id="toc_67">Protein Structure</h2>
+
+<p><img src="protein-struct1-r0.jpg" alt="Figure_12" title="Figure_12"></p>
+
+<!-- <img src="spacer.gif" alt="Spacer" height="300"/> -->
+
+<h1 id="toc_68">Machine Learning</h1>
+
+<h3 id="toc_69">A Closer Look ...</h3>
+
+<!-- <img src="spacer.gif" alt="Spacer" height="300"/> -->
+
+<h2 id="toc_70">Machine Learning is ...</h2>
+
+<h3 id="toc_71">Concerned with how to make a machines learn from data</h3>
+
+<ul>
+<li>Observe examples that represent incomplete information about some &quot;statistical phenomenon&quot;</li>
+</ul>
+
+<!-- <img src="spacer.gif" alt="Spacer" height="300"/> -->
+
+<h2 id="toc_72">Learning Algorithms</h2>
+
+<h3 id="toc_73">Generate rules for making predictions</h3>
+
+<ul>
+<li>INPUT: Training Data</li>
+<li>OUTPUT: Classifier, Probabilistic Model, Clusters ...</li>
+</ul>
+
+<!-- <img src="spacer.gif" alt="Spacer" height="300"/> -->
+
+<h2 id="toc_74">Learning Algorithms</h2>
+
+<h3 id="toc_75">Two Types</h3>
+
+<ol>
+<li>Unsupervised learning</li>
+<li>Supervised learning</li>
+</ol>
+
+<!-- <img src="spacer.gif" alt="Spacer" height="300"/> -->
+
+<h2 id="toc_76">Unsupervised Learning</h2>
+
+<h3 id="toc_77">Uncover hidden regularities or detect anomolies</h3>
+
+<ul>
+<li>Input training data $D$</li>
+<li>Learn model $P(D)$</li>
+</ul>
+
+<!-- <img src="spacer.gif" alt="Spacer" height="300"/> -->
+
+<h2 id="toc_78">Supervised Learning</h2>
+
+<h3 id="toc_79">Learn function that predicts label $Y$ associated with each example $X$</h3>
+
+<ul>
+<li>Input training data $D$</li>
+<li>Learn prediction function $Y = F_D(X)$</li>
+</ul>
+
+<!-- <img src="spacer.gif" alt="Spacer" height="300"/> -->
+
+<h2 id="toc_80">Supervised Learning</h2>
+
+<h3 id="toc_81">Binary $Y$ == &quot;Classification&quot;</h3>
+
+<h3 id="toc_82">Real-valued $Y$ == &quot;Regression&quot;</h3>
+
+<!-- <img src="spacer.gif" alt="Spacer" height="300"/> -->
+
+<h2 id="toc_83">Learning Algorithms</h2>
+
+<h3 id="toc_84">Many varieties</h3>
+
+<h3 id="toc_85">Very accurate and efficient</h3>
+
+<h3 id="toc_86">Easy to use</h3>
+
+<h3 id="toc_87">Surpass human&#39;s ability to process large quantities of complex data</h3>
+
+<!-- <img src="spacer.gif" alt="Spacer" height="300"/> -->
+
+<h1 id="toc_88">An Aside About Training Data ...</h1>
+
+<!-- <img src="spacer.gif" alt="Spacer" height="300"/> -->
+
+<h2 id="toc_89">Data Collection and Representation</h2>
+
+<h3 id="toc_90">Input $X$</h3>
+
+<p>&quot;Pattern&quot;, &quot;Features&quot;, &quot;Predictors&quot;</p>
+
+<ul>
+<li>Invariant to undetermined transformations</li>
+<li>Sensitive to differences between examples</li>
+</ul>
+
+<h3 id="toc_91">Output $Y$</h3>
+
+<p>&quot;Response&quot;, &quot;Target&quot;, &quot;Class / Categorical label&quot;</p>
+
+<ul>
+<li>Represents the <strong>Truth</strong></li>
+<li>Typically difficult and/or expensive to collect</li>
+</ul>
+
+<!-- <img src="spacer.gif" alt="Spacer" height="300"/> -->
+
+<h2 id="toc_92">Training Data</h2>
+
+<h3 id="toc_93">Inputs</h3>
+
+<ul>
+<li>$n$ examples</li>
+<li>$m$ features</li>
+<li>$n x m$ matrix</li>
+</ul>
+
+<p><img src="mxn-matrix-r0.jpg" alt="Figure_18" title="Figure_18"></p>
+
+<h3 id="toc_94">Outputs</h3>
+
+<ul>
+<li>$Y_1, \ldots, Y_n$</li>
+</ul>
+
+<!-- <img src="spacer.gif" alt="Spacer" height="300"/> -->
+
+<h1 id="toc_95">Classification Algorithms</h1>
+
+<!-- <img src="spacer.gif" alt="Spacer" height="300"/> -->
+
+<h2 id="toc_96">k - Nearest Neighbors</h2>
+
+<h3 id="toc_97">Prediction is majority vote between the k closest training points</h3>
+
+<ul>
+<li>Distance measured in $m$ dimensional features space</li>
+</ul>
+
+<!-- <img src="spacer.gif" alt="Spacer" height="300"/> -->
+
+<h2 id="toc_98">k=15 - Nearest Neighbors</h2>
+
+<ul>
+<li>2-dimensional features</li>
+<li>Color indicates class</li>
+<li>Line depicts decision boundary</li>
+</ul>
+
+<p><img src="knn15-r0.jpg" alt="Figure_23" title="Figure_23"></p>
+
+<!-- <img src="spacer.gif" alt="Spacer" height="300"/> -->
+
+<h2 id="toc_99">k=1 - Nearest Neighbors</h2>
+
+<ul>
+<li>Different solutions are possible with different $k$</li>
+</ul>
+
+<p><img src="knn1-r0.jpg" alt="Figure_24" title="Figure_24"></p>
+
+<!-- <img src="spacer.gif" alt="Spacer" height="300"/> -->
+
+<h2 id="toc_100">Decision Trees</h2>
+
+<h3 id="toc_101">Partition data into a tree</h3>
+
+<ul>
+<li>Prediction is a majority vote of training labels within a leaf node</li>
+</ul>
+
+<p><img src="decision-tree-r0.jpg" alt="Figure_52" title="Figure_52"></p>
+
+<!-- <img src="spacer.gif" alt="Spacer" height="300"/> -->
+
+<h2 id="toc_102">Support Vector Machines</h2>
+
+<ul>
+<li>Separating hyperplane</li>
+</ul>
+
+<p><img src="svm-linear-r0.jpg" alt="Figure_20" title="Figure_20"></p>
+
+<h2 id="toc_103">Support Vector Machines</h2>
+
+<ul>
+<li>SVM&#39;s can find non-linear decision boundaries efficiently</li>
+<li>A linear decision boundary in the high-dimensional transformed space corresponds to a non-linear boundary in the original space</li>
+</ul>
+
+<p><img src="svm-nonlinear-r0.jpg" alt="Figure_19" title="Figure_19"></p>
+
+<!-- <img src="spacer.gif" alt="Spacer" height="300"/> -->
+
+<h2 id="toc_104">Support Vector Machines</h2>
+
+<ul>
+<li>Comparison of linear and non-linear classification performance</li>
+</ul>
+
+<p><img src="linear-svm-r0.jpg" alt="Figure_42" title="Figure_42"> <img src="nonlinear-svm-r0.jpg" alt="Figure_43" title="Figure_43"></p>
+
+<!-- <img src="spacer.gif" alt="Spacer" height="300"/> -->
+
+<h2 id="toc_105">More Classification Algorithms</h2>
+
+<ul>
+<li>Linear Discriminant Analysis</li>
+<li>Boosting</li>
+<li>Neural Networks</li>
+</ul>
+
+<!-- <img src="spacer.gif" alt="Spacer" height="300"/> -->
+
+<h1 id="toc_106">Regression Algorithms</h1>
+
+<h3 id="toc_107">Learning to predict real-valued outputs</h3>
+
+<ul>
+<li>Linear Regression</li>
+<li>Logistic Regression</li>
+<li>Regression Trees</li>
+</ul>
+
+<p><img src="regression-r0.jpg" alt="Figure_32" title="Figure_32"></p>
+
+<!-- <img src="spacer.gif" alt="Spacer" height="300"/> -->
+
+<h1 id="toc_108">Feature Selection &amp; Dimensionality Reduction</h1>
+
+<h3 id="toc_109">Techniques used before and/or during learning</h3>
+
+<p>Characterize inputs in low-dimensional space</p>
+
+<ul>
+<li>False Discovery Rate</li>
+<li>PCA</li>
+<li>Multi Dimensional Scaling</li>
+<li>Latent Factor Analysis</li>
+</ul>
+
+<p><img src="Netflix-latentfactors-r0.jpg" alt="Figure_3" title="Figure 3"></p>
+
+<!-- <img src="spacer.gif" alt="Spacer" height="300"/> -->
+
+<h1 id="toc_110">Not Covered ...</h1>
+
+<h3 id="toc_111">Learning theory</h3>
+
+<h3 id="toc_112">Bias &amp; variance (overfitting)</h3>
+
+<h3 id="toc_113">Cross validation</h3>
+
+<!-- <img src="spacer.gif" alt="Spacer" height="300"/> -->
+
+<h1 id="toc_114">Fin.</h1>
+
+<ol>
+<li>A Brief Introduction To Machine Learning, Gunnar Rätsch <a href="http://events.ccc.de/congress/2004/fahrplan/files/105-machine-learning-paper.pdf">pdf</a></li>
+<li>ML Bioinformatics Summer Course, Gunnar Rätsch <a href="http://www.raetschlab.org/lectures/MLBioinformatics">web</a></li>
+<li><strong>E</strong>lement of <strong>S</strong>tatistical <strong>L</strong>earning, T. Hastie, R. Tibshirani, J. Friedman <a href="http://www.stanford.edu/%7Ehastie/local.ftp/Springer/ESLII_print5.pdf">pdf</a></li>
+</ol>
+
+<p><em>Images and text are copied from these sources.</em></p>
+
+<!-- <img src="spacer.gif" alt="Spacer" height="300"/> -->
+
+<!--
+## Theory
+### Generalization
+
+### Learnability
+
+### Learning Rate
+
+### Overfitting, Variance
+
+### Cross Validation
+
+### Bias - Variance Trade Off
+
+### Specificity, Sensitivity Trade-off
+
+-->
+
+</div>
+
+<div id="related">
+  <h2>Related Posts</h2>
+  <ul class="posts">
+    
+    <li><span>16 Nov 2011</span> &raquo; <a href="/2011/11/16/Low-Hanging-Fruit.html">An Empirical Justification Of False Discovery Rate Correction With Small Samples</a></li>
+    
+    <li><span>10 Jun 2011</span> &raquo; <a href="/2011/06/10/Wiki-Graph.html">Wiki Graph - A Visualization Tool For Wikis</a></li>
+    
+    <li><span>06 Sep 2011</span> &raquo; <a href="/2011/09/06/Hadoop-Filesystem-Tools.html">Hadoop Filesystem Tools</a></li>
+    
+    <li><span>14 Apr 2011</span> &raquo; <a href="/2011/04/14/Dynamic-Web-Content-With-Javascript-And-JQuery.html">Dynamic Web Content With Javascript And JQuery</a></li>
+    
+  </ul>
+</div>
+
+<hr>
+
+
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'istructure'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+
+<div class="span4">
+  
+    <h4>Tags</h4>
+    <ul class="tag_box">
+    
+    
+
+
+  
+     
+    	<li><a href="/tags.html#ML-ref">ML <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#NGS-ref">NGS <span>1</span></a></li>
+    
+  
+
+
+
+    </ul>
+  
+  <h4>Published</h4>
+  <div class="date"><span>24 September 2012</span></div>
+</div>
+
+
+
+      </div>
+      <div class="footer">
+        <div class="contact">
+          <hr>
+          <p>
+          by Stuart Andrews
+          <a href="http://github.com/tub78/">@tub78 (github)</a>
+          <a href="http://twitter.com/tub78/">@tub78 (twitter)</a>
+          <span class="tiny">[<a href="/about.html">About this blog</a>]</span>
+          </p>
+        </div>
+      </div>
+    </div> <!-- site -->
+
+    
+    <!-- END BODY -->
+  </body>
+</html>
+
