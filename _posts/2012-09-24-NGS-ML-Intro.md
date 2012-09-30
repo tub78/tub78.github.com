@@ -1,6 +1,6 @@
 ---
 layout: post
-title: NGS Journal Club Intro to Machine Learning
+title: NGS Journal Club : Introduction to Machine Learning
 description: 
 tags: [ML, NGS]
 comments: true
@@ -29,6 +29,7 @@ Figure 1: ![Figure_1][]
 
 # IMAGES
 [SPACER]: spacer-r0.gif "Figure 0"
+# NGS Journal Club 
 -->
 
 [Figure_1]: microarray.jpg "Figure 1"
@@ -61,7 +62,6 @@ Figure 1: ![Figure_1][]
 
 <!-- <img src="spacer.gif" alt="Spacer" height="520"/> -->
 
-# NGS Journal Club 
 ## Introduction to Machine Learning
 ### September 25, 2012
 

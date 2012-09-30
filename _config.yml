@@ -6,7 +6,10 @@ exclude: [ 'vendor',
             '.bundle',
             'Blog.md',
             'vimwiki_site',
-            'vimwiki.vimrc'
+            'vimwiki.vimrc',
+            '2012-06-19-Hello-Vimwiki.md',
+            '2012-06-19-Page-Two.md',
+            '2012-06-19-Vimwiki-And-Jekyll.md'
             ]
 
 lsi: true
