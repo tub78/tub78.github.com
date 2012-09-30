@@ -30,6 +30,7 @@ Figure 1: ![Figure_1][]
 # IMAGES
 [SPACER]: spacer-r0.gif "Figure 0"
 # NGS Journal Club 
+## Introduction to Machine Learning
 -->
 
 [Figure_1]: microarray.jpg "Figure 1"
@@ -62,17 +63,14 @@ Figure 1: ![Figure_1][]
 
 <!-- <img src="spacer.gif" alt="Spacer" height="520"/> -->
 
-## Introduction to Machine Learning
+## Journal Club 
 ### September 25, 2012
 
- * A Brief Introduction To Machine Learning, Gunnar Rätsch
-   [http://events.ccc.de/congress/2004/fahrplan/files/105-machine-learning-paper.pdf](http://events.ccc.de/congress/2004/fahrplan/files/105-machine-learning-paper.pdf)
+ 1. A Brief Introduction To Machine Learning, Gunnar Rätsch [pdf](http://events.ccc.de/congress/2004/fahrplan/files/105-machine-learning-paper.pdf)
+ 1. ML Bioinformatics Summer Course, Gunnar Rätsch [web](http://www.raetschlab.org/lectures/MLBioinformatics)
+ 1. **E**lement of **S**tatistical **L**earning, T. Hastie, R. Tibshirani, J. Friedman [pdf](http://www.stanford.edu/~hastie/local.ftp/Springer/ESLII_print5.pdf)
 
- * ML Bioinformatics Summer Course, Gunnar Rätsch
-   [http://www.raetschlab.org/lectures/MLBioinformatics](http://www.raetschlab.org/lectures/MLBioinformatics)
-
- * **E**lement of **S**tatistical **L**earning, T. Hastie, R. Tibshirani, J. Friedman 
-   [http://www.stanford.edu/~hastie/local.ftp/Springer/ESLII_print5.pdf](http://www.stanford.edu/~hastie/local.ftp/Springer/ESLII_print5.pdf)
+_Images and text are copied from these sources._
 
 <!-- <img src="spacer.gif" alt="Spacer" height="200"/> -->
 
@@ -347,9 +345,9 @@ Predict splicing
 
 ## More Classification Algorithms
 
-### Linear Discriminant Analysis
-### Boosting
-### Neural Networks
+ * Linear Discriminant Analysis
+ * Boosting
+ * Neural Networks
 
 
 
@@ -392,6 +390,12 @@ Characterize inputs in low-dimensional space
 
 # Fin.
 
+ 1. A Brief Introduction To Machine Learning, Gunnar Rätsch [pdf](http://events.ccc.de/congress/2004/fahrplan/files/105-machine-learning-paper.pdf)
+ 1. ML Bioinformatics Summer Course, Gunnar Rätsch [web](http://www.raetschlab.org/lectures/MLBioinformatics)
+ 1. **E**lement of **S**tatistical **L**earning, T. Hastie, R. Tibshirani, J. Friedman [pdf](http://www.stanford.edu/~hastie/local.ftp/Springer/ESLII_print5.pdf)
+
+
+_Images and text are copied from these sources._
 
 <!-- <img src="spacer.gif" alt="Spacer" height="300"/> -->
 
